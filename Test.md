@@ -1,4 +1,5 @@
 |Shortname|Longname|Author|Licence|package.json|module|
+|-|-|-|-|-|-|
 |7thsensedelta|NaN|Per Roine|undefined|7thsensedelta@0.0.2|NaN|
 |aja-helo|NaN|Casey Selph|undefined|helo@1.0.0|NaN|
 |amp|NaN|Håkon Nessjøen|undefined|companion-module-amp@0.0.1|NaN|
