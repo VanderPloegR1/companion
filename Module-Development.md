@@ -141,9 +141,42 @@ There should be a few more files in every module, though technically not needed:
 4) LICENSE, in open source projects like Companion it is very important that you make clear under which license the modulke is released
 5) .gitignore, this is a file which we recommend to add to your module to control which of the files within your module will be tracked by our version control system.
 
-Let's start with package.json
+**Let's start with package.json**
 
 package.json is the root of the module. Companion scans the directory /lib/module looking for subfolders containing that package.json-files and if it finds one it assumes it a module.
+A typical package.json-file looks like this:
+```{
+  "name": "eventmaster",
+  "version": "0.0.4",
+  "description": "Barco EventMaster plugin for Companion",
+  "main": "eventmaster.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "William Viker",
+  "license": "MIT",
+  "dependencies": {
+    "barco-eventmaster": "^5.1.0"
+  }
+}
+```
+You can guess the meaning of the most parts. "main" is the location/name of the main JavaScript file, it is common to either reflect the module name or to use index.js.
+At this point we don't make use of scripts given in the package.json, so you can just copy the test line. The test script will be executed if you run the module with ```npm test```. Test help to improve the stability and quality of the code and we may use them in the future.
+"dependencies" lists other node packages and their minimum versions this package relies on. Most modules will rely on some standard packages like tcp, we have them in core, so you don't have to list them here.
+
+**The Module source code**
+
+You can handle all your moule's stuff in one big file or you can distribute it to several files, it's up to you. But you have to have some things in the module. If the user adds an instance to the configuration Companion instantiates the module. But JavaScript doesn't have classes, we are working with functions and objects. That means our module is required by the system and then some functions will be called. You have to fill the functions with code.
+The functions divide into several categories:
+ 1. Module internal stuff, initialisation, housekeeping...  
+ 2. Providing functionality to the user  
+    2.1. Module configuration  
+    2.2. Actions  
+    2.3. Presets  
+    2.4. Variables  
+    2.5. Feedbacks  
+ 3. The code behind all that stuff  
+
 
 ... work in progress ...
 
