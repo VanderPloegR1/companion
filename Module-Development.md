@@ -260,10 +260,52 @@ In your code you can get the values of the configuration like `var myConfigValue
 
 Actions are the "commands" being executed when a user pushes a button. 
 This section explains how to provide the possible actions and their options to the user. The code executed when an action is triggered has to be written too, but not during action declaration.
+If you look at the existing modules you'll find a call to `instance.prototype.actions = function(system)` in the instance function. Again, you don't have to use the same pattern, especially not if you are declaring actions ony once, but it may enhance readability to put all declarations in a separate function.
+In the actions function you emit a message with the declaration: `self.system.emit('instance_actions', self.id, { ...here goes the actions ... });`
+All the actions are passed in one json array, like `{'action1', 'action2', 'action3'}`. You need to explain Companion a little more about your action now or later, like
+```
+{
+  'action1' : { properties of action 1 },
+  'action2' : { properties of action 2 },
+  'action3' : { properties of action 3 }
+}
+```
+The only property you really need is `label: 'call me names'`.
+Now companion makes that action available with the name you specified in label.
+Maybe you want your action to have options, let's say you want your action to run a task and you want the user to be able to specify which task. You can do this by adding an options array to the properties of the action, like `options: [{ ... here goes the options ... }]`
+Similar to the configuration fields of the module an option can be of different types.
+
+Textinput
+```
+type: 'textinput',
+label: 'The best option ever',
+id: 'bestoption',
+default: '1',
+tooltip: 'In this option you can enter whatever you want as long as it is the number one',
+regex: '/^1$/'
+```
+Later you can access the value of the textfield in the above example with `var userInput = action.options.bestoption`.
+
+Dropdown
+```
+type: 'dropdown',
+label: 'What do you want',
+id: 'myExampleDropdown',
+default: '1',
+tooltip: 'Which ice cream shall I order?',
+choices: [ 
+  { id: '0', label: 'Chocolate' },
+  { id: '1', label: 'Vanilla' },
+  { id: '2', label: 'Strawberry' },
+  { id: 'somethingelse', label: 'I hate ice cream' }
+]
+```
+The option value will be filled with the id of the selected choice, the id given in default is preselected.
 
 #### Presets
 
 Presets are a description of a ready made button, so the user doesn't have to write button text and choose a color and add an action, he can just drag and drop a preset to an empty bank and all the attributes are copied to the button.
+
 
 #### Variables
 
