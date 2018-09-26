@@ -166,7 +166,7 @@ At this point we don't make use of scripts given in the package.json, so you can
 
 **The Module source code**
 
-You can handle all your moule's stuff in one big file or you can distribute it to several files, it's up to you. But you have to have some things in the module. If the user adds an instance to the configuration Companion instantiates the module. But JavaScript doesn't have classes, we are working with functions and objects. That means our module is required by the system and then some functions will be called. You have to fill the functions with code.
+You can handle all your moule's stuff in one big file or you can distribute it to several files, it's up to you. But you have to have some things in the module. If the user adds an instance to the configuration Companion instantiates the module. But JavaScript doesn't have classes, we are working with functions and objects. That means our module is required by the system and then some functions will be called. You have to fill the functions with code. Easiest way to build a new module is to have a look at some existing modules. Take them as a starting point.
 The functions divide into several categories:
  1. Module internal stuff, initialisation, housekeeping...  
  2. Providing functionality to the user  
@@ -177,6 +177,99 @@ The functions divide into several categories:
     2.5. Feedbacks  
  3. The code behind all that stuff  
 
+### Module internal stuff, initialisation, housekeeping...
+
+When the user adds a new instance Companion looks in your module's main JavaScript file and executes the function `instance(system, id, config)`. Within that function the module gets constructed by calling `instance_skel.apply(this, arguments);` (you need to require '../../instance_skel'). During construction instance_skel calls `instance.prototype.init` where all your initialization code should go.
+
+When the module gets deleted `instance.prototype.destroy` is called where you should clean-up whatever you don't need anymore (sockets, timers...)
+
+Most modules define the property "info" like this 
+`instance.module_info = {
+	label: 'Your module name',
+	id: 'module_id',
+	version: 'x.y.z'
+};`
+This is deprecated, the module information should be only in package.json
+
+For the module to work you also need
+`instance_skel.extendedBy(instance);
+exports = module.exports = instance;`
+It is the JavaScript equivalent to some object oriented code.
+
+### Providing functionality to the user
+
+Most (so far all) modules do want to provide some interaction with the user. The possible items are stored in json objects. This splits up in several categories.
+
+#### Module configuration
+The module configuration is like preferences for the instance. E.g. the IP-adress of the device controlled by the instance.
+The configuration json is returned by the function `instance.prototype.config_fields`
+Every item needs to have:
+- id: an unique (within the configuration) id of the item
+- label: the text which will be shown next to the configuration item
+- type: the type of the configuration item. Following types are supported: textinput, dropdown, text
+   textinput shows a textinput line where users can provide some text
+
+```
+{
+  type: 'textinput',
+  id: 'host',
+  label: 'Target IP',
+  width: 6,
+  regex: self.REGEX_IP
+}
+```
+
+   dropdown shows a dropdown menu with some choices to chose from
+
+```
+{
+  type: 'dropdown',
+  label: 'Nice Dropdown',
+  id: 'myfirstdropdown',
+  default: '1',
+  choices: [
+    { id: '1', label: 'One' },
+    { id: '2', label: 'Zwei' },
+    { id: '3', label: 'Tres' },
+    { id: '4', label: '4' }
+  ]
+}
+```
+
+   text shows just some informational text
+
+```
+{
+  type: 'text',
+  id: 'info',
+  width: 12,
+  label: 'Information',
+  value: 'Hello World!'
+}
+```
+Additional an item can have:
+- width: tries to set the display with of the item relative to the other items' widths
+- default: a default value
+- regex: a regular expression to validate the user-input
+  you can find some predefined regular expressions in instance_skel and use them like e.g. `self.REGEX_IP`
+  If you want to write your own regular expression the string should look like this `'/foo(bar)?/i'`, if you need a backslash, you have to double escape it like this `'/^\\w+$/'`
+
+In your code you can get the values of the configuration like `var myConfigValue = this.config.idOfItem`
+
+#### Actions
+
+Actions are the "commands" being executed when a user pushes a button. 
+This section explains how to provide the possible actions and their options to the user. The code executed when an action is triggered has to be written too, but not during action declaration.
+
+#### Presets
+
+Presets are a description of a ready made button, so the user doesn't have to write button text and choose a color and add an action, he can just drag and drop a preset to an empty bank and all the attributes are copied to the button.
+
+#### Variables
+
+#### Feedbacks
+
+### The code behind all that stuff
 
 ... work in progress ...
 
