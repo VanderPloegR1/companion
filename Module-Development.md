@@ -132,6 +132,7 @@ The module should now appear in lib/module/mynewmodule, and if you want to chang
 
 ## What makes up a module
 
+This document describes the API version 1.0.0. Your module will be compatible with all versions of Companion using API 1.x.x.
 A Companion module consists of several files in one folder, the folder can have subfolders if needed.
 On the root of the folder there have to be at least two files for a working module:
 1) a file with the name package.json
