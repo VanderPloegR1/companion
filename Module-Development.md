@@ -306,12 +306,28 @@ The option value will be filled with the id of the selected choice, the id given
 
 Presets are a description of a ready made button, so the user doesn't have to write button text and choose a color and add an action, he can just drag and drop a preset to an empty bank and all the attributes are copied to the button.
 
+... work in progress ...
 
 #### Variables
 
+... work in progress ...
+
 #### Feedbacks
 
+... work in progress ...
+
 ### The code behind all that stuff
+
+Once you declared the actions and presets and maybe variables and feedbacks you have a nice looking module which still doesn't do any thing. Now you have to program some code to be executed when a action is triggered or feedback has to be updated.
+Let's start with the actions.
+Companion calls the function `instance.prototype.action = function(action)` when it wants the module to execute an action.
+It passes the object action, which reflects the ID of the action in the property action.action and has the options in the property action.options.
+```
+var theIDofTheAction = action.action;
+var theOptionsOfTheAction = action.options;
+```
+Now you can act depending on the action and the options. Many modules use a simple switch statement with one case for each action. Another method is to use the action-ID itself. Let's assume you just want to send a string with each action, then you can use that string as the action-ID and use it like sendmystring(action.action);
+If you are working with options, especially textinput, you should validate the inputs or make the code as failsafe as possible.
 
 ... work in progress ...
 
