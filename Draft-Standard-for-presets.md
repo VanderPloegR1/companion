@@ -9,7 +9,9 @@ GREEN | 0,204,0 | White text | TAKE,GO,PLAY, and similar starting functions. + A
 YELLOW | 255,255,0 | Black text | PAUSE,HOLD,WAIT and similar holding functions + active Keyer on switchers
 BLUE | 0,51,204 | White text | Active AUX on switchers
 PURPLE | 255,0,255 | White text | Presets that need user configuration after they have been draged onto a button 
-| 25B6 | ▶️ | 44 | Play,Start,Go, TAKE
+-------|-----------|------------|-----------------
+Glyph | Hex Code | font size | Usage 
+| ▶️ | 25B6 | 44 | Play,Start,Go, TAKE
  
 
 HEX code | Glyph | font size | Usage 
