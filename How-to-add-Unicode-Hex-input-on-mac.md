@@ -1,0 +1,3 @@
+On Mac OS X: open International in System Preferences, and in Input Menu select "Unicode Hex Input" to add this option to the input menu. Sounds obvious, but this is well hidden in the long list of languages, between Ukrainian and Vietnamese. When selected, hold down Option and type the 4 digit hex code.
+
+Also on OS X: Calculator can be set to Programmer mode (Cmd-3), which allows for entering decimal, octal and hexadecimal
