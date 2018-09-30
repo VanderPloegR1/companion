@@ -11,10 +11,6 @@ PURPLE | 255,0,255 | White text | Presets that need user configuration after the
   |  |  |  
 Glyph | Hex Code | font size | Usage 
 ▶️ | 25B6 | 44 | Play,Start,Go, TAKE
- 
-
-
-
 ⏹ | 23F9 | 44 | Stop, Halt, Break, KILL
 ⏸ | 23F8 | 44 | Pause, Hold, Wait
 ⏯ | 23EF | 44 | Toggle Play/Pause 
