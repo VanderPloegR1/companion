@@ -1,7 +1,7 @@
 # Draft Standard for presets
 
 
-Color | RGB Value | Text color | Usage	
+### Color | RGB Value | Text color | Usage	
 ------|-----------|------------|----------
 RED | 255,0,0 | White text | STOP,HALT,BREAK,KILL and similar terminating functions + Active program on switchers
 GREEN | 0,204,0 | White text | TAKE,GO,PLAY, and similar starting functions. + Active Preview on switchers
@@ -9,7 +9,7 @@ YELLOW | 255,255,0 | Black text | PAUSE,HOLD,WAIT and similar holding functions 
 BLUE | 0,51,204 | White text | Active AUX on switchers
 PURPLE | 255,0,255 | White text | Presets that need user configuration after they have been draged onto a button 
   |  |  |  
-*Glyph | *Hex Code | *font size | *Usage 
+### Glyph | Hex Code | font size | Usage 
 ▶️ | 25B6 | 44 | Play,Start,Go, TAKE
 ⏹ | 23F9 | 44 | Stop, Halt, Break, KILL
 ⏸ | 23F8 | 44 | Pause, Hold, Wait
