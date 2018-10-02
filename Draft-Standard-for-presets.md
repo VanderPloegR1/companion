@@ -37,3 +37,4 @@ Glyph | Hex Code | font size | Usage
 ⏾ | 23FE | 44 | Power Sleep 
 ⏽ | 23FD | 44 | Power On
 ⏼ | 23FC | 44 | Power Off
+😱 | 1F631 | 44 | Panic
