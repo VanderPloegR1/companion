@@ -9,10 +9,10 @@ Use this html to show the badge:
 ```<a href="https://bitfocus.io/companion/?ref=wiki" target="_new"><img alt="Controllable by Companion" src="https://bitfocus.io/companion/badge.png?ref=wiki"></a>```
 
 At the points where it says "ref=wiki" replace the word wiki with a reference to you or your product (only letters and numbers are allowed).
-You can scale the image to fit in you website, as long as it is still readable, you may not not change it's color, rotation, animate it or change it in any other way than scaling.
+You can scale the image to fit in your website, as long as it is still readable, you may not not change its color, rotation, animate it or change it in any other way than scaling.
 
 You are not allowed to:
-- use this Badge without advertising a product which is controllable with Companion
+- use this Badge without advertising a product which is controllable by Companion
 - alter the appearance of this badge
 - hyperlink the badge to any other than the given site
 - hyperlink the badge to bitfocus.io with redirectors or link shortening services
