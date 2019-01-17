@@ -352,6 +352,12 @@ var theOptionsOfTheAction = action.options;
 Now you can act depending on the action and the options. Many modules use a simple switch statement with one case for each action. Another method is to use the action-ID itself. Let's assume you just want to send a string with each action, then you can use that string as the action-ID and use it like sendmystring(action.action);
 If you are working with options, especially textinput, you should validate the inputs or make the code as failsafe as possible.
 
+## Testing
+
+In any case your module should be tested throughout at different stages of its life. Off course you should use a linting tool which most code editors and IDEs offer.  
+You should check the compatibility to the Companion core, especially to different versions of the configuration file. Some users may not have used Companion in a long time and their configuration file might look different then what you expect.  
+And last but not least you should check **all** your actions with **all** the options and feedbacks and whatever with the real device. Most bugs we find are typos, which would have easily been detected be complete testing. Also please don't rely on simulations, often the real device reacts different than the simulator.
+
 ... work in progress ...
 
 Questions? SLACK! :)
