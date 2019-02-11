@@ -14,7 +14,7 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
 ### Installation on osx with homebrew
 
 1. Open terminal
-2. Install [homebrew](https://docs.brew.sh/Installation)
+2. Install [homebrew](https://docs.brew.sh/) `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 3. Install needed packages `brew install nodejs npm libusb git`
 4. Install npm packages: `npm install n yarn -g`
 5. Select needed node.js version using n: `n 8.12.0`
