@@ -10,6 +10,7 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
 3. Install yarn with the terminal command ```sudo npm install yarn -g```. Yarn is a package management system for node modules, it helps you keeping all of your modules and their dependencies up to date.
 4. Install [git](https://git-scm.com/downloads). Git is a version control system which allows many developers to collaborate on the same project and keep track of their work. If you have never worked with git before it is a good idea to read some getting started with git guides now.
 5. Install libgusb headers, in debian based systems use package `libgusb-dev`
+6. Install udev headers, in debian based systems use package `libudev-dev`
 
 ### Installation on osx with homebrew
 
