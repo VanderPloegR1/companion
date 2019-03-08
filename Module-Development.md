@@ -21,7 +21,7 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
 5. Select needed node.js version using n: `n 8.12.0`
 6. Create directory to clone companion to and change to that directory: `mkdir -p ~/src && cd ~/src`
 7. Clone the companion repository: `git clone https://github.com/bitfocus/companion`
-8. Install required node.js modules and update companion modules: `cd companion && ./tools/update.sh`
+8. Install required node.js modules and update companion modules: `cd companion && ./tools/update.sh && ./tools/build_writefile.sh`
 
 ## Getting started
 1. Tell node what version you want to use ```n 8.12.0```
