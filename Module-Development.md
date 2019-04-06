@@ -182,9 +182,9 @@ When you want to use packages not available in core please install them in your 
 
 **The Module source code**
 
-You can handle all your moule's stuff in one big file or you can distribute it to several files, it's up to you. But you have to have some things in the module. If the user adds an instance to the configuration Companion instantiates the module. But JavaScript doesn't have classes, we are working with functions and objects. That means our module is required by the system and then some functions will be called. You have to fill the functions with code. Easiest way to build a new module is to have a look at some existing modules. Take them as a starting point.
+You can handle all your module's stuff in one big file or you can distribute it to several files, it's up to you. But you have to have some things in the module. If the user adds an instance to the configuration Companion instantiates the module. But JavaScript doesn't have classes, we are working with functions and objects. That means our module is required by the system and then some functions will be called. You have to fill the functions with code. Easiest way to build a new module is to have a look at some existing modules. Take them as a starting point.
 The functions divide into several categories:
- 1. Module internal stuff, initialisation, housekeeping...  
+ 1. Module internal stuff, initialization, housekeeping...  
  2. Providing functionality to the user  
     2.1. Module configuration  
     2.2. Actions  
@@ -193,7 +193,7 @@ The functions divide into several categories:
     2.5. Feedbacks  
  3. The code behind all that stuff  
 
-### Module internal stuff, initialisation, housekeeping...
+### Module internal stuff, initialization, housekeeping...
 
 When the user adds a new instance Companion looks in your module's main JavaScript file and executes the function `instance(system, id, config)`. Within that function the module gets constructed by calling `instance_skel.apply(this, arguments);` (you need to require '../../instance_skel'). During construction instance_skel calls `instance.prototype.init` where all your initialization code should go.
 
