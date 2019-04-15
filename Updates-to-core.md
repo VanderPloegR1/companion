@@ -2,7 +2,10 @@
 
 ## Adding a (sub)module
 
-First create a new module repo: `companion-module-[brand]-[product]`  all small letters
+First create a new module repo: 
+`companion-module-[brand]-[product]`  
+
+all small letters
 
 Then when your module is ready and tested:
 `git submodule add https://github.com/bitfocus/companion-module-[brand]-[product] lib/module/[brand]-[product]`
@@ -21,5 +24,7 @@ Make sure you are working in the correct master branch. When you've updated the 
 Will display the changes compared to the core (if you are in the base companion directory)
 
 `git add lib/module/[theModuleThatNeedsAnUpgrade]`
+
 `git commit -m "Module upgraded: theModuleThatNeedsAnUpgrade [short message about what is new, fixed, solved]"`
+
 `git push`
