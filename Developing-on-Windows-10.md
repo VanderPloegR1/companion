@@ -37,7 +37,10 @@ Extra library's;
 
 `sudo apt-get install libasound2`
 
-Git should already be there so clone the repository;
+Git should already be there so clone the repository, but on your windows drive!;
+
+`cd /mnt/c` This will go to your C drive choose a different location if needed
+
 `git clone https://github.com/bitfocus/companion.git`
 
 Go into your newly created directory
@@ -47,9 +50,13 @@ then get all the module stuff and update;
 `./tools/update.sh`
 
 No errors? then launch!
+
+`./tools/build_writefile.sh`
+
 `node headless.js`
 
 You'll get a list of available interfaces and use one, for example:
+
 `node headless.js eth0`
 
 ## Extra's
