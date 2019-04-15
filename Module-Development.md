@@ -3,7 +3,7 @@ So, you want to develop a module for Companion? Welcome!
 This document describes what you need to know and do to make a beautiful module being able to control your favorite gear with Companion.
 ## Prerequisites
 Companion is written in Javascript and uses the node.js runtime. That means you should be at least a little bit familiar with Javascript.
-Companion, Javascript and Node.js are platform independent, so you can develop on Windows, macOS or Linux and the code you write will be able to run on Windows, macOS and Linux, but the following text shows how to develop on Linux or macOS. On Windows you need a little different setup, so you can't use the commands for Windows.
+Companion, Javascript and Node.js are platform independent, so you can develop on Windows, macOS or Linux and the code you write will be able to run on Windows, macOS and Linux, but the following text shows how to develop on Linux or macOS. On Windows you need a little different setup, so you can't use the commands for Windows. Follow these guidelines and come back when ready; [Developing on Windows 10](https://github.com/bitfocus/companion/wiki/Developing-on-Windows-10)
 
 1. Install [node.js](https://nodejs.org/en/). Node installs itself, the node executable and the node package manager "npm". You won't see any icons on your desktop or somewhere else, all node executables are used from the terminal.
 2. Install n with the terminal command ```sudo npm install n -g```. n is a node version control module, it is very helpful because many node modules are working only with a certain version of node.
