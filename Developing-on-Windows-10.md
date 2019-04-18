@@ -15,7 +15,7 @@ Install nodejs 8 (we use 8 for companion)
 
 `sudo apt-get install -y nodejs`
 
-`sudo npm install yarn -g`
+`npm install yarn -g`
 
 `sudo apt-get install -y libgusb-dev`
 
