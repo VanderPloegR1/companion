@@ -159,7 +159,8 @@ There should be a few more files in every module, though technically not needed:
 
 package.json is the root of the module. Companion scans the directory /lib/module looking for subfolders containing that package.json-files and if it finds one it assumes it a module.
 A typical package.json-file looks like this:
-```{
+```
+{
   "name": "eventmaster",
   "version": "0.0.4",
   "description": "Barco EventMaster plugin for Companion",
@@ -175,14 +176,19 @@ A typical package.json-file looks like this:
 }
 ```
 You can guess the meaning of the most parts. "main" is the location/name of the main JavaScript file, it is common to either reflect the module name or to use index.js.
+
 At this point we don't make use of scripts given in the package.json, so you can just copy the test line. The test script will be executed if you run the module with ```npm test```. Test help to improve the stability and quality of the code and we may use them in the future.
+
 A basic package.json file can be created by hand or it is automatically created for you when you use the command `npm init`.
+
 "dependencies" lists other node packages and their minimum versions this package relies on. Most modules will rely on some standard packages like tcp, we have them in core, so you don't have to list them here.
+
 When you want to use packages not available in core please install them in your module's node_modules folder with yarn `yarn add myfancymodule`. This will also add the package to the dependencies in package.json. Please also make sure to add the yarn.lock file to .gitignore after using yarn.
 
 **The Module source code**
 
 You can handle all your module's stuff in one big file or you can distribute it to several files, it's up to you. But you have to have some things in the module. If the user adds an instance to the configuration Companion instantiates the module. But JavaScript doesn't have classes, we are working with functions and objects. That means our module is required by the system and then some functions will be called. You have to fill the functions with code. Easiest way to build a new module is to have a look at some existing modules. Take them as a starting point.
+
 The functions divide into several categories:
  1. Module internal stuff, initialization, housekeeping...  
  2. Providing functionality to the user  
@@ -218,13 +224,16 @@ Most (so far all) modules do want to provide some interaction with the user. The
 
 #### Module configuration
 The module configuration is like preferences for the instance. E.g. the IP-adress of the device controlled by the instance.
+
 The configuration json is returned by the function `instance.prototype.config_fields`
 Every item needs to have:
 - id: an unique (within the configuration) id of the item
 - label: the text which will be shown next to the configuration item
-- type: the type of the configuration item. Following types are supported: textinput, dropdown, text
-   textinput shows a textinput line where users can provide some text
+- type: the type of the configuration item.
 
+Following types are supported: textinput, dropdown, text, checkbox, number  
+
+`textinput` shows a textinput line where users can provide some text
 ```
 {
   type: 'textinput',
@@ -235,8 +244,7 @@ Every item needs to have:
 }
 ```
 
-   dropdown shows a dropdown menu with some choices to chose from
-
+`dropdown` shows a dropdown menu with some choices to chose from
 ```
 {
   type: 'dropdown',
@@ -252,8 +260,7 @@ Every item needs to have:
 }
 ```
 
-   text shows just some informational text
-
+`text` shows just some informational text
 ```
 {
   type: 'text',
@@ -263,6 +270,33 @@ Every item needs to have:
   value: 'Hello World!'
 }
 ```
+
+`checkbox` shows checkbox and returns a value of `true` when checked and `false` when unchecked. The `default` property must be a boolean. The value returned will be a boolean.
+```
+{
+  type: 'checkbox',
+  label: 'HTTPS Connection',
+  id: 'https',
+  default: false
+}
+```
+
+`number` shows a [number input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number) element which will only accept integers between min and max (inclusive). The `default` property must be a number (or `""` if not required). If the `required` property is `true` then the field can't be left empty.
+
+The value returned will always be a number (example: `50`, not `"50"`), unless the field isn't required and was left empty, in which case it will be an empty string.
+
+```
+{
+  type: 'number',
+  label: 'Port',
+  id: 'port',
+  min: 1,
+  max: 65535,
+  default: 8080,
+  required: true
+}
+```
+
 Additional an item can have:
 - width: tries to set the display with of the item relative to the other items' widths
 - default: a default value
@@ -275,9 +309,13 @@ In your code you can get the values of the configuration like `var myConfigValue
 #### Actions
 
 Actions are the "commands" being executed when a user pushes a button. 
+
 This section explains how to provide the possible actions and their options to the user. The code executed when an action is triggered has to be written too, but not during action declaration.
+
 If you look at the existing modules you'll find a call to `instance.prototype.actions = function(system)` in the instance function. Again, you don't have to use the same pattern, especially not if you are declaring actions ony once, but it may enhance readability to put all declarations in a separate function.
+
 In the actions function you emit a message with the declaration: `self.system.emit('instance_actions', self.id, { ...here goes the actions ... });`
+
 All the actions are passed in one json array, like `{'action1', 'action2', 'action3'}`. You need to explain Companion a little more about your action now or later, like
 ```
 {
@@ -287,36 +325,80 @@ All the actions are passed in one json array, like `{'action1', 'action2', 'acti
 }
 ```
 The only property you really need is `label: 'call me names'`.
+
 Now companion makes that action available with the name you specified in label.
 Maybe you want your action to have options, let's say you want your action to run a task and you want the user to be able to specify which task. You can do this by adding an options array to the properties of the action, like `options: [{ ... here goes the options ... }]`
+
 Similar to the configuration fields of the module an option can be of different types.
 
 Textinput
 ```
-type: 'textinput',
-label: 'The best option ever',
-id: 'bestoption',
-default: '1',
-tooltip: 'In this option you can enter whatever you want as long as it is the number one',
-regex: '/^1$/'
+{
+  type: 'textinput',
+  label: 'The best option ever',
+  id: 'bestoption',
+  default: '1',
+  tooltip: 'In this option you can enter whatever you want as long as it is the number one',
+  regex: '/^1$/'
+}
 ```
 Later you can access the value of the textfield in the above example with `var userInput = action.options.bestoption`.
 
 Dropdown
 ```
-type: 'dropdown',
-label: 'What do you want',
-id: 'myExampleDropdown',
-default: '1',
-tooltip: 'Which ice cream shall I order?',
-choices: [ 
-  { id: '0', label: 'Chocolate' },
-  { id: '1', label: 'Vanilla' },
-  { id: '2', label: 'Strawberry' },
-  { id: 'somethingelse', label: 'I hate ice cream' }
-]
+{
+  type: 'dropdown',
+  label: 'What do you want',
+  id: 'myExampleDropdown',
+  default: '1',
+  tooltip: 'Which ice cream shall I order?',
+  choices: [ 
+    { id: '0', label: 'Chocolate' },
+    { id: '1', label: 'Vanilla' },
+    { id: '2', label: 'Strawberry' },
+    { id: 'somethingelse', label: 'I hate ice cream' }
+  ]
+}
 ```
 The option value will be filled with the id of the selected choice, the id given in default is preselected.
+
+Checkbox
+
+A checkbox with a boolean value of `true` when checked and `false` when unchecked. The `default` property must be a boolean. The value returned will be a boolean.
+
+```
+{
+  type: 'checkbox',
+  label: 'HTTPS Connection',
+  id: 'https',
+  default: false
+}
+```
+
+Number
+
+Creates a [number input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number) element which will only accept integers between `min` and `max` (inclusive). The `default` property must be a number (or `""` if not required). If the `required` property is `true` then the field can't be left empty.
+
+If the `range` property is `true` then a [range input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) will also be created. Adding a range input will always make the field required since a range always has a value.
+
+The value returned will always be a number (example: `50`, not `"50"`), unless the field isn't required and was left empty, in which case it will be an empty string.
+
+```
+{
+  type: 'number',
+  label: 'Opacity',
+  id: 'opacity',
+  tooltip: 'Sets the opacity percent (0-100)',
+  min: 0,
+  max: 100,
+  default: 50,
+  required: true,
+  range: false
+}
+```
+
+
+
 
 #### Presets
 
