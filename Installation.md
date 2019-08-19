@@ -24,8 +24,8 @@ These rules needs to be added in **/etc/udev/50-companion.rules** with the follo
 SUBSYSTEM=="input", GROUP="input", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="006?", MODE:="666", GROUP="plugdev"
 KERNEL=="hidraw", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="006?", MODE:="666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f40", MODE:="666", GROUP="plugdev"
-KERNEL=="hidraw", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f40", MODE:="666", GROUP="plugdev"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f4?", MODE:="666", GROUP="plugdev"
+KERNEL=="hidraw", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f4?", MODE:="666", GROUP="plugdev"
 ```
 
 *NB:* The location of the udev rules might differ on your linux distirbution. Find a folder with other `.rules` files.
