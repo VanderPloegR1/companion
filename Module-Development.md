@@ -363,6 +363,26 @@ Dropdown
 ```
 The option value will be filled with the id of the selected choice, the id given in default is preselected.
 
+Multiselect
+
+Multiselect shows a list with several items. The user can select none, one or multiple items.
+```
+{
+  type: 'multiselect',
+  label: 'Rooms',
+  id: 'myExampleMultiselect',
+  default: '1',
+  tooltip: 'Where do you want to play audio?',
+  choices: [ 
+    { id: '0', label: 'Foyer' },
+    { id: '1', label: 'Conference-room 1' },
+    { id: '2', label: 'Conference-room 2' },
+    { id: '3', label: 'Restaurant' }
+  ]
+}
+```
+The multiselect returns an array with the chosen options. If no option is selected it returns an empty array.
+
 Checkbox
 
 A checkbox with a boolean value of `true` when checked and `false` when unchecked. The `default` property must be a boolean. The value returned will be a boolean.
