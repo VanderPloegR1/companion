@@ -89,3 +89,13 @@ verify after install if this is the version being used;
 ### Install pyhton
 
 `sudo apt install python`
+
+### 32-bit vs 64-bit problems
+If you get error's from not being able to use 32-bit versions in WSL include these two commands once:
+
+`sudo service binfmt-support start`
+
+`sudo dpkg --add-architecture i386`
+
+After using those once you will need to enable this again next time you run a WSL instance by using this command again:
+`sudo service binfmt-support start`
