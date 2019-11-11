@@ -1,6 +1,6 @@
-1. Recommended Hardware
-2. Scratch installation on a Raspberry Pi
-3. Ready-to-go CompanionPi Images
+1. [Recommended Hardware](https://github.com/bitfocus/companion/wiki/Raspberry-Pi#recommended-hardware)
+2. [Scratch installation on a Raspberry Pi](https://github.com/bitfocus/companion/wiki/Raspberry-Pi#scratch-installation)
+3. [Ready-to-go CompanionPi Images](https://github.com/bitfocus/companion/wiki/Raspberry-Pi#companionpi-images)
 
 # Recommended Hardware
 _And Other Suggestions_
