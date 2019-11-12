@@ -455,9 +455,9 @@ The value returned will always be a number (example: `50`, not `"50"`), unless t
 
 #### Presets
 
-Presets are a description of a ready made button, so the user doesn't have to write button text and choose a color and add an action, he can just drag and drop a preset to an empty bank and all the attributes are copied to the button.
+Presets are a description of a ready-made button, so the user doesn't have to write button text and choose a colour and add an action, he can just drag and drop a preset to an empty bank and all the attributes are copied to the button.
 
-In order to add presets to a module, you will need to an another function to your module.
+In order to add presets to a module, you will need to another function to your module.
 This function creates a button under the category "commands" and names it "Run Demo",
 this part is a lot like how you define an action, here we got a "bank" section and an "action" section.
 the bank section sets the button up with the look and feel, this is where you select the title and size, and where you can set a background colour.
@@ -615,9 +615,22 @@ TODO - setting an image/other values that can be defined
 
 ... work in progress ...
 
+#### Printing to log
+
+While developing you might want to print some info or variables to the console or the in companion log. 
+The below commands will help you do just that:
+
+For printing to console, if you launch through terminal:
+`console.log('you data/message');`
+
+And if you want it in the log in the webinterface:
+Warning: `self.log('warn', 'you data/message');`
+Info: `self.log('info', 'you data/message');`
+Debug: `self.log('debug', 'you data/message');`
+
 ### The code behind all that stuff
 
-Once you declared the actions and presets and maybe variables and feedbacks you have a nice looking module which still doesn't do any thing. Now you have to program some code to be executed when a action is triggered or feedback has to be updated.
+Once you declared the actions and presets and maybe variables and feedbacks you have a nice looking module which still doesn't do anything. Now you have to program some code to be executed when an action is triggered or feedback has to be updated.
 Let's start with the actions.
 Companion calls the function `instance.prototype.action = function(action)` when it wants the module to execute an action.
 It passes the object action, which reflects the ID of the action in the property action.action and has the options in the property action.options.
@@ -630,9 +643,9 @@ If you are working with options, especially textinput, you should validate the i
 
 ## Testing
 
-In any case your module should be tested throughout at different stages of its life. Off course you should use a linting tool which most code editors and IDEs offer.  
+In any case, your module should be tested throughout at different stages of its life. Off course you should use a linting tool which most code editors and IDEs offer.  
 You should check the compatibility to the Companion core, especially to different versions of the configuration file. Some users may not have used Companion in a long time and their configuration file might look different then what you expect.  
-And last but not least you should check **all** your actions with **all** the options and feedbacks and whatever with the real device. Most bugs we find are typos, which would have easily been detected be complete testing. Also please don't rely on simulations, often the real device reacts different than the simulator.
+And last but not least you should check **all** your actions with **all** the options and feedbacks and whatever with the real device. Most bugs we find are typos, which would have easily been detected be complete testing. Also please don't rely on simulations, often the real device reacts differently than the simulator.
 
 ... work in progress ...
 
