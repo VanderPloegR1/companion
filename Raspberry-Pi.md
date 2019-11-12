@@ -80,8 +80,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #### Version 1.4 (stable)
 ```bash
 git clone https://github.com/bitfocus/companion.git
-git checkout backport
 cd companion
+git checkout backport
 ./tools/update.sh
 ./tools/build_writefile.sh
 ```
