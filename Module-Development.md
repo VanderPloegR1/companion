@@ -621,12 +621,12 @@ While developing you might want to print some info or variables to the console o
 The below commands will help you do just that:
 
 For printing to console, if you launch through terminal:
-`console.log('you data/message');`
+* `console.log('you data/message');`
 
 And if you want it in the log in the webinterface:
-Warning: `self.log('warn', 'you data/message');`
-Info: `self.log('info', 'you data/message');`
-Debug: `self.log('debug', 'you data/message');`
+* Warning: `self.log('warn', 'you data/message');`
+* Info: `self.log('info', 'you data/message');`
+* Debug: `self.log('debug', 'you data/message');`
 
 ### The code behind all that stuff
 
