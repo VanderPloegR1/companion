@@ -4,7 +4,7 @@
 
 # Recommended Hardware
 _And Other Suggestions_
-> Please note: Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, but it is not recommended or supported. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
+> **Please note:** Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, but **it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
 
 The Raspberry Pi 4 is the first Raspberry Pi SBC (single board computer) that is able to stably run the Companion software. The 2GB variant of the Raspberry Pi 4 is the minimum recommended board. The  4GB variant is the preferred option. As stated above, any Raspberry Pi SBC prior to the 4 is unsupported and is used at your own risk.
 
