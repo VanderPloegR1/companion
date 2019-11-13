@@ -9,7 +9,7 @@ Download the [latest release](https://github.com/bitfocus/companion/releases) fo
 ### Raspberry PI (raspbian)
 
 Instructions to install and run Companion (1.4-stable or 2.0-alpha) on a Raspberry Pi can be found here: [[Raspberry Pi]]
-> Please note: Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, but it is not recommended or supported. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
+> **Please note:** Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, **but it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
 
 ### Linux
 
