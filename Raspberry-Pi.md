@@ -10,6 +10,7 @@ If you haven't already, it is strongly recommended to change the default passwor
 * making `sudo` require a password
 * making sure you've got the latest security fixes
 * improving SSH security
+
 All of these recommended best practices can be found here, on the raspberrypi.org website: https://www.raspberrypi.org/documentation/configuration/security.md
 
 # CompanionPi Images
