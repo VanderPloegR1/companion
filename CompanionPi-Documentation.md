@@ -3,7 +3,7 @@ CompanionPi is built and maintained by a member of the community, not by Bitfocu
 
 The current version of CompanionPi is built specifically for Rasbpian Buster on the Raspberry Pi 4. It has not been tested, and is therefore not supported on, any previous version of the Raspberry Pi.
 * Headless: Raspbian Buster Lite
-* Headed:"Raspbian Buster with desktop" (not "Raspbian Buster with desktop and recommended software")
+* Headed: "Raspbian Buster with desktop" (not "Raspbian Buster with desktop and recommended software")
 >Headless, with no attached display and no graphical user interface, is the recommended mode of operation for Companion on current Raspberry Pi systems. This is because this mode maximizes the computational resources available to Companion.
 
 # CompanionPi Configuration
@@ -14,6 +14,17 @@ Certain other minor changes were made to the Raspbian environment for setup and 
 * Locale, Timezone, and Keyboard Layout settings were changed to US-based settings instead of the default UK-based settings
 * **SSH Server is enabled by default**
 
-So, for the sake of comprehensive documentation, here is a list of all changes made to bring you CompanionPi:
-1. Add new user `companion` and used that to build and run the Companion Software
-1. 
+## Complete Changes From Base Raspbian (Headless)
+1. Change default hostname from `raspberrypi` to `CompanionPi` _(raspi-config > 2 Network Options > N1 Hostname)_
+1. Change Locale to en_US.UTF-8 _(raspi-config > 4 Localisation Options > I1 Change Locale)_
+1. Change Timezone to America/Chicago _(raspi-config > 4 Localisation Options > I2 Change Timezone)_
+1. Change Keyboard Layout to Generic Logitech/US English _(raspi-config > 4 Localisation Options > I3 Change Keyboard Layout)_
+1. Enable SSH _(raspi-config > 5 Interfacing Options > P2 SSH)_
+1. Add new user `companion`, with default password `bitfocus` and home directory `/home/companion`
+1. Using the new `companion` user, Companion was installed via the standard instructions for the Raspberry Pi, substituting the appropriate home directory where necessary: [[Manual Install on Raspberry Pi]]
+
+## Complete Changes From Base Rasbpian (Headed)
+_Coming soon!_
+
+# CompanionPi Images
+The images are currently being developed and/or tested to confirm viability. As they are deemed viable for public consumption, download links will be made available here.
