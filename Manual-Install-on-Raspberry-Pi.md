@@ -3,6 +3,14 @@ These instructions are for installing Companion on a Raspberry Pi 4. Instruction
 
 Companion can be run in 2 different modes on the Raspberry Pi: Headless (no display attached) and Headed (display attached). The installation instructions are the same up to the point of building the code to run. In the instructions below you will note that the instructions diverge near the end to address the specific needs of headless vs headed installation and operation.
 
+- [Common Installation Steps](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#common-installation-steps)
+- [Headless Installation](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headless-installation--operation)
+- [Headed Installation](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headed-installation--operation)
+  - [Headed AutoStart](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headed-autostart)
+- [Build for Another Device](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#build-for-another-device)
+- [Updating Companion](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#updating-companion)
+
+
 # Common Installation Steps
 Before starting the installation process, you'll need to get your Raspberry Pi set up and configured. If you intend to run your Raspberry Pi headless (no display attached), you'll need to make sure you've got SSH access enabled (`sudo raspi-config` on the Raspberry Pi terminal to enable) before switching to headless mode. These instructions assume your Raspberry Pi is fully configured and ready to go.
 
