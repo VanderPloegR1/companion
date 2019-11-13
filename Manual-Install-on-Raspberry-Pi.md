@@ -141,17 +141,4 @@ Note: This will produce a Headed build. There is not currently a method for crea
 9. The build can be found as a tar.gz under electron-output
 
 # Updating Companion
-## Companion v1.3 & v1.4
-Run the following from the root of the companion folder:
-```bash
-git pull
-./tools/update.sh
-sudo reboot
-```
-## Companion v2.0-alpha
-Run the following from the root of the companion folder:
-```bash
-git pull
-yarn update
-sudo reboot
-```
+Instructions for updating Companion on your Raspberry Pi can be found here: [[Updating Companion on your Raspberry Pi]]
