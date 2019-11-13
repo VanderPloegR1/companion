@@ -121,11 +121,11 @@ npm run rpidist
       * full explicit command: `/usr/local/bin/yarn --cwd /home/pi/companion dev`
 
 10. Click the "Companion" icon in the system tray to trigger the application window and set your desired network interface and port number, then click "Change".
-> Note the visual difference between the v1.3 and v2.0 splash screens. If you are seeing the wrong splash, you'll need to back up to step 7 in the Common Steps to pull the correct version for building.
+> Note the difference in version number and branch name between the 1.4 and v2.0 splash screens. If you are seeing the wrong splash, you'll need to back up to step 7 in the Common Steps to pull the correct version for building.
 
 | v1.4 Splash Screen | v2.0 Splash Screen |
 | --- | --- |
-| ![Companion v1.4 Splash Screen](https://github.com/jarodwsams/companion/blob/master/documentation/images/companion-splash-1.3.png?raw=true) | ![Companion v2.0 Splash Screen](https://github.com/jarodwsams/companion/blob/master/documentation/images/companion-splash-2.0.png?raw=true) |
+| ![Companion v1.4 Splash Screen](https://github.com/jarodwsams/companion/blob/master/documentation/images/companion-splash-1.4.png?raw=true) | ![Companion v2.0 Splash Screen](https://github.com/jarodwsams/companion/blob/master/documentation/images/companion-splash-2.0.png?raw=true) |
 
 11. Click "Launch GUI" to confirm Companion is running. The default internet browser should open a new tab to the IP:Port set in the configuration splash screen.
 
