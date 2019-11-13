@@ -101,10 +101,17 @@ Add this line before the `exit 0` line, making sure to change the interface desi
 # Headed Installation & Operation
 _(display attached to Raspberry Pi)_
 
-8. First you must build Companion to run:
-  * `npm run rpidist`
+8. This mode of Companion requires another package that the headless mode does not.
+```bash
+sudo apt install libgconf2-dev
+```
 
-9. At this point you are ready to confirm your fresh build of Companion functions.
+9. Now we build the electron package that will actually run Companion.
+```bash
+npm run rpidist
+```
+
+9. And now we run our fresh build of Companion.
   * v1.4.0 stable
     * `npm run start` **or** `npm --prefix /home/pi/companion start`
   * v2.0-alpha
