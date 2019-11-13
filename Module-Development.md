@@ -649,4 +649,4 @@ And last but not least you should check **all** your actions with **all** the op
 
 ... work in progress ...
 
-Questions? SLACK! :)
+Questions? [SLACK](https://join.slack.com/t/bitfocusio/shared_invite/enQtMzY5NTQ2OTA1MjAzLWI0OTcwNTRhYjIzMTU5NWQ2Mjc1NjQxZmFkNWU0YTIwYWY5YWRiNWYyZmE4OGFjMWI1MDc2YWZlY2IxNDZhYzU)! :)
