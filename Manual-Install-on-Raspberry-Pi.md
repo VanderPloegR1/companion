@@ -93,7 +93,10 @@ Add this line before the `exit 0` line, making sure to change the interface desi
 # Headed Installation & Operation
 _(display attached to Raspberry Pi)_
 
-8. At this point you are ready to confirm your fresh build of Companion functions.
+8. First you must build Companion to run:
+  * `npm run rpidist`
+
+9. At this point you are ready to confirm your fresh build of Companion functions.
   * v1.4.0 stable
     * `npm run start` **or** `npm --prefix /home/pi/companion start`
   * v2.0-alpha
@@ -102,14 +105,14 @@ _(display attached to Raspberry Pi)_
     * `yarn dev` will start Companion with debugging fuctionality
       * full explicit command: `/usr/local/bin/yarn --cwd /home/pi/companion dev`
 
-9. Click the "Companion" icon in the system tray to trigger the application window and set your desired network interface and port number, then click "Change".
+10. Click the "Companion" icon in the system tray to trigger the application window and set your desired network interface and port number, then click "Change".
 > Note the visual difference between the v1.3 and v2.0 splash screens. If you are seeing the wrong splash, you'll need to back up to step 7 in the Common Steps to pull the correct version for building.
 
 | v1.4 Splash Screen | v2.0 Splash Screen |
 | --- | --- |
 | ![Companion v1.4 Splash Screen](https://github.com/jarodwsams/companion/blob/master/documentation/images/companion-splash-1.3.png?raw=true) | ![Companion v2.0 Splash Screen](https://github.com/jarodwsams/companion/blob/master/documentation/images/companion-splash-2.0.png?raw=true) |
 
-10. Click "Launch GUI" to confirm Companion is running. The default internet browser should open a new tab to the IP:Port set in the configuration splash screen.
+11. Click "Launch GUI" to confirm Companion is running. The default internet browser should open a new tab to the IP:Port set in the configuration splash screen.
 
 ## Headed Autostart
 If you would like to have Companion load automatically at startup, follow these steps:
