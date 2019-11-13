@@ -126,16 +126,16 @@ cd companion
 9) ```git add .gitignore```
 10) ```git commit .gitignore -m "gitignore to ignore the node_modules/ folder"```
 
-Now, you need to ask the core developers ([Bitfocus Slack](Bitfocusio.slack.com)) to create a repository for your module and wait for them to create the module repository.
+Now, you need to ask the core developers ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtMzY5NTQ2OTA1MjAzLWI0OTcwNTRhYjIzMTU5NWQ2Mjc1NjQxZmFkNWU0YTIwYWY5YWRiNWYyZmE4OGFjMWI1MDc2YWZlY2IxNDZhYzU)) to create a repository for your module and wait for them to create the module repository.
 
 When the repository gets created by a core developer, you can continue.
 
 11) ```git remote add origin https://github.com/bitfocus/companion-module-mynewmodule.git```
 12) ```git push origin HEAD:master```
 
-Now we're at a point that the core developers must decide if its time to include this module in the companion core. But ask us on slack ([Bitfocus Slack](Bitfocusio.slack.com)), and if we decide to add it - and we say it's done, you may proceed.
+Now we're at a point that the core developers must decide if its time to include this module in the companion core. But ask us on slack ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtMzY5NTQ2OTA1MjAzLWI0OTcwNTRhYjIzMTU5NWQ2Mjc1NjQxZmFkNWU0YTIwYWY5YWRiNWYyZmE4OGFjMWI1MDc2YWZlY2IxNDZhYzU)), and if we decide to add it - and we say it's done, you may proceed.
 
-It's important that you didn't get any erros in the last push, because you're going to delete the code from your computer (make a backup if you're unsure).
+It's important that you didn't get any errors in the last push, because you're going to delete the code from your computer (make a backup if you're unsure).
 
 13) ```cd ..```
 14) ```rm -rf mynewmodule```
