@@ -133,7 +133,7 @@ _(distributable build)_
 
 Note: This will produce a Headed build. There is not currently a method for creating a distributable build for headless operation.
 
-8. Run a Raspberry Pi build `yarn Raspberry Pidist` or `yarn lindist` for desktop linux
+8. Run a Raspberry Pi build `yarn rpidist` or `yarn lindist` for desktop linux
 
 9. The build can be found as a tar.gz under electron-output
 
