@@ -6,7 +6,7 @@ Companion can be run in 2 different modes on the Raspberry Pi: Headless (no disp
 - [Common Installation Steps](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#common-installation-steps)
 - [Headless Installation](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headless-installation--operation)
 - [Headed Installation](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headed-installation--operation)
-  - [Headed AutoStart](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headed-autostart)
+  - [Headed Autostart](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headed-autostart)
 - [Build for Another Device](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#build-for-another-device)
 - [Updating Companion](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#updating-companion)
 
@@ -139,7 +139,7 @@ If you would like to have Companion load automatically at startup, follow these 
 
 3. Reboot, and confirm Companion starts at system start-up
 
-# Build for another device
+# Build for Another Device
 _(distributable build)_
 
 Note: This will produce a Headed build. There is not currently a method for creating a distributable build for headless operation.
