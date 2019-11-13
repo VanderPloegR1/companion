@@ -15,7 +15,9 @@ If you are installing Companion from scratch, make sure you've got your system u
 If you haven't already, it's also recommended to change the default password of the `pi` user. Doing this will help secure your system from unauthorized access. This, and other Raspberry Pi security best practice recommendations can be found [here](https://www.raspberrypi.org/documentation/configuration/security.md).
 
 # CompanionPi Images
-Coming Soon!
+You can find current CompanionPi documentation here: [[CompanionPi Documentation]]
+
+The images are currently being developed and/or tested to confirm viability. As they are deemed viable for public consumption, download links will be made available.
 
 # Manual Installation
 Instructions for installing Companion manually on a Raspberry Pi 4 2GB/4GB can be found here: [[Manual Install on Raspberry Pi]]
