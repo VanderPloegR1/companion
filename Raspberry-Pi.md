@@ -1,6 +1,6 @@
 1. [Recommended Hardware](https://github.com/bitfocus/companion/wiki/Raspberry-Pi#recommended-hardware)
 2. [Ready-to-go CompanionPi Images](https://github.com/bitfocus/companion/wiki/Raspberry-Pi#companionpi-images)
-3. [Manual Installation](https://github.com/bitfocus/companion/wiki/Raspberry-Pi#scratch-installation)
+3. [Manual Installation](https://github.com/bitfocus/companion/wiki/Raspberry-Pi#manual-installation)
 4. [Updating Companion](https://github.com/bitfocus/companion/wiki/Raspberry-Pi#updating-companion)
 
 # Recommended Hardware
