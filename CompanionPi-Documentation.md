@@ -32,12 +32,17 @@ _Coming soon!_
 # CompanionPi Images
 The images are currently being developed and/or tested to confirm viability. As they are deemed viable for public consumption, download links will be made available here.
 
-# Flashing the Image to your microSD Card
+## Flashing the Image to your microSD Card
 First of all, you're going to want a fast Micro SD card. One of the most popular ones currently on the market is the SanDisk Extreme PRO 32GB card ([on Amazon, here](https://www.amazon.com/gp/product/B06XYHN68L)). This isn't always going to be _the best_ one to use, but it is a very good, adequately fast microSD card. Look for anything that is classified as UHS 1 or higher as these will have the read/write speeds you need for your Raspberry Pi to be useful instead of a slow pain in the neck.
 
 Once you've got your fast microSD card in hand, you'll need a tool for flashing the image to the card. One of the most popular tools is Balena Etcher (Windows, Mac, and Linux). It's very easy to use. You can [download it here](https://www.balena.io/etcher/).
 
 # Accessing the Companion Admin User Interface (UI)
+In order for Companion to bind to your network connection (wired Ethernet or wireless), that connection has to be available at boot.
+* For wired Ethernet, you'll need to have the Ethernet cable plugged in before you power on the Raspberry Pi.
+* If you're going to bind the Admin User Interface to the wireless network connection, you'll need to set that up first, then reboot the Raspberry Pi so Companion can bind the Admin User Interface to the wireless network connection.
+  * If you're going to use wireless, make sure you've also updated the service file accordingly (documentation forthcoming).
+
 Once you've got your Raspberry Pi up and running with the CompanionPi image, you'll need to know the IP address of your Raspberry Pi. There are a few ways to do this:
 * A custom Python script written to email you the IP address every time it boots _(requires internet connection at boot)_: [on GitHub, here](https://github.com/oliverscheer/send-email-with-device-ip-address)
 * Set a static IP address on your Pi _(good option if your Raspberry Pi is going to be always connected to the same equipment)_: [this tutorial from The Pi Hut](https://thepihut.com/blogs/raspberry-pi-tutorials/how-to-give-your-raspberry-pi-a-static-ip-address-update)
