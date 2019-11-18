@@ -8,11 +8,12 @@ The current version of CompanionPi is built specifically for Rasbpian Buster on 
 
 # CompanionPi Configuration
 CompanionPi is built on an unmodified deployment of the Raspbian OS, with Companion installed per the standard instructions ([[Manual Install on Raspberry Pi]]). There is one key difference, though:
+* **SSH Server is enabled by default**
 * CompanionPi has a 2nd user account set up for the sole purpose of housing and running the Companion software: `companion`.
   * This was done so that no matter what happens to the default `pi` user account, Companion should still continue to function if the Raspberry Pi will boot.
 Certain other minor changes were made to the Raspbian environment for setup and configuration purposes, as well, most notably:
+* The default `pi` user account still has the default `raspberry` password. Those are left up to you to change for security purposes should you choose to do so (and you should!)
 * Locale, Timezone, and Keyboard Layout settings were changed to US-based settings instead of the default UK-based settings
-* **SSH Server is enabled by default**
 
 ## Complete Changes From Base Raspbian (Headless)
 1. Change default hostname from `raspberrypi` to `CompanionPi` _(raspi-config > 2 Network Options > N1 Hostname)_
