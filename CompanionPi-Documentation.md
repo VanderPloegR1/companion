@@ -25,6 +25,7 @@ Certain other minor changes were made to the Raspbian environment for setup and 
 1. Enable SSH _(raspi-config > 5 Interfacing Options > P2 SSH)_
 1. Add new user `companion`, with default password `bitfocus` and home directory `/home/companion`
 1. Using the new `companion` user, Companion was installed via the standard instructions for the Raspberry Pi, substituting the appropriate home directory where necessary: [[Manual Install on Raspberry Pi]]
+1. Companion is configured to auto-start at boot using a systemd unit file. The documentation for this is here: [[Auto Start Companion on Linux Using systemd]]
 
 ## Complete Changes From Base Rasbpian (Headed)
 _Coming soon!_
@@ -41,7 +42,7 @@ Once you've got your fast microSD card in hand, you'll need a tool for flashing 
 In order for Companion to bind the Admin User Interface to your network connection (wired Ethernet or wireless), that connection has to be available at boot.
 * Wired Ethernet: you'll need to have the Ethernet cable plugged in before you power on the Raspberry Pi.
 * Wireless network: you'll need to set up your wireless connection first, then reboot the Raspberry Pi so Companion can bind the Admin User Interface to the wireless network connection.
-  * If you're going to use wireless, make sure you've also updated the service file accordingly (documentation forthcoming).
+  * If you're going to use wireless, make sure you've also updated the service file accordingly. The documentation for this is here: [[Auto Start Companion on Linux Using systemd]]
 
 Once you've got your Raspberry Pi up and running with the CompanionPi image, you'll need to know the IP address of your Raspberry Pi. There are a few ways to do this:
 * A custom Python script written to email you the IP address every time it boots _(requires internet connection at boot)_: [on GitHub, here](https://github.com/oliverscheer/send-email-with-device-ip-address)
