@@ -37,10 +37,10 @@ First of all, you're going to want a fast Micro SD card. One of the most popular
 
 Once you've got your fast microSD card in hand, you'll need a tool for flashing the image to the card. One of the most popular tools is Balena Etcher (Windows, Mac, and Linux). It's very easy to use. You can [download it here](https://www.balena.io/etcher/).
 
-# Accessing the Companion Admin User Interface (UI)
-In order for Companion to bind to your network connection (wired Ethernet or wireless), that connection has to be available at boot.
-* For wired Ethernet, you'll need to have the Ethernet cable plugged in before you power on the Raspberry Pi.
-* If you're going to bind the Admin User Interface to the wireless network connection, you'll need to set that up first, then reboot the Raspberry Pi so Companion can bind the Admin User Interface to the wireless network connection.
+# Accessing the Companion Admin User Interface
+In order for Companion to bind the Admin User Interface to your network connection (wired Ethernet or wireless), that connection has to be available at boot.
+* Wired Ethernet: you'll need to have the Ethernet cable plugged in before you power on the Raspberry Pi.
+* Wireless network: you'll need to set up your wireless connection first, then reboot the Raspberry Pi so Companion can bind the Admin User Interface to the wireless network connection.
   * If you're going to use wireless, make sure you've also updated the service file accordingly (documentation forthcoming).
 
 Once you've got your Raspberry Pi up and running with the CompanionPi image, you'll need to know the IP address of your Raspberry Pi. There are a few ways to do this:
