@@ -2,6 +2,7 @@
 * [[Home]]
 * [[Installation]]
   * [[Raspberry Pi]]
+  * [[Auto Start Companion on Linux Using systemd]]
 
 ---
 
