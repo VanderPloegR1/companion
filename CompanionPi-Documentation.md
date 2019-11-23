@@ -31,7 +31,7 @@ CompanionPi is built on the Raspbian OS. Aside from the addition of the Companio
 There are several commands that will be useful for all CompanionPi users. These commands will perform several functions, such as
 * Viewing the full Bitfocus Companion licensing information
   * `companion-license` is a custom executable that's been added to output the full text of the Bitfocus Companion License.
-  * To close the license viewer (`vi` text editor) you can type `:q` and `Enter`.
+  * To close the license viewer (`less` file viewer) you can simply type `q`.
 * Starting, stopping, or restarting Companion, or viewing the status of the Companion service
   * `sudo systemctl [start/stop/restart/status] companion` will execute the desired action as it relates to the Companion service
 * Updating the Companion source code from GitHub and building any new changes
