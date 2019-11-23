@@ -46,6 +46,8 @@ First of all, you're going to want a fast Micro SD card. One of the most popular
 
 Once you've got your fast microSD card in hand, you'll need a tool for flashing the image to the card. One of the most popular tools is Balena Etcher (Windows, Mac, and Linux). It's very easy to use. You can [download it here](https://www.balena.io/etcher/).
 
+> On first boot, it'll take a few minutes for the Admin User Interface to be available. The OS has to resize itself to the capacity of your SD card and that takes an extra reboot.
+
 # Accessing the Companion Admin User Interface
 ~~In order for Companion to bind the Admin User Interface to your network connection (wired Ethernet or wireless), that connection has to be available at boot.~~
 * ~~Wired Ethernet: you'll need to have the Ethernet cable plugged in before you power on the Raspberry Pi.~~
