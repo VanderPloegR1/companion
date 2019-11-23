@@ -1,3 +1,6 @@
+> Please note: This documentation is a work-in-progress up until the release of the CompanionPi images.
+> Nothing here should be considered "final" until those images are released and this note is removed.
+
 ## Table of Contents
 1. [About CompanionPi](#about-companionpi)
 1. [Configuration Notes](#configuration-notes)
