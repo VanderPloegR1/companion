@@ -2,7 +2,9 @@
 * [[Home]]
 * [[Installation]]
   * [[Raspberry Pi]]
-  * [[Auto Start Companion on Linux Using systemd]]
+    * [[CompanionPi Documentation]]
+    * [[Manual Install on Raspberry Pi]]
+    * [[Auto Start Companion on Linux Using systemd]]
 
 ---
 
