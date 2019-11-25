@@ -20,7 +20,7 @@ The current version of CompanionPi is built specifically for Rasbpian Buster on 
 
 # Configuration Notes
 CompanionPi is built on the Raspbian OS. Aside from the addition of the Companion source code, only a few minor changes have been made to the system configuration to facilitate construction of the image(s):
-* **SSH Server is enabled by default**
+* **SSH Server is enabled by default** _(headless version, only)_
 * The default `pi` user account still has the default `raspberry` password. This is left up to you to change for security purposes should you choose to do so [(and you should!)](https://www.raspberrypi.org/documentation/configuration/security.md)
 * Locale, Timezone, and Keyboard Layout settings were changed to US-based settings instead of the default UK-based settings
 * More specific details about how the CompanionPi image was assembled can be found at the end of this wiki page.
