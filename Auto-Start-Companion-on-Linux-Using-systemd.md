@@ -9,9 +9,24 @@ If you are using Companion in headless mode and you intend to bind the Admin Use
 
 # Headless Unit File
 File name: /etc/systemd/system/companion.service
-> Pending update after launch of v1.4 CompanionPi Headless
+```
+[Unit]
+Description=Bitfocus Companion (v1.4.0)
+After=network-online.target
+Wants=network-online.target
 
+[Service]
+Type=simple
+WorkingDirectory=/usr/local/src/companion
+ExecStart=/usr/local/src/companion/headless_ip.js 0.0.0.0
+Restart=on-failure
+KillSignal=SIGINT
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target
+```
 # Headed Unit File
 _(for deployments with an attached display and keyboard/mouse)_  
 File name: /etc/systemd/system/companion.service  
-_(this is still being tested but will be posted when available)_
+> This is still being tested but will be posted when available
