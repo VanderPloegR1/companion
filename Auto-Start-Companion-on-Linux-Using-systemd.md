@@ -11,6 +11,6 @@ If you are using Companion in headless mode and you intend to bind the Admin Use
 File name: /etc/systemd/system/companion.service
 > Pending update after launch of v1.4 CompanionPi Headless
 
-# Headless Unit File
+# Headed Unit File (for deployments with an attached display and keyboard/mouse)
 File name: /etc/systemd/system/companion.service
 _(this is still being tested but will be posted when available)_
