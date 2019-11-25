@@ -22,8 +22,6 @@ The current version of CompanionPi is built specifically for Rasbpian Buster on 
 CompanionPi is built on the Raspbian OS. Aside from the addition of the Companion source code, only a few minor changes have been made to the system configuration to facilitate construction of the image(s):
 * **SSH Server is enabled by default**
 * The default `pi` user account still has the default `raspberry` password. This is left up to you to change for security purposes should you choose to do so [(and you should!)](https://www.raspberrypi.org/documentation/configuration/security.md)
-* ~~CompanionPi has a 2nd user account set up for the sole purpose of housing and running the Companion software. The username for this account is `companion` and the password is 'bitfocus'.~~
-  * ~~This was done so that no matter what happens to the default `pi` user account, Companion should still continue to function if the Raspberry Pi will boot.~~
 * Locale, Timezone, and Keyboard Layout settings were changed to US-based settings instead of the default UK-based settings
 * More specific details about how the CompanionPi image was assembled can be found at the end of this wiki page.
 
@@ -49,11 +47,6 @@ Once you've got your fast microSD card in hand, you'll need a tool for flashing 
 > On first boot, it'll take a few minutes for the Admin User Interface to be available. The OS has to resize itself to the capacity of your SD card and that takes an extra reboot.
 
 # Accessing the Companion Admin User Interface
-~~In order for Companion to bind the Admin User Interface to your network connection (wired Ethernet or wireless), that connection has to be available at boot.~~
-* ~~Wired Ethernet: you'll need to have the Ethernet cable plugged in before you power on the Raspberry Pi.~~
-* ~~Wireless network: you'll need to set up your wireless connection first, then reboot the Raspberry Pi so Companion can bind the Admin User Interface to the wireless network connection.~~
-  * ~~If you're going to use wireless, make sure you've also updated the service file accordingly. The documentation for this is here: [[Auto Start Companion on Linux Using systemd]]~~
-
 Once you've got your Raspberry Pi up and running with the CompanionPi image, you'll need to know the IP address of your Raspberry Pi. There are a few ways to do this:
 * A custom Python script written to email you the IP address every time it boots _(requires internet connection at boot)_: [on GitHub, here](https://github.com/oliverscheer/send-email-with-device-ip-address)
 * Set a static IP address on your Pi _(good option if your Raspberry Pi is going to be always connected to the same equipment)_: [this tutorial from The Pi Hut](https://thepihut.com/blogs/raspberry-pi-tutorials/how-to-give-your-raspberry-pi-a-static-ip-address-update)
@@ -76,8 +69,6 @@ _(raspi-config > 4 Localisation Options > I2 Change Timezone)_
 _(raspi-config > 4 Localisation Options > I3 Change Keyboard Layout)_
 * Enabled SSH  
 _(raspi-config > 5 Interfacing Options > P2 SSH)_
-* ~~Added new user `companion`, with default password `bitfocus` and home directory `/home/companion`~~
-* ~~Using the new `companion` user, Companion was installed via the standard instructions for the Raspberry Pi, substituting the appropriate home directory where necessary: [[Manual Install on Raspberry Pi]]~~
 * Companion was installed per the standard instructions ([[Manual Install on Raspberry Pi]]) with one change:  
 **Companion is installed at `/usr/local/src` instead of `/home/pi`.**
   * This was done primarily so individual users have the option to disable/remove the default `pi` user as a security measure.  
