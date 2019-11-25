@@ -1,6 +1,8 @@
 These instructions are for installing Companion on a Raspberry Pi 4. Instructions differ slightly between versions 1.4 (stable) and 2.0 (alpha). Instructions here cover both.
 > **Please note:** Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, **but it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
 
+> The only supported Raspberry Pi hardware is the Raspberry Pi 4 2GB/4GB (1GB is not supported.
+
 Companion can be run in 2 different modes on the Raspberry Pi: Headless (no display attached) and Headed (display attached). The installation instructions are the same up to the point of building the code to run. In the instructions below you will note that the instructions diverge near the end to address the specific needs of headless vs headed installation and operation.
 
 - [Common Installation Steps](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#common-installation-steps)
