@@ -2,9 +2,9 @@
 * [[Home]]
 * [[Installation]]
   * [[Raspberry Pi]]
-    * [[CompanionPi Documentation]]
-    * [[Manual Install on Raspberry Pi]]
-    * [[Auto Start Companion on Linux Using systemd]]
+    * [CompanionPi](/bitfocus/companion/wiki/CompanionPi-Documentation)
+    * [Manual Install](/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi)
+    * [Auto Start on Boot](/bitfocus/companion/wiki/Auto-Start-Companion-on-Linux-Using-systemd)
 
 ---
 
