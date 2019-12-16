@@ -126,7 +126,7 @@ cd companion
 9) ```git add .gitignore```
 10) ```git commit .gitignore -m "gitignore to ignore the node_modules/ folder"```
 
-Now, you need to ask the core developers ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtMzY5NTQ2OTA1MjAzLWI0OTcwNTRhYjIzMTU5NWQ2Mjc1NjQxZmFkNWU0YTIwYWY5YWRiNWYyZmE4OGFjMWI1MDc2YWZlY2IxNDZhYzU)) to create a repository for your module and wait for them to create the module repository.
+Now, you need to ask the core developers in the #module-development group on ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtMzY5NTQ2OTA1MjAzLWI0OTcwNTRhYjIzMTU5NWQ2Mjc1NjQxZmFkNWU0YTIwYWY5YWRiNWYyZmE4OGFjMWI1MDc2YWZlY2IxNDZhYzU)) to create a repository for your module (mention brand and product) and wait for them to create the module repository.
 
 When the repository gets created by a core developer, you can continue.
 
