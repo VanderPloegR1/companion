@@ -89,14 +89,7 @@ This is the point where our instructions will diverge based on whether you inten
 # Headless Installation & Operation
 _(no attached display)_
 
-8. The last step for headless operation is to ensure Companion will start at console boot. We currently do this via `rc.local`. You will first need to know the designation of the network interface you wish to have Companion run on (i.e. `eth0` or `wlan0`)
-```bash
-sudo nano /etc/rc.local
-```
-Add this line before the `exit 0` line, making sure to change the interface designation if appropriate for your setup:
-```bash
-/home/pi/companion/headless.js eth0
-```
+8. Follow this link to create a service which will autoboot companion: [auto start companion using systemd](https://github.com/bitfocus/companion/wiki/Auto-Start-Companion-on-Linux-Using-systemd).
 
 9. Reboot your Raspberry Pi (`sudo reboot`), wait a couple minutes, and you should be able to access the Companion UI on port 8000 of your Raspberry Pi's IP address (i.e. `http://192.168.1.2:8000`)
 
