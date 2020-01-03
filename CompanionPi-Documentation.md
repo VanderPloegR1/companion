@@ -4,6 +4,7 @@
 ## Table of Contents
 1. [About CompanionPi](#about-companionpi)
 1. [Configuration Notes](#configuration-notes)
+1. [Optional Post-Flash Configuration](#optional-post-flash-configuration)
 1. [CompanionPi Terminal Commands](#companionpi-terminal-commands)
 1. [CompanionPi Images](#companionpi-images)
 1. [Accessing the Companion Admin User Interface](#accessing-the-companion-admin-user-interface)
@@ -24,6 +25,14 @@ CompanionPi is built on the Raspbian OS. Aside from the addition of the Companio
 * The default `pi` user account still has the default `raspberry` password. This is left up to you to change for security purposes should you choose to do so [(and you should!)](https://www.raspberrypi.org/documentation/configuration/security.md)
 * Locale, Timezone, and Keyboard Layout settings were changed to US-based settings instead of the default UK-based settings
 * More specific details about how the CompanionPi image was assembled can be found at the end of this wiki page.
+
+# Optional Post-Flash Configuration
+If you weren't already planning on it, it is strongly recommended to change the default password of the `pi` user. You should also change the default password of the `companion` user _(depending on which version of the CompaionPi image you have)_. Doing this will help secure your system from unauthorized access. There are other security-oriented best practices that are recommended, such as:
+* making `sudo` require a password
+* making sure you've got the latest security fixes
+* improving SSH security
+
+All of these recommended best practices can be found here, on the raspberrypi.org website: https://www.raspberrypi.org/documentation/configuration/security.md
 
 # CompanionPi Terminal Commands
 There are several commands that will be useful for all CompanionPi users. These commands will perform several functions, such as
