@@ -10,7 +10,8 @@ If you are using Companion in headless mode and you intend to bind the Admin Use
 There had been a slide modification to the companion.service file, we will connect to a modified headless.js (headless_ip.js which is included in the source files);
 
 # Headless Unit File
-File name: /etc/systemd/system/companion.service (create: `sudo nano /etc/systemd/system/companion.service` and copy paste below, then save)
+File name: /etc/systemd/system/companion.service  
+Command: `sudo nano /etc/systemd/system/companion.service` (copy the below code into the file, then save)
 ```
 [Unit]
 Description=Bitfocus Companion (v1.4.0)
@@ -19,8 +20,8 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-WorkingDirectory=/usr/local/src/companion
-ExecStart=/usr/local/src/companion/headless_ip.js 0.0.0.0
+WorkingDirectory=/home/pi/companion
+ExecStart=/home/pi/companion eth0
 Restart=on-failure
 KillSignal=SIGINT
 TimeoutStopSec=60
@@ -28,10 +29,7 @@ TimeoutStopSec=60
 [Install]
 WantedBy=multi-user.target
 ```
-In some cases the headless_ip.js file doesn't have the right rights;
-`chmod a+x /usr/local/src/companion/headless_ip.js`
-
-Don't forget to enable the service with `systemctl enable companion.service` and reboot `sudo reboot`
+Don't forget to enable the service with `sudo systemctl enable companion.service` and reboot `sudo reboot`
 
 # Headed Unit File
 _(for deployments with an attached display and keyboard/mouse)_  
