@@ -23,3 +23,6 @@ Instructions for installing Companion manually on a Raspberry Pi 4 2GB/4GB can b
 
 # Updating Companion
 Instructions for updating Companion on your Raspberry Pi can be found here: [[Updating Companion on your Raspberry Pi]]
+
+# Upgrading Companion
+If you have a Companion v1.4 build that you want to upgrade, you can find those instructions here: [[Upgrading Companion]]
