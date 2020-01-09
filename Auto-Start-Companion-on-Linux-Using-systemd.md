@@ -21,7 +21,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 WorkingDirectory=/home/pi/companion
-ExecStart=/home/pi/companion eth0
+ExecStart=/home/pi/companion/headless.js eth0
 Restart=on-failure
 KillSignal=SIGINT
 TimeoutStopSec=60
