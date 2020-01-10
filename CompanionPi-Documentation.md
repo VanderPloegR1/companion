@@ -43,7 +43,10 @@ There are several commands that will be useful for all CompanionPi users. These 
   * `sudo systemctl [start/stop/restart/status] companion` will execute the desired action as it relates to the Companion service
 * Updating the Companion source code from GitHub and building any new changes
   * `companion-update` is a custom executable that's been added to easily call the `update.sh` script that performs the update operations.
-  * This must be run as `sudo`, so either run it as `sudo companion-update` or you will be prompted for your `sudo` password before the update can begin.
+  * This must be run as `sudo` (i.e. `sudo companion-update`).
+* Updating Companion from v1.4 to v2.0
+  * `companion-upgrade` is a custom executable that's been added to confirm your intent to upgrade (it's a one-way trip) and then automate the process.
+  * This must be run as `sudo` (i.e. `sudo companion-upgrade`).
 
 # CompanionPi Images
 The images are currently being developed and/or tested to confirm viability. As they are deemed viable for public consumption, download links will be made available here.
@@ -87,10 +90,12 @@ _(raspi-config > 5 Interfacing Options > P2 SSH)_
   * The code for this modified `headless.js` (named `headless_ip.js`) can be found here [Companion Issue #538](https://github.com/bitfocus/companion/issues/538#issuecomment-472007173)
 * Companion is configured to auto-start at boot using a systemd unit file.
   * The code and documentation for this is here: [[Auto Start Companion on Linux Using systemd]]
-* Two executables have been added to `/usr/local/bin` to make two functions easier. These commands can be run from any directory by any logged-in user.
+* Three executables have been added to `/usr/local/bin` to make two functions easier. These commands can be run from any directory by any logged-in user.
   * `companion-license` - outputs the contents of the full LICENSE.md file
   * `companion-update` - simplifies the process of updating Companion
-    * If not run as `sudo companion-update`, the user will be automatically prompted for their `sudo` password
+    * Must be run as sudo -> `sudo companion-update`
+  * `companion-upgrade` - automates the process of upgrading from v1.4 to v2.0
+    * Must be run as sudo -> `sudo companion-upgrade`
 * A custom Message of the Day has been added to be displayed in the terminal when users log in either locally or via SSH.  
 ```This Raspberry Pi is running the Bitfocus Companion software, version 1.4.0.  
 The source code repository for this project can be found here:  
@@ -107,6 +112,3 @@ Companion should auto-start on this computer as soon as a viable network connect
 You can access the Companion Admin User Interface on port 8000 of this computer's IP address  
 (i.e. http://192.1.1.2:8000).
 ```
-
-## CompanionPi w/ Attached Display (Headed)
-_Coming soon!_
