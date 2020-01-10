@@ -3,6 +3,7 @@
 
 ## Table of Contents
 1. [About CompanionPi](#about-companionpi)
+1. [System Requirements](#system-requirements)
 1. [Configuration Notes](#configuration-notes)
 1. [Optional Post-Flash Configuration](#optional-post-flash-configuration)
 1. [CompanionPi Terminal Commands](#companionpi-terminal-commands)
@@ -13,11 +14,14 @@
 # About CompanionPi
 CompanionPi is built and maintained by a member of the community, not by Bitfocus or its employees. If you encounter issues using CompanionPi, you should ask questions in the #rpi channel of the Bitfocus AS Slack server or report issues/feature requests [here, on GitHub](https://github.com/bitfocus/companion/issues).
 
-The current version of CompanionPi is built specifically for Rasbpian Buster on the Raspberry Pi 4. It has not been tested, and is not in any way supported on, any previous version of the Raspberry Pi.
-* Headless: Raspbian Buster Lite
-* Headed: "Raspbian Buster with desktop" (not "Raspbian Buster with desktop and recommended software")
-> Headless, with no attached display and no graphical user interface, is the recommended mode of operation for Companion on current Raspberry Pi systems.
-> This is because this mode maximizes the computational resources available to Companion.
+The current version of CompanionPi is built specifically for Rasbpian Buster on the Raspberry Pi 4. It has not been tested, and is not in any way supported on, any previous version of the Raspberry Pi or on any other Raspberry Pi operating system. Additionally, you'll want to make sure your Raspberry Pi is the 4GB variant.
+
+Due to the fact that are working with the Raspberry Pi, CompanionPi is built on Raspbian Buster Lite. This is intended for headless operation (no display, mouse, or keyboard attached). This mode of operation is the recommended mode because this maximizes the resources available to Companion.
+
+# System Requirements
+* Raspberry Pi 4B 4GB
+* MicroSD Card, UHS Class 1 or higher
+* Adequate power supply adapter (recommend the [official Raspberry Pi power supply](https://www.raspberrypi.org/products/type-c-power-supply/))
 
 # Configuration Notes
 CompanionPi is built on the Raspbian OS. Aside from the addition of the Companion source code, only a few minor changes have been made to the system configuration to facilitate construction of the image(s):
@@ -27,7 +31,7 @@ CompanionPi is built on the Raspbian OS. Aside from the addition of the Companio
 * More specific details about how the CompanionPi image was assembled can be found at the end of this wiki page.
 
 # Optional Post-Flash Configuration
-If you weren't already planning on it, it is strongly recommended to change the default password of the `pi` user. You should also change the default password of the `companion` user _(depending on which version of the CompaionPi image you have)_. Doing this will help secure your system from unauthorized access. There are other security-oriented best practices that are recommended, such as:
+If you weren't already planning on it, it is strongly recommended to change the default password of the `pi` user.  Doing this will help secure your system from unauthorized access. There are other security-oriented best practices that are recommended, such as:
 * making `sudo` require a password
 * making sure you've got the latest security fixes
 * improving SSH security
@@ -35,7 +39,7 @@ If you weren't already planning on it, it is strongly recommended to change the 
 All of these recommended best practices can be found here, on the raspberrypi.org website: https://www.raspberrypi.org/documentation/configuration/security.md
 
 # CompanionPi Terminal Commands
-There are several commands that will be useful for all CompanionPi users. These commands will perform several functions, such as
+There are a few commands that will be useful for all CompanionPi users. These commands will perform several functions, such as
 * Viewing the full Bitfocus Companion licensing information
   * `companion-license` is a custom executable that's been added to output the full text of the Bitfocus Companion License.
   * To close the license viewer (`less` file viewer) you can simply type `q`.
@@ -44,10 +48,6 @@ There are several commands that will be useful for all CompanionPi users. These 
 * Updating the Companion source code from GitHub and building any new changes
   * `companion-update` is a custom executable that's been added to easily call the `update.sh` script that performs the update operations.
   * This must be run as `sudo` (i.e. `sudo companion-update`).
-* Updating Companion from v1.4 to v2.0
-  * **Note:** This executable was introduced in CompanionPi-2020-01-10. Previous versions of CompanionPi do not include this tool.
-  * `companion-upgrade` is a custom executable that's been added to confirm your intent to upgrade (it's a one-way trip) and then automate the process.
-  * This must be run as `sudo` (i.e. `sudo companion-upgrade`).
 
 # CompanionPi Images
 The images are currently being developed and/or tested to confirm viability. As they are deemed viable for public consumption, download links will be made available here.
@@ -59,7 +59,7 @@ Once you've got your fast microSD card in hand, you'll need a tool for flashing 
 
 > On first boot, it'll take a few minutes for the Admin User Interface to be available. The OS has to resize itself to the capacity of your SD card and that takes an extra reboot.
 
-Once you've got CompanionPi up and running, it's recommended to run `sudo companion-update` to make sure you've got all the latest updates and fixes.
+Once you've got CompanionPi up and running, it's recommended to run `sudo companion-update` via an SSH terminal to make sure you've got all the latest updates and fixes.
 
 # Accessing the Companion Admin User Interface
 Once you've got your Raspberry Pi up and running with the CompanionPi image, you'll need to know the IP address of your Raspberry Pi. There are a few ways to do this:
@@ -84,22 +84,19 @@ _(raspi-config > 4 Localisation Options > I2 Change Timezone)_
 _(raspi-config > 4 Localisation Options > I3 Change Keyboard Layout)_
 * Enabled SSH  
 _(raspi-config > 5 Interfacing Options > P2 SSH)_
-* Companion was installed per the standard instructions ([[Manual Install on Raspberry Pi]]) with one change:  
+* Companion v2.0 was installed per the standard instructions ([[Manual Install on Raspberry Pi]]) with one change:  
 **Companion is installed at `/usr/local/src` instead of `/home/pi`.**
-  * This was done primarily so individual users have the option to disable/remove the default `pi` user as a security measure.  
+  * This was done primarily so individual users have the option to modify/disable/remove the default `pi` user as a security measure.
   * This directory is also, historically, the "preferred" location for source code applications.
 * The standard `headless.js` is replaced with a modified version that will bind to IP address `0.0.0.0` at boot instead of requiring an active network connection.
-  * This allows for the Raspberry Pi to be booted up _and then_ connected to a network, such as a wireless netork, and have Companion still launch and available as soon as the network connection is up.
+  * This allows for the Raspberry Pi to be booted up _and then_ connected to a network, such as a wireless network, and have Companion still launch and available as soon as the network connection is up.
   * The code for this modified `headless.js` (named `headless_ip.js`) can be found here [Companion Issue #538](https://github.com/bitfocus/companion/issues/538#issuecomment-472007173)
 * Companion is configured to auto-start at boot using a systemd unit file.
   * The code and documentation for this is here: [[Auto Start Companion on Linux Using systemd]]
-* Three executables have been added to `/usr/local/bin` to make two functions easier. These commands can be run from any directory by any logged-in user.
+* Two executables have been added to `/usr/local/bin` to make two functions easier. These commands can be run from any directory by any logged-in user.
   * `companion-license` - outputs the contents of the full LICENSE.md file
   * `companion-update` - simplifies the process of updating Companion
     * Must be run as sudo -> `sudo companion-update`
-  * `companion-upgrade` - automates the process of upgrading from v1.4 to v2.0
-    * Must be run as sudo -> `sudo companion-upgrade`
-    * **Note:** This executable was introduced in CompanionPi-2020-01-10. Previous versions of CompanionPi do not include this tool.
 * A custom Message of the Day has been added to be displayed in the terminal when users log in either locally or via SSH.  
 ```This Raspberry Pi is running the Bitfocus Companion software, version 1.4.0.  
 The source code repository for this project can be found here:  
