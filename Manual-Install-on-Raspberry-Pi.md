@@ -1,11 +1,11 @@
 These instructions will walk you through installing Companion v2.0 on your Raspberry Pi 4 Model B 4GB.
 
-> The only supported Raspberry Pi hardware is the Raspberry Pi 4 4GB (1GB/2GB is not supported).
+> :information_source: **Please Note:** The only supported Raspberry Pi hardware is the Raspberry Pi 4 4GB (1GB/2GB is not supported).
 
-> **Please note:** Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, **but it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
+> :exclamation: **WARNING** Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, **but it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
 
 When running Companion on the Raspberry Pi, the recommended mode of operation is "headless" (no monitor, keyboard, or mouse attached). As such, it is recommended to use Raspbian Buster Lite as your operating system. This maximizes the resources available to Companion.
-> Raspbian is the only supported Raspberry Pi operating system. These instructions do not work with the n00bs environment (known incompatibility), and no other operating systems have been tested or are supported.
+> :information_source: **Please Note:** Raspbian is the only supported Raspberry Pi operating system. These instructions do not work with the n00bs environment (known incompatibility), and no other operating systems have been tested or are supported.
 
 - [Installing Companion](#installing-companion)
 - [Build for Another Device](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#build-for-another-device)
@@ -26,7 +26,7 @@ These steps assume you're starting from the home directory of the current user. 
    ```bash
    sudo apt-get install libgusb-dev npm nodejs git build-essential cmake libudev-dev libusb-1.0-0-dev -y
    ```
-   _If you haven't already done so, make sure to install the latest version of the eeprom update tool to ensure you've got the latest firmware for the USB controller chip:_
+   :information_source: _If you haven't already done so, make sure to install the latest version of the eeprom update tool to ensure you've got the latest firmware for the USB controller chip:_
    ```sudo apt install rpi-eeprom rpi-eeprom-images```
    _You'll need to reboot immediately_ (```sudo reboot```) _after updating this package to finalize the installation and firmware update._
 
@@ -56,14 +56,14 @@ These steps assume you're starting from the home directory of the current user. 
    sudo npm install n -g
    sudo n 8.12.0
    ```
-   *double-check https://github.com/bitfocus/companion/blob/master/DEVELOPER.md to confirm the current required node.js version*
+   :warning: *double-check https://github.com/bitfocus/companion/blob/master/DEVELOPER.md to confirm the current required node.js version*
 
 1. Install yarn and update your PATH variable
    ```bash
    sudo npm install yarn -g
    export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
    ```
-   _The output from the `export` command is silent. You will not see any results from this command other than a fresh command prompt after executing the command._
+   :warning: _The output from the `export` command is silent. You will not see any results from this command other than a fresh command prompt after executing the command._
 
 1. Now we're ready to clone the repository and build. These commands will clone the repository, move into the `companion` directory, update all dependencies and modules, and create a fresh build.
    ```bash
@@ -81,7 +81,7 @@ These steps assume you're starting from the home directory of the current user. 
 # Build for Another Device
 _(distributable build)_
 
-Note: This will produce a Headed build (desktop linux or a Raspberry Pi with a monitor, keyboard, and mouse). There is not currently a method for creating a distributable build for headless operation.
+:information_source: **Note:** This will produce a Headed build (desktop linux or a Raspberry Pi with a monitor, keyboard, and mouse). There is not currently a method for creating a distributable build for headless operation.
 
 1. Follow the [Installation](#installing-companion) steps above, stopping after step #7
 
