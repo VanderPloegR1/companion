@@ -59,6 +59,8 @@ Once you've got your fast microSD card in hand, you'll need a tool for flashing 
 
 > On first boot, it'll take a few minutes for the Admin User Interface to be available. The OS has to resize itself to the capacity of your SD card and that takes an extra reboot.
 
+Once you've got CompanionPi up and running, it's recommended to run `sudo companion-update` to make sure you've got all the latest updates and fixes.
+
 # Accessing the Companion Admin User Interface
 Once you've got your Raspberry Pi up and running with the CompanionPi image, you'll need to know the IP address of your Raspberry Pi. There are a few ways to do this:
 * A custom Python script written to email you the IP address every time it boots _(requires internet connection at boot)_: [on GitHub, here](https://github.com/oliverscheer/send-email-with-device-ip-address)
