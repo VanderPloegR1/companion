@@ -3,10 +3,10 @@
 
 ## Table of Contents
 1. [About CompanionPi](#about-companionpi)
-1. [System Requirements](#system-requirements)
-1. [Configuration Notes](#configuration-notes)
-1. [Optional Post-Flash Configuration](#optional-post-flash-configuration)
-1. [CompanionPi Terminal Commands](#companionpi-terminal-commands)
+    * [System Requirements](#system-requirements)
+    * [Configuration Notes](#configuration-notes)
+    * [Optional Post-Flash Configuration](#optional-post-flash-configuration)
+    * [CompanionPi Terminal Commands](#companionpi-terminal-commands)
 1. [CompanionPi Images](#companionpi-images)
 1. [Accessing the Companion Admin User Interface](#accessing-the-companion-admin-user-interface)
 1. [Complete Changes from Base Raspbian](#complete-changes-from-base-raspbian)
@@ -73,7 +73,6 @@ Once you know your IP address, you can access the Companion Admin User Interface
 # Complete Changes from Base Raspbian
 These notes are not a "to-do" list, but are provided for transparency so users can see what changes have been made to the default Raspbian environment to make CompanionPi work. Enterprising users are free to make additional changes in their own environments, and having this informational baseline is always helpful in doing so.
 
-## CompanionPi Headless
 * Changed default hostname from `raspberrypi` to `CompanionPi`  
 _(raspi-config > 2 Network Options > N1 Hostname)_
 * Changed Locale to en_US.UTF-8  
@@ -98,18 +97,18 @@ _(raspi-config > 5 Interfacing Options > P2 SSH)_
   * `companion-update` - simplifies the process of updating Companion
     * Must be run as sudo -> `sudo companion-update`
 * A custom Message of the Day has been added to be displayed in the terminal when users log in either locally or via SSH.  
-```This Raspberry Pi is running the Bitfocus Companion software, version 1.4.0.  
-The source code repository for this project can be found here:  
-https://github.com/bitfocus/companion
-
-Full licensing information for Bitfocus Commpanion can be found at
-/usr/local/src/LICENSE.md or https://github.com/bitfocus/companion/blob/master/LICENSE.md  
-or by running 'companion-license' in the terminal
-
-Any bugs, issues, or feature requests for the Companion software should be reported on the project's GitHub:  
-https://github.com/bitfocus/companion/issues
-
-Companion should auto-start on this computer as soon as a viable network connection is detected.  
-You can access the Companion Admin User Interface on port 8000 of this computer's IP address  
-(i.e. http://192.1.1.2:8000).
-```
+   ```This Raspberry Pi is running the Bitfocus Companion software, version 1.4.0.  
+   The source code repository for this project can be found here:  
+   https://github.com/bitfocus/companion
+   
+   Full licensing information for Bitfocus Commpanion can be found at
+   /usr/local/src/LICENSE.md or https://github.com/bitfocus/companion/blob/master/LICENSE.md  
+   or by running 'companion-license' in the terminal
+   
+   Any bugs, issues, or feature requests for the Companion software should be reported on the project's GitHub:  
+   https://github.com/bitfocus/companion/issues
+   
+   Companion should auto-start on this computer as soon as a viable network connection is detected.  
+   You can access the Companion Admin User Interface on port 8000 of this computer's IP address  
+   (i.e. http://192.1.1.2:8000).
+   ```
