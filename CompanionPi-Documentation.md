@@ -45,6 +45,7 @@ There are several commands that will be useful for all CompanionPi users. These 
   * `companion-update` is a custom executable that's been added to easily call the `update.sh` script that performs the update operations.
   * This must be run as `sudo` (i.e. `sudo companion-update`).
 * Updating Companion from v1.4 to v2.0
+  * **Note:** This executable was introduced in CompanionPi-2020-01-10. Previous versions of CompanionPi do not include this tool.
   * `companion-upgrade` is a custom executable that's been added to confirm your intent to upgrade (it's a one-way trip) and then automate the process.
   * This must be run as `sudo` (i.e. `sudo companion-upgrade`).
 
@@ -96,6 +97,7 @@ _(raspi-config > 5 Interfacing Options > P2 SSH)_
     * Must be run as sudo -> `sudo companion-update`
   * `companion-upgrade` - automates the process of upgrading from v1.4 to v2.0
     * Must be run as sudo -> `sudo companion-upgrade`
+    * **Note:** This executable was introduced in CompanionPi-2020-01-10. Previous versions of CompanionPi do not include this tool.
 * A custom Message of the Day has been added to be displayed in the terminal when users log in either locally or via SSH.  
 ```This Raspberry Pi is running the Bitfocus Companion software, version 1.4.0.  
 The source code repository for this project can be found here:  
