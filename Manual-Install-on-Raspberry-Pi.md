@@ -1,20 +1,19 @@
-These instructions are for installing Companion on a Raspberry Pi 4. Instructions differ slightly between versions 1.4 (stable) and 2.0 (alpha). Instructions here cover both.
+These instructions will walk you through installing Companion v2.0 on your Raspberry Pi 4 Model B 4GB.
+
+> The only supported Raspberry Pi hardware is the Raspberry Pi 4 4GB (1GB/2GB is not supported).
+
 > **Please note:** Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, **but it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
 
-> The only supported Raspberry Pi hardware is the Raspberry Pi 4 2GB/4GB (1GB is not supported.
+When running Companion on the Raspberry Pi, the recommended mode of operation is "headless" (no monitor, keyboard, or mouse attached). As such, it is recommended to use Raspbian Buster Lite as your operating system. This maximizes the resources available to Companion.
+> Raspbian is the only supported Raspberry Pi operating system. These instructions do not work with the n00bs environment (known incompatibility), and no other operating systems have been tested or are supported.
 
-Companion can be run in 2 different modes on the Raspberry Pi: Headless (no display attached) and Headed (display attached). The installation instructions are the same up to the point of building the code to run. In the instructions below you will note that the instructions diverge near the end to address the specific needs of headless vs headed installation and operation.
-
-- [Common Installation Steps](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#common-installation-steps)
-- [Headless Installation](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headless-installation--operation)
-- [Headed Installation](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headed-installation--operation)
-  - [Headed Autostart](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#headed-autostart)
+- [Installing Companion](#installing-companion)
 - [Build for Another Device](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#build-for-another-device)
 - [Updating Companion](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#updating-companion)
 
 
-# Common Installation Steps
-Before starting the installation process, you'll need to get your Raspberry Pi set up and configured. If you intend to run your Raspberry Pi headless (no display attached), you'll need to make sure you've got SSH access enabled (`sudo raspi-config` on the Raspberry Pi terminal to enable) before switching to headless mode. These instructions assume your Raspberry Pi is fully configured and ready to go.
+# Installing Companion
+Before starting the installation process, you'll need to get your Raspberry Pi set up and configured. You'll need to make sure you've got SSH access enabled (`sudo raspi-config` on the Raspberry Pi terminal to enable) before starting. These instructions assume your Raspberry Pi is fully configured and ready to go.
 
 These steps assume you're starting from the home directory of the current user. If not, your mileage may vary with these instructions. It is recommended to move to the home directory (`cd ~`) before starting:
 
@@ -64,91 +63,37 @@ sudo n 8.12.0
 sudo npm install yarn -g
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 ```
+_The output from the `export` command is silent. You will not see any results from this command other than a fresh command prompt after executing the command._
 
-7. Now we're ready to clone the repository and build. These commands will clone the respository, move into the `companion` directory, update all dependencies and modules, and create a fresh build.
-> It's important to note which version of Companion you are hoping to install: v1.4 (stable) or v2.0-alpha (not guaranteed to be stable). v2.0-alpha is not ready for production environments at the time of this writing (November 10, 2019), but is available for testing. The other important distinction to note is that the build commands are different between the two versions.
-
-## Version 1.4 (stable)
+7. Now we're ready to clone the repository and build. These commands will clone the repository, move into the `companion` directory, update all dependencies and modules, and create a fresh build.
 ```bash
-git clone https://github.com/bitfocus/companion.git
-cd companion
-git checkout backport
-./tools/update.sh
-./tools/build_writefile.sh
-```
-## Version 2.0 (alpha)
-```bash
+cd ~
 git clone https://github.com/bitfocus/companion.git
 cd companion
 yarn update
 ./tools/build_writefile.sh
 ```
 
-This is the point where our instructions will diverge based on whether you intend to run headless, with a display attached or a build to be copied to another device.
-
-# Headless Installation & Operation
-_(no attached display)_
-
-8. Follow this link to create a service which will autoboot companion: [auto start companion using systemd](https://github.com/bitfocus/companion/wiki/Auto-Start-Companion-on-Linux-Using-systemd).
+8. Follow the instructions here to create a service which will start Companion automatically at system boot: [auto start companion using systemd](https://github.com/bitfocus/companion/wiki/Auto-Start-Companion-on-Linux-Using-systemd).
 
 9. Reboot your Raspberry Pi (`sudo reboot`), wait a couple minutes, and you should be able to access the Companion UI on port 8000 of your Raspberry Pi's IP address (i.e. `http://192.168.1.2:8000`)
-
-# Headed Installation & Operation
-_(display attached to Raspberry Pi)_
-
-8. This mode of Companion requires another package that the headless mode does not.
-```bash
-sudo apt install libgconf2-dev
-```
-
-9. Now we build the electron package that will actually run Companion.
-```bash
-npm run rpidist
-```
-
-9. And now we run our fresh build of Companion.
-  * v1.4.0 stable
-    * `npm run start` **or** `npm --prefix /home/pi/companion start`
-  * v2.0-alpha
-    * `yarn prod` will start Companion silently, with no debugging
-      * full explicit command: `/usr/local/bin/yarn --cwd /home/pi/companion prod`
-    * `yarn dev` will start Companion with debugging fuctionality
-      * full explicit command: `/usr/local/bin/yarn --cwd /home/pi/companion dev`
-
-10. Click the "Companion" icon in the system tray to trigger the application window and set your desired network interface and port number, then click "Change".
-> Note the difference in version number and branch name between the 1.4 and v2.0 splash screens. If you are seeing the wrong splash, you'll need to back up to step 7 in the Common Steps to pull the correct version for building.
-
-| v1.4 Splash Screen | v2.0 Splash Screen |
-| --- | --- |
-| ![Companion v1.4 Splash Screen](https://github.com/jarodwsams/companion/blob/master/documentation/images/companion-splash-1.4.png?raw=true) | ![Companion v2.0 Splash Screen](https://github.com/jarodwsams/companion/blob/master/documentation/images/companion-splash-2.0.png?raw=true) |
-
-11. Click "Launch GUI" to confirm Companion is running. The default internet browser should open a new tab to the IP:Port set in the configuration splash screen.
-
-## Headed Autostart
-If you would like to have Companion load automatically at startup, follow these steps:
-1. Create a directory named `autostart` in your home .config directory: `mkdir ~/.config/autostart`
-2. Create a new companion.desktop file (`sudo nano ~/.config/autostart/companion.desktop`) and copy the following lines  
-
-| Version 1.4.0 (stable) |
-| -------------------- |
-| <div class="highlight highlight-source-shell"><pre>[Desktop Entry]<br>Type=Application<br>Name=Companion<br>Exec=npm --prefix /home/pi/companion start</pre></div> |
-
-| Version 2.0 (alpha) |
-| -------------------- |
-| <div class="highlight highlight-source-shell"><pre>[Desktop Entry]<br>Type=Application<br>Name=Companion<br>Exec=/usr/local/bin/yarn --cwd /home/pi/companion prod</pre></div> |
-
-> You will need to replace the "prod" in the v2.0-alpha file with dev if you intend to launch Companion with debugging.
-
-3. Reboot, and confirm Companion starts at system start-up
 
 # Build for Another Device
 _(distributable build)_
 
-Note: This will produce a Headed build. There is not currently a method for creating a distributable build for headless operation.
+Note: This will produce a Headed build (desktop linux or a Raspberry Pi with a monitor, keyboard, and mouse). There is not currently a method for creating a distributable build for headless operation.
 
-8. Run a Raspberry Pi build `yarn rpidist` or `yarn lindist` for desktop linux
+1. Follow the [Installation](#installing-companion) steps above, stopping after step #7
 
-9. The build can be found as a tar.gz under electron-output
+2. This process requires another package that the normal headless mode does not:
+```bash
+sudo apt intall libgconf2-dev
+```
+3. Run one of the following commands from within the companion directory to create your distributable build
+  * Desktop Linux: `yarn lindist`
+  * Raspberry Pi: `yarn rpidist`
+
+4. The build can be found as a tar.gz under electron-output
 
 # Updating Companion
 Instructions for updating Companion on your Raspberry Pi can be found here: [[Updating Companion on your Raspberry Pi]]
