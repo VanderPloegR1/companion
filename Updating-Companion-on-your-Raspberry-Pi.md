@@ -7,7 +7,7 @@ git pull
 ./tools/update.sh
 sudo reboot
 ```
-### Companion v2.0-alpha
+### Companion v2.0
 Run the following series of terminal commands from the root of the companion folder:
 ```bash
 git pull
