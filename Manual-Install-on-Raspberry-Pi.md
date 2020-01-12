@@ -78,22 +78,5 @@ These steps assume you're starting from the home directory of the current user. 
 
 1. Reboot your Raspberry Pi (`sudo reboot`), wait a couple minutes, and you should be able to access the Companion UI on port 8000 of your Raspberry Pi's IP address (i.e. `http://192.168.1.2:8000`)
 
-# Build for Another Device
-_(distributable build)_
-
-:information_source: **Note:** This will produce a Headed build (desktop linux or a Raspberry Pi with a monitor, keyboard, and mouse). There is not currently a method for creating a distributable build for headless operation.
-
-1. Follow the [Installation](#installing-companion) steps above, stopping after step #7
-
-1. This process requires another package that the normal headless mode does not:
-   ```bash
-   sudo apt intall libgconf2-dev
-   ```
-1. Run one of the following commands from within the companion directory to create your distributable build
-   * Desktop Linux: `yarn lindist`
-   * Raspberry Pi: `yarn rpidist`
-
-4. The build can be found as a tar.gz under electron-output
-
 # Updating Companion
 Instructions for updating Companion on your Raspberry Pi can be found here: [[Updating Companion on your Raspberry Pi]]
