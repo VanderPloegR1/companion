@@ -1,4 +1,4 @@
-:information_source: **Note:** This will produce a Headed build (desktop linux or a Raspberry Pi with a monitor, keyboard, and mouse). There is not currently a method for creating a distributable build for headless operation.
+:information_source: **Note:** This will produce a Headed build (any Debian-based Linux system with a monitor, keyboard, and mouse). There is not currently a method for creating a distributable build for headless operation.
 
 1. Follow the [instructions for manual installation](/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi) (any Debian-based Linux), stopping after step #7
 
