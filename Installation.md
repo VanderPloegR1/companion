@@ -2,7 +2,7 @@
 
 Download the [latest release](https://github.com/bitfocus/companion/releases) for mac, unzip, drag Companion.app into your Applications folder
 
-### Windows 7 and up
+### Windows 7 and up (64bit)
 
 Download the [latest release](https://github.com/bitfocus/companion/releases) for windows, install, run!
 
