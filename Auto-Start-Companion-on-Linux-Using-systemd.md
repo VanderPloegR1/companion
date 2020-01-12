@@ -9,7 +9,7 @@ File name: /etc/systemd/system/companion.service
 Command: `sudo nano /etc/systemd/system/companion.service` (copy the below code into the file, then save)
 ```
 [Unit]
-Description=Bitfocus Companion (v1.4.0)
+Description=Bitfocus Companion (v2.0.0)
 After=network-online.target
 Wants=network-online.target
 
