@@ -50,7 +50,9 @@ There are a few commands that will be useful for all CompanionPi users. These co
   * This must be run as `sudo` (i.e. `sudo companion-update`).
 
 # CompanionPi Images
-The images are currently being developed and/or tested to confirm viability. As they are deemed viable for public consumption, download links will be made available here.
+CompanionPi images can be downloaded using the links below. Both the image file and the sha1 checksum are provided. "Versioning" for CompanionPi will be indicated by the date in the filename, rather than a version number.
+* Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-01-10/CompanionPi-2020-01-10.img.gz
+* Checksum: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-01-10/CompanionPi-2020-01-10.img.gz.sha1
 
 ## Flashing the Image to your microSD Card
 First of all, you're going to want a fast Micro SD card. One of the most popular ones currently on the market is the SanDisk Extreme PRO 32GB card ([on Amazon, here (Amazon US)](https://www.amazon.com/gp/product/B06XYHN68L)). This isn't always going to be _the best_ one to use, but it is a very good, adequately fast microSD card. Look for anything that is classified as UHS 1 or higher as these will have the read/write speeds you need for your Raspberry Pi to be useful instead of a slow pain in the neck.
