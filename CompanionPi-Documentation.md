@@ -15,19 +15,19 @@ The current version of CompanionPi is built specifically for Rasbpian Buster on 
 
 Due to the fact that are working with the Raspberry Pi, CompanionPi is built on Raspbian Buster Lite. This is intended for headless operation (no display, mouse, or keyboard attached). This mode of operation is the recommended mode because this maximizes the resources available to Companion.
 
-# System Requirements
+## System Requirements
 * Raspberry Pi 4B 4GB
 * MicroSD Card, UHS Class 1 or higher
 * Adequate power supply adapter (recommend the [official Raspberry Pi power supply](https://www.raspberrypi.org/products/type-c-power-supply/))
 
-# Configuration Notes
+## Configuration Notes
 CompanionPi is built on the Raspbian OS. Aside from the addition of the Companion source code, only a few minor changes have been made to the system configuration to facilitate construction of the image(s):
 * **SSH Server is enabled by default**
 * The default `pi` user account still has the default `raspberry` password. This is left up to you to change for security purposes should you choose to do so [(and you should!)](https://www.raspberrypi.org/documentation/configuration/security.md)
 * Locale, Timezone, and Keyboard Layout settings were changed to US-based settings instead of the default UK-based settings
 * More specific details about how the CompanionPi image was assembled can be found at the end of this wiki page.
 
-# Optional Post-Flash Configuration
+## Optional Post-Flash Configuration
 If you weren't already planning on it, it is strongly recommended to change the default password of the `pi` user.  Doing this will help secure your system from unauthorized access. There are other security-oriented best practices that are recommended, such as:
 * making `sudo` require a password
 * making sure you've got the latest security fixes
@@ -35,7 +35,7 @@ If you weren't already planning on it, it is strongly recommended to change the 
 
 All of these recommended best practices can be found here, on the raspberrypi.org website: https://www.raspberrypi.org/documentation/configuration/security.md
 
-# CompanionPi Terminal Commands
+## CompanionPi Terminal Commands
 There are a few commands that will be useful for all CompanionPi users. These commands will perform several functions, such as
 * Viewing the full Bitfocus Companion licensing information
   * `companion-license` is a custom executable that's been added to output the full text of the Bitfocus Companion License.
