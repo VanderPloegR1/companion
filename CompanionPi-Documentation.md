@@ -1,6 +1,3 @@
-> Please note: This documentation is a work-in-progress up until the release of the CompanionPi images.
-> Nothing here should be considered "final" until those images are released and this note is removed.
-
 ## Table of Contents
 1. [About CompanionPi](#about-companionpi)
     * [System Requirements](#system-requirements)
@@ -25,7 +22,7 @@ Due to the fact that are working with the Raspberry Pi, CompanionPi is built on 
 
 # Configuration Notes
 CompanionPi is built on the Raspbian OS. Aside from the addition of the Companion source code, only a few minor changes have been made to the system configuration to facilitate construction of the image(s):
-* **SSH Server is enabled by default** _(headless version, only)_
+* **SSH Server is enabled by default**
 * The default `pi` user account still has the default `raspberry` password. This is left up to you to change for security purposes should you choose to do so [(and you should!)](https://www.raspberrypi.org/documentation/configuration/security.md)
 * Locale, Timezone, and Keyboard Layout settings were changed to US-based settings instead of the default UK-based settings
 * More specific details about how the CompanionPi image was assembled can be found at the end of this wiki page.
@@ -51,8 +48,9 @@ There are a few commands that will be useful for all CompanionPi users. These co
 
 # CompanionPi Images
 CompanionPi images can be downloaded using the links below. Both the image file and the sha1 checksum are provided. "Versioning" for CompanionPi will be indicated by the date in the filename, rather than a version number.
-* Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-01-10/CompanionPi-2020-01-10.img.gz
-* Checksum: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-01-10/CompanionPi-2020-01-10.img.gz.sha1
+* CompanionPi 2020-01-10
+  * Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-01-10/CompanionPi-2020-01-10.img.gz
+  * Checksum: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-01-10/CompanionPi-2020-01-10.img.gz.sha1
 
 ## Flashing the Image to your microSD Card
 First of all, you're going to want a fast Micro SD card. One of the most popular ones currently on the market is the SanDisk Extreme PRO 32GB card ([on Amazon, here (Amazon US)](https://www.amazon.com/gp/product/B06XYHN68L)). This isn't always going to be _the best_ one to use, but it is a very good, adequately fast microSD card. Look for anything that is classified as UHS 1 or higher as these will have the read/write speeds you need for your Raspberry Pi to be useful instead of a slow pain in the neck.
