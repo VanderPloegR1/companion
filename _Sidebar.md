@@ -1,7 +1,7 @@
 **Getting Started**
 * [[Home]]
 * [[Installation]]
-* [[Raspberry Pi - Read This First]]
+* [[Raspberry Pi: Read This First]]
   * [[CompanionPi Documentation]]
   * [[Manual Install on Raspberry Pi]]
   * [[Auto Start Companion on Linux Using systemd]]
