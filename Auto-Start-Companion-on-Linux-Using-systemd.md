@@ -49,3 +49,6 @@ TimeoutStopSec=60
 [Install]
 WantedBy=multi-user.target
 ```
+
+When using the network-online.target with systemd make sure this service is enabled;
+`sudo systemctl enable systemd-networkd-wait-online.service`
