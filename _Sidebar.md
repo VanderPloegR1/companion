@@ -15,6 +15,7 @@
 * [[How to move to a fork after cloning]]
 * [[Module Development]]
 * [[Adding removing of submodules]]
+* [[Update a module into the core]]
 * [[Draft Standard for presets]]
 
 ---
