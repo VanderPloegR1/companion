@@ -595,7 +595,7 @@ condition.  The types of options allowed here are the same as listed above for t
 Commonly the possible rules will be very similar to what can be changed by the actions.
 To accompany the feedback definition, we need some code to handle it. This is done by a method on the class:
 ```
-instance.prototype.feedbacks = function (event) {
+instance.prototype.feedback = function (event) {
 	var self = this;
 	var options = event.options;
 
@@ -608,6 +608,8 @@ instance.prototype.feedbacks = function (event) {
 	return {}
 }
 ```
+
+Use `self.checkFeedbacks('feedback id')` to reload the specified feedback.
 
 TODO - stacking order of multiple feedbacks
 
