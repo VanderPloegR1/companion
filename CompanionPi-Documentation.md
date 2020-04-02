@@ -1,3 +1,5 @@
+> :warning: If you flash the CompanionPi image and your Stream Deck is not detected, you need to follow [steps 3 and 4 of the manual installation instructions](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#installing-companion). The newest version of the 15-button Stream Deck uses a hardware ID that is not accounted for in the current CompanionPi image. This will be fixed with the release of Companion v2 from beta.
+
 ## Table of Contents
 1. [About CompanionPi](#about-companionpi)
     * [System Requirements](#system-requirements)
