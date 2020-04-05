@@ -26,6 +26,20 @@ All modules include and extend the `lib/instance_skel.js` class.  This provides 
 #### `unsubscribeFeedback(feedback: object) returns void`
 #### `unsubscribeFeedbacks(type: string?) returns void`
 
+## Predefined REGEX
+Available as `this.REGEX_*` for ES6 or `self.REGEX_*` for prototype
+- `REGEX_BOOLEAN` - true|false|0|1
+- `REGEX_FLOAT` - xxx.yyy _(lengths no defined)_
+- `REGEX_FLOAT_OR_INT` - xxx[.yyy] _(lengths not defined)_
+- `REGEX_IP` - IP Address
+- `REGEX_NUMBER` - any number
+- `REGEX_PERCENT` - 0-100
+- `REGEX_PORT` - 1-65534
+- `REGEX_SIGNED_FLOAT` - [+|-]xxx.yyy _(lengths not defined)_
+- `REGEX_SIGNED_NUMBER` - [+|-]xxx _(length not defined)_
+- `REGEX_SOMETHING` - cannot be blank
+- `REGEX_TIMECODE` - [0-24]:[0-60]:[0-60]:[0-30]
+
 ## Sample Module
 ### ES6
 ```javascript
