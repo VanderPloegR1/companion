@@ -14,6 +14,7 @@
 * [[Developing on Windows Subsystem for Linux]]
 * [[How to move to a fork after cloning]]
 * [[Module Development]]
+  * [[Extending instance_skel]]
 * [[Adding removing of submodules]]
 * [[Update a module into the core]]
 * [[Draft Standard for presets]]
