@@ -1,9 +1,61 @@
-# Guide to extending `instance_skel`
-All modules include and extend the `lib/instance_skel.js` class.  This provides a base level of functionality and communication with the core application.
+# Extending `instance_skel`
+All modules include and extend the `lib/instance_skel.js` class.  This provides a base level of functionality and communication with the core application.  This is typically done in the module's `index.js` file.
 
+## Setup
+If you're not familiar with class extension, the below examples show how to bring in `instance_skel` and setup an `instance` class to extend this.  This is required, as `instance_skel` is effectively an `abstract` class with a lot of internal processing to make your module work seamlessly.
+### ES6
+```javascript
+var instance_skel = require('../../instance_skel');
+
+class instance extends instance_skel {
+
+	constructor(system,id,config) {
+		super(system,id,config);
+		...
+	}
+
+	...
+}
+
+exports = module.exports = instance;
+```
+### Prototype
+```javascript
+var instance_skel = require('../../instance_skel');
+
+function instance(system, id, config) {
+	var self = this;
+
+	// super-constructor
+	instance_skel.apply(this, arguments);
+	...
+	return self;
+}
+
+...
+
+instance_skel.extendedBy(instance);
+exports = module.exports = instance;
+```
 ## Required Functions
+Because `instance_skel` is effectively an `abstract` class, there are functions your module MUST implement in order to function correctly.
 #### `action(action: object) returns void`
+This function will be called for each action and release action a user executes.  The action parameter will be this data structure:
+```javascript
+{
+	id:       "FE6A5IuPC",               // Random ID for action
+	label:    "ZPc65TB4z:action_name",   // String representation of: 'instance:action'
+	instance: "ZPc65TB4z",               // Instance ID
+	action:   "action_name",             // Action name/key
+	options:  {                          // Array of options in 'id: value' pairs
+		opt1_text: "Test",
+		opt1_num:  1
+	}
+}
+```
+Typical processing in `action(action)` involves a `switch` to select between the action types, which builds a command string to send to the device.  Once out of the `switch` the command would be packaged and sent to the device.  This is shown in the full examples at the bottom of the page.
 #### `config_fields() returns object[]`
+This is a simple return of the necessary fields for the instance configuration screen.
 #### `destroy() returns void`
 #### `init() returns void`
 #### `updateConfig(config: object) returns void`
@@ -41,6 +93,7 @@ Available as `this.REGEX_*` for ES6 or `self.REGEX_*` for prototype
 - `REGEX_TIMECODE` - [0-24]:[0-60]:[0-60]:[0-30]
 
 ## Sample Module
+When you put all of this together, a simplified module requiring a TCP socket would look like the ES6 and Prototype examples below.
 ### ES6
 ```javascript
 var tcp = require('../../tcp');
@@ -198,7 +251,7 @@ intsance.prototype.actions = function() {
 				type: 'textinput',
 				label: 'Some Text',
 				id: 'text',
-				regex: this.REGEX_SOMETHING
+				regex: self.REGEX_SOMETHING
 			}
 		]
 	};
