@@ -1,4 +1,3 @@
-# Extending `instance_skel`
 All modules include and extend the `lib/instance_skel.js` class.  This provides a base level of functionality and communication with the core application.  This is typically done in the module's `index.js` file.
 
 ## Setup
