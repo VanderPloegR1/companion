@@ -1,3 +1,4 @@
+# Extending `instance_skel`
 All modules include and extend the `lib/instance_skel.js` class.  This provides a base level of functionality and communication with the core application.  This is typically done in the module's `index.js` file.
 
 ## Setup
@@ -39,6 +40,8 @@ exports = module.exports = instance;
 ## Required Functions
 Because `instance_skel` is effectively an `abstract` class, there are functions your module MUST implement in order to function correctly.
 #### `action(action: object) returns void`
+See [[Actions]]
+
 This function will be called for each action and release action a user executes.  The action parameter will be this data structure:
 ```javascript
 {
@@ -54,28 +57,78 @@ This function will be called for each action and release action a user executes.
 ```
 Typical processing in `action(action)` involves a `switch` to select between the action types, which builds a command string to send to the device.  Once out of the `switch` the command would be packaged and sent to the device.  This is shown in the full examples at the bottom of the page.
 #### `config_fields() returns object[]`
-This is a simple return of the necessary fields for the instance configuration screen.
+See [[Configuration]]
+
+Provides a simple return of the necessary fields for the instance configuration screen.
 #### `destroy() returns void`
+Clean up the instance before it is destroyed.  This is called both on shutdown and when an instance is disabled or deleted.  Destroy any timers and socket connections here.
 #### `init() returns void`
+Main initialization function called once the module is OK to start doing things.  Principally, this is when the module should establish a connection to the device.
 #### `updateConfig(config: object) returns void`
 
 ## Available Calls
 #### `addUpgradeScript(cb: function) returns void`
+See [[Upgrade Scripts]]
 #### `checkFeedbacks(type: string?) returns void`
+See [[Feedback]]
 #### `defineConst(name: string, value: object) returns void`
+A shortcut to define a class constant:
+ES6
+```javascript
+this.defineConst('STATIC_VALUE', 1);
+this.STATIC_VALUE == 1               // true
+```
+Prototype
+```javascript
+self.defineConst('STATIC_VALUE', 1);
+self.STATIC_VALUE == 1               // true
+```
 #### `getAllFeedbacks() returns object[]`
+See [[Feedback]]
 #### `getVariable(variable: name, cb: function) returns void`
+See [[Variables]]
 #### `saveConfig() returns void`
+Issues a save for the current `config` array without issuing an `updateConfig(config)`.  This is useful when needing save background configuration data (i.e. variables the user doesn't control but are important) or when saving data that a user can provide but may also auto-detect from the device.
+ES6
+```javascript
+this.config.someValue = "test";
+this.saveConfig();
+```
+Prototype
+```javascript
+self.config.someValue = "test";
+self.saveConfig();
+```
 #### `setActions(actions: object[]) returns void`
+See [[Actions]]
 #### `setFeedbackDefinitions(feedbacks: object[]) returns void`
-#### `setVariable(variable: string, text: string) returns void`
+See [[Feedback]]
 #### `setPresetDefinitions(presets: object[]) returns void`
+See [[Presets]]
+#### `setVariable(variable: string, text: string) returns void`
+See [[Variables]]
 #### `setVariableDefinitions(variables: object[]) returns void`
+See [[Variables]]
 #### `status(level: string, message: string) returns void`
 #### `subscribeFeedback(feedback: object) returns void`
+See [[Feedback]]
+
+Issues the subscribe command, if defined, for the `feedback` object passed.
+
 #### `subscribeFeedbacks(type: string?) returns void`
+See [[Feedback]]
+
+Will issue any subscribe commands that exist for the user's active feedbacks in the modules.  This can be done for all feedbacks or those of a specific type by using the `type` parameter.
+
 #### `unsubscribeFeedback(feedback: object) returns void`
+See [[Feedback]]
+
+Issues the unsubscribe command, if defined, for the `feedback` object passed.
+
 #### `unsubscribeFeedbacks(type: string?) returns void`
+See [[Feedback]]
+
+Will issue any unsubscribe commands that exist for the user's active feedbacks in the modules.  This can be done for all feedbacks or those of a specific type by using the `type` parameter.
 
 ## Predefined REGEX
 Available as `this.REGEX_*` for ES6 or `self.REGEX_*` for prototype
