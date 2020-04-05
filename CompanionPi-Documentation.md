@@ -52,9 +52,14 @@ There are a few commands that will be useful for all CompanionPi users. These co
 
 # CompanionPi Images
 CompanionPi images can be downloaded using the links below. Both the image file and the sha1 checksum are provided. "Versioning" for CompanionPi will be indicated by the date in the filename, rather than a version number.
-* CompanionPi 2020-01-10
-  * Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-01-10/CompanionPi-2020-01-10.img.gz
-  * Checksum: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-01-10/CompanionPi-2020-01-10.img.gz.sha1
+* CompanionPi 2020-04-05
+  * Changes:
+    * Updated Raspberry Pi base (`apt update && apt install -y` on 04 April 2020)
+    * Updated Companion (latest master as of 04 April 2020)
+    * Fixed issue causing new 15-button Stream Decks to not be recognized by Companion.
+  * Image: _upload pending_
+  * Checksum: _upload pending_
+* [Previous Versions](https://github.com/bitfocus/companion/wiki/CompanionPi-Archive)
 
 ## Flashing the Image to your microSD Card
 First of all, you're going to want a fast Micro SD card. One of the most popular ones currently on the market is the SanDisk Extreme PRO 32GB card ([on Amazon, here (Amazon US)](https://www.amazon.com/gp/product/B06XYHN68L)). This isn't always going to be _the best_ one to use, but it is a very good, adequately fast microSD card. Look for anything that is classified as UHS 1 or higher as these will have the read/write speeds you need for your Raspberry Pi to be useful instead of a slow pain in the neck.
