@@ -53,12 +53,12 @@ There are a few commands that will be useful for all CompanionPi users. These co
 # CompanionPi Images
 CompanionPi images can be downloaded using the links below. Both the image file and the sha1 checksum are provided. "Versioning" for CompanionPi will be indicated by the date in the filename, rather than a version number.
 * CompanionPi 2020-04-05
+  * Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-04-05/CompanionPi-2020-04-05.img.gz
+  * Checksum: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-04-05/CompanionPi-2020-04-05.img.gz.sha1
   * Changes:
     * Updated Raspberry Pi base (`apt update && apt install -y` on 04 April 2020)
     * Updated Companion (latest master as of 04 April 2020)
     * Fixed issue causing new 15-button Stream Decks to not be recognized by Companion.
-  * Image: _upload pending_
-  * Checksum: _upload pending_
 * [Previous Versions](https://github.com/bitfocus/companion/wiki/CompanionPi-Archive)
 
 ## Flashing the Image to your microSD Card
