@@ -358,39 +358,21 @@ Later you can access the value of the textfield in the above example with `var u
     { id: '1', label: 'Vanilla' },
     { id: '2', label: 'Strawberry' },
     { id: 'somethingelse', label: 'I hate ice cream' }
-  ]
-}
-```
-The option value will be filled with the id of the selected choice, the id given in default is preselected.
-
-**Select2**
-```
-{
-  type: 'select2',
-  label: 'Genre',
-  id: 'myExampleSelect2',
-  default: '1',
-  tooltip: 'Enter the genre of the music file',
-  choices: [ 
-    { id: '0', label: 'Rock' },
-    { id: '1', label: 'Pop' },
-    { id: '2', label: 'Classical' },
-    { id: 'ambient', label: 'Ambient' }
   ],
   minChoicesForSearch: 0
 }
 ```
-In its simplest form the select2 can be used exactly like a dropdown. Then the only difference is that it is not styled in the native OS way, but like the other bootstrap input elements. To get that behaviour you use exactly the code like you would with a dropdown, but use `type: 'select2'` instead.
-The first difference is, that you can add a search box. The user can type into the search box and the choices will be narrowed according to the input. To always get the search box set the the property `minChoicesForSearch: 0`, "0" means always show the search box. If you set the property minChoicesForSearch to a different value the search box will only be shown if you have at least that much choices. E.g. with `minChoicesForSearch: 8` and up to 7 choices the search box won't be shown and with at least 8 choices the seach box will be shown. This is handy if you retrieve the choices from a remote device and don't know how much there are, for only a few choices you don't waste screen real estate but with many choices you can make it a lot easier to find what you want.
+The option value will be filled with the id of the selected choice, the id given in default is preselected.
+Adding `minChoicesForSearch: x`, will add a search box. The user can type into the search box and the choices will be narrowed according to the input. To always get the search box set the the property `minChoicesForSearch: 0`, "0" means always show the search box. If you set the property minChoicesForSearch to a different value the search box will only be shown if you have at least that much choices. E.g. with `minChoicesForSearch: 8` and up to 7 choices the search box won't be shown and with at least 8 choices the seach box will be shown. This is handy if you retrieve the choices from a remote device and don't know how much there are, for only a few choices you don't waste screen real estate but with many choices you can make it a lot easier to find what you want.
 
-There are two optional properties which change the behaviour of select2 substiantially: multiple and tags.
+There are two optional properties which change the behaviour of dropdown substiantially: multiple and tags.
 
 With `tags: true` the user can generate a new choice on the fly. If he types into the search box and no matching choice is found a new choice is generated after he presses return. Only thing to consider is that the entered text will be used for both, the id and the label.
 It is strongly advisable to use tags only in conjunction with a regex. The syntax is exactly the same like with a textinput, e.g. `regex: '/^myvalue\d+$/'`, now the user still can enter any text in the search box, but a tag is only created when it matches the regex (e.g. "myvalue42").
 If one has just created a tag and now changes the option to a different choice the tag dissapears, but can be recreated at any time. If a project with a stored tag is opened the tag will stay available as long as Companion runs even when deselected. But if Companion is closed all deselected tags are not stored.
 A typical usecase for tags is when you control a device with many storage slots and you create an action to recall a slot. You can retrieve all the used slots with their names and show the user only these slots. He can then easily select a slot. But maybe he wants to preprogram or just chose a slot not in use when you pulled from the machine. Now this can be done with a dynamic tag.
 
-with `multiple: true` select2 can be used to select multiple items but it is rendered much different than the multiselect option. While multiselect gives you a list where all options are shown all the time, select2 gives you a pillbox. That means only when clicking on the option all choices are shown with the search box. After selecting one or more items the selection is shown as pillbox style multiselect. "multiple" can be used without or with "tags", that means the user can also be allowed to generate many new choices on the fly. Valid tags can again be controlled with regex.
+with `multiple: true` dropdown can be used to select multiple items but it is rendered much different than the multiselect option. While multiselect gives you a list where all options are shown all the time, dropdown gives you a pillbox. That means only when clicking on the option all choices are shown with the search box. After selecting one or more items the selection is shown as pillbox style multiselect. "multiple" can be used without or with "tags", that means the user can also be allowed to generate many new choices on the fly. Valid tags can again be controlled with regex.
 The maximum number of selectable choices with multiple are not limited by default. If you want to limit them use `maxSelection: 4` to limit to maximum 4 items.
 The minimum number of selected choices is by default zero returning an empty array. If you want to make the select mandatory use `minSelection: 1` and the user can't remove the last selection. You can also set minSelection to a higher number forcing the user to select more values. Keep in mind that if you want exact n selections and if you set maxSelection is set to n and minSelection is also set to n, the user can't change the selection anymore because he has no possibility to add or delete items from the current selection. If you want a specific number of selections you have to solve this with a validation in your code.
 If you use "multiple" the result will always be an array of strings. If only one choice is selected, the array has only one element.
