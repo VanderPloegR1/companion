@@ -447,7 +447,7 @@ the bank section sets the button up with the look and feel, this is where you se
 bank: {
   style: 'text',
   text: 'Run Demo',
-  size: '18',
+  size: 'auto',
   color: '16777215',
   bgcolor: self.rgb(0,0,0)
 },
