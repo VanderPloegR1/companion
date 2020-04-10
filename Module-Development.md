@@ -442,7 +442,7 @@ Presets are a description of a ready-made button, so the user doesn't have to wr
 In order to add presets to a module, you will need to another function to your module.
 This function creates a button under the category "commands" and names it "Run Demo",
 this part is a lot like how you define an action, here we got a "bank" section and an "action" section.
-the bank section sets the button up with the look and feel, this is where you select the title and size, and where you can set a background colour.
+the bank section sets the button up with the look and feel, this is where you select the title and size, and where you can set a background colour. Valid sizes are: `'auto' | '7' | '14' | '18' | '24' | '30' | '44'`. Other things you can set are `latch: true | false` and `relative_delay: true | false`.
 ```
 bank: {
   style: 'text',
