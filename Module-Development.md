@@ -513,6 +513,19 @@ instance.prototype.init_presets = function () {
 self.setPresetDefinitions(presets);
 }
 ```
+If you wish to add graphics to a preset button, you can use the built in ICONS or create your own .png file and upload it. Here is how to use a built-in Icon. Look at the ```companion/lib/resources/icons.js``` file for more choices.
+```
+bank: {
+   style: 'png',
+   text:  'Record',
+   png64: self.ICON_REC_INACTIVE,
+   pngalignment: 'center:center',
+   size: '18',
+   color: self.rgb(255,255,255),
+   bgcolor: self.rgb(0,0,0)
+}
+```
+ 
 One last thing to keep in mind, in order to import these presets into the module instance, you will need to include this command, in your instance, updateconfig and init function:
 ```
 self.init_presets();
