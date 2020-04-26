@@ -13,8 +13,6 @@ class instance extends instance_skel {
 		super(system,id,config);
 		...
 	}
-
-	...
 }
 
 exports = module.exports = instance;
@@ -31,8 +29,6 @@ function instance(system, id, config) {
 	...
 	return self;
 }
-
-...
 
 instance_skel.extendedBy(instance);
 exports = module.exports = instance;
@@ -59,20 +55,38 @@ Typical processing in `action(action)` involves a `switch` to select between the
 #### `config_fields() returns object[]`
 See [[Configuration]]
 
-Provides a simple return of the necessary fields for the instance configuration screen.
+Provide a simple return of the necessary fields for the instance configuration screen.
 #### `destroy() returns void`
 Clean up the instance before it is destroyed.  This is called both on shutdown and when an instance is disabled or deleted.  Destroy any timers and socket connections here.
 #### `init() returns void`
 Main initialization function called once the module is OK to start doing things.  Principally, this is when the module should establish a connection to the device.
 #### `updateConfig(config: object) returns void`
+When the instance configuration is saved by the user, this update will fire with the new configuration passed.  The configuration should be saved to the module, as shown below.  This is also a good time to check for any important changes, such as the device IP, which require runtime changes or updates based on the new configuration.  An example of resetting a TCP connection is shown in the full sample below.
 
+ES6
+```javscript
+updateConfig(config) {
+	this.config = config;
+}
+```
+Prototype
+```javscript
+instance.prototype.updateConfig = function(config) {
+	self.config = config;
+}
+```
 ## Available Calls
 #### `addUpgradeScript(cb: function) returns void`
 See [[Upgrade Scripts]]
+
+Used to setup an upgrade script for execution.  This must be done in the `constructor`.  This is used when a structural change between releases requires a modification to the user's data.
 #### `checkFeedbacks(type: string?) returns void`
 See [[Feedback]]
+
+Used to scan the user's feedbacks to allow them to check if they are active or not.  This can be done for all feedbacks or those of a specific type by using the `type` parameter.
 #### `defineConst(name: string, value: object) returns void`
 A shortcut to define a class constant:
+
 ES6
 ```javascript
 this.defineConst('STATIC_VALUE', 1);
@@ -85,10 +99,15 @@ self.STATIC_VALUE == 1               // true
 ```
 #### `getAllFeedbacks() returns object[]`
 See [[Feedback]]
+
+Returns as array of all active user feedbacks for the instance.
 #### `getVariable(variable: name, cb: function) returns void`
 See [[Variables]]
+
+Get the current value of a dynamic variable.
 #### `saveConfig() returns void`
 Issues a save for the current `config` array without issuing an `updateConfig(config)`.  This is useful when needing save background configuration data (i.e. variables the user doesn't control but are important) or when saving data that a user can provide but may also auto-detect from the device.
+
 ES6
 ```javascript
 this.config.someValue = "test";
@@ -101,35 +120,62 @@ self.saveConfig();
 ```
 #### `setActions(actions: object[]) returns void`
 See [[Actions]]
+
+Pushes an array of action definitions to the core.
 #### `setFeedbackDefinitions(feedbacks: object[]) returns void`
 See [[Feedback]]
+
+Pushes an array of feedback definitions to the core.
 #### `setPresetDefinitions(presets: object[]) returns void`
 See [[Presets]]
+
+Pushes an array of presets to the core.
 #### `setVariable(variable: string, text: string) returns void`
 See [[Variables]]
+
+Set a dyanic variable's value.
 #### `setVariableDefinitions(variables: object[]) returns void`
 See [[Variables]]
+
+Pushes an array of dynamic variable definitions to the core.
 #### `status(level: string, message: string) returns void`
+Sets the instance's status, which is displayed in the 'Instances' tab.  Available status definitions as:
+- `STATUS_UNKNOWN`
+- `STATUS_OK`
+- `STATUS_WARNING`
+- `STATUS_ERROR`
+
+When using the internal `tcp` module, the status can be driven automatically by the `tcp` object.
+
+ES6
+```javascript
+	this.socket.on('status_change', (status, message) => {
+		this.status(status, message);
+	});
+```
+Prototype
+```javascript
+	self.socket.on('status_change', (status, message) => {
+		self.status(status, message);
+	});
+```
+Otherwise, `STATUS_UNKNOWN` is used to indicate that status cannot be detected.  This is often used for `udp` devices with one-way communications.  `STATUS_OK` should be used to indicated the device is connected and ready to receive commands.  `STATUS_WARNING` and `STATUS_ERROR` should be used to indicate there is a problem with the connection or that performance is degraded.  `STATUS_WARNING` could be used to indicate a connection is established but the device is not ready to receive command.  One such condition would be if a login or negotiation procedure is required.  `STATUS_ERROR` should be used when a connection fails to establish.
 #### `subscribeFeedback(feedback: object) returns void`
 See [[Feedback]]
 
 Issues the subscribe command, if defined, for the `feedback` object passed.
-
 #### `subscribeFeedbacks(type: string?) returns void`
 See [[Feedback]]
 
 Will issue any subscribe commands that exist for the user's active feedbacks in the modules.  This can be done for all feedbacks or those of a specific type by using the `type` parameter.
-
 #### `unsubscribeFeedback(feedback: object) returns void`
 See [[Feedback]]
 
 Issues the unsubscribe command, if defined, for the `feedback` object passed.
-
 #### `unsubscribeFeedbacks(type: string?) returns void`
 See [[Feedback]]
 
 Will issue any unsubscribe commands that exist for the user's active feedbacks in the modules.  This can be done for all feedbacks or those of a specific type by using the `type` parameter.
-
 ## Predefined REGEX
 Available as `this.REGEX_*` for ES6 or `self.REGEX_*` for prototype
 - `REGEX_BOOLEAN` - true|false|0|1
