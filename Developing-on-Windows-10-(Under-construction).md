@@ -5,10 +5,10 @@ Get all core files to your system;
 `git clone https://github.com/bitfocus/companion.git`
 
 Fetch the (sub)modules;
-`./tools/update.sh`
+`tools\update.sh`
 
 Create a buildfile/directory;
-`./tools/build_writefile.sh`
+`tools\build_writefile.sh`
 
 To view the network interfaces available; 
 `node headless.js`
