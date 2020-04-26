@@ -15,7 +15,7 @@
 * [[How to move to a fork after cloning]]
 * [[Module Development]]
   * [[instance_skel]]
-* [[Adding removing of submodules]]
+* [[Adding and Removing of submodules]]
 * [[Update a module into the core]]
 * [[Draft Standard for presets]]
 
