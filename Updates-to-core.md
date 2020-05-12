@@ -1,5 +1,9 @@
 > A companion module is a submodule on GitHub
 
+# For core maintainers
+
+This section is only for companion core maintainers, if you want to add your own module to companion you need to request a new repository for your module, from one of the maintainers. Usually this is done on our slack at the #module-development channel.
+
 ## Adding a (sub)module
 
 First create a new module repo: 
@@ -23,12 +27,4 @@ Push the changes to github, in this case add the submodule to the core:
 
 Make sure you are working in the correct master branch. When you've updated the submodule on gitub, that latest commit is not into the core yet.
 
-`git status`
-
-Will display the changes compared to the core (if you are in the base companion directory)
-
-`git add lib/module/[theModuleThatNeedsAnUpgrade]`
-
-`git commit -m "Module upgraded: theModuleThatNeedsAnUpgrade [short message about what is new, fixed, solved]"`
-
-`git push`
+`tools/upgrade_module.sh <theModuleThatNeedsAnUpgrade> '[Optional description of module changes]'`
