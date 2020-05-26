@@ -4,7 +4,7 @@
 
 1. This process requires another package that is not included in those instructions:
    ```bash
-   sudo apt intall libgconf2-dev
+   sudo apt install libgconf2-dev
    ```
 1. Run one of the following commands from within the companion directory to create your distributable build
    * Desktop Linux: `yarn lindist`
