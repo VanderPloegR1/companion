@@ -41,7 +41,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 WorkingDirectory=/usr/local/src/companion
-ExecStart=/usr/local/src/companion/headless_ip.js 0.0.0.0
+ExecStart=node /usr/local/src/companion/headless_ip.js 0.0.0.0
 Restart=on-failure
 KillSignal=SIGINT
 TimeoutStopSec=60
