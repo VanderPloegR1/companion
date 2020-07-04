@@ -35,23 +35,6 @@ exports = module.exports = instance;
 ```
 ## Required Functions
 Because `instance_skel` is effectively an `abstract` class, there are functions your module MUST implement in order to function correctly.
-#### `action(action: object) returns void`
-See [[Actions]]
-
-This function will be called for each action and release action a user executes.  The action parameter will be this data structure:
-```javascript
-{
-	id:       "FE6A5IuPC",               // Random ID for action
-	label:    "ZPc65TB4z:action_name",   // String representation of: 'instance:action'
-	instance: "ZPc65TB4z",               // Instance ID
-	action:   "action_name",             // Action name/key
-	options:  {                          // Array of options in 'id: value' pairs
-		opt1_text: "Test",
-		opt1_num:  1
-	}
-}
-```
-Typical processing in `action(action)` involves a `switch` to select between the action types, which builds a command string to send to the device.  Once out of the `switch` the command would be packaged and sent to the device.  This is shown in the full examples at the bottom of the page.
 #### `config_fields() returns object[]`
 See [[Configuration]]
 
@@ -75,6 +58,40 @@ instance.prototype.updateConfig = function(config) {
 	self.config = config;
 }
 ```
+## Optional Functions
+#### `action(action: object) returns void`
+See [[Actions]]
+
+This function will be called for each action and release action a user executes when the action doesn't have a callback defined.  The action parameter will be this data structure:
+```javascript
+{
+	id:       "FE6A5IuPC",               // Random ID for action
+	label:    "ZPc65TB4z:action_name",   // String representation of: 'instance:action'
+	instance: "ZPc65TB4z",               // Instance ID
+	action:   "action_name",             // Action name/key
+	options:  {                          // Array of options in 'id: value' pairs
+		opt1_text: "Test",
+		opt1_num:  1
+	}
+}
+```
+Typical processing in `action(action)` involves a `switch` to select between the action types, which builds a command string to send to the device.  Once out of the `switch` the command would be packaged and sent to the device.  This is shown in the full examples at the bottom of the page.
+#### `feedback(feedback: object, bank: object) returns object`
+See [[Feedback]]
+
+This function will be called for each feedback a user executes when the .  The feedback parameter will be this data structure:
+```javascript
+{
+	id:       "FE6A5IuPC",               // Random ID for action
+	instance: "ZPc65TB4z",               // Instance ID
+	type:     "feedback_type",           // Feedback name/key
+	options:  {                          // Array of options in 'id: value' pairs
+		opt1_text: "Test",
+		opt1_num:  1
+	}
+}
+```
+Typical processing in `feedback(feedback, bank)` involves a `switch` to select between the feedback types, 
 ## Available Calls
 #### `addUpgradeScript(cb: function) returns void`
 See [[Upgrade Scripts]]
@@ -97,6 +114,10 @@ Prototype
 self.defineConst('STATIC_VALUE', 1);
 self.STATIC_VALUE == 1               // true
 ```
+#### `getAllActions() returns object[]`
+See [[Actions]]
+
+Returns as array of all active user actions and release actions for the instance.
 #### `getAllFeedbacks() returns object[]`
 See [[Feedback]]
 
@@ -160,6 +181,14 @@ Prototype
 	});
 ```
 Otherwise, `STATUS_UNKNOWN` is used to indicate that status cannot be detected.  This is often used for `udp` devices with one-way communications.  `STATUS_OK` should be used to indicated the device is connected and ready to receive commands.  `STATUS_WARNING` and `STATUS_ERROR` should be used to indicate there is a problem with the connection or that performance is degraded.  `STATUS_WARNING` could be used to indicate a connection is established but the device is not ready to receive command.  One such condition would be if a login or negotiation procedure is required.  `STATUS_ERROR` should be used when a connection fails to establish.
+#### `subscribeAction(action: object) returns void`
+See [[Actions]]
+
+Issues the subscribe command, if defined, for the `action` object passed.
+#### `subscribeActions(type: string?) returns void`
+See [[Actions]]
+
+Will issue any subscribe commands that exist for the user's active actions and release actions in the modules.  This can be done for all actions or those of a specific type by using the `type` parameter.
 #### `subscribeFeedback(feedback: object) returns void`
 See [[Feedback]]
 
@@ -168,6 +197,14 @@ Issues the subscribe command, if defined, for the `feedback` object passed.
 See [[Feedback]]
 
 Will issue any subscribe commands that exist for the user's active feedbacks in the modules.  This can be done for all feedbacks or those of a specific type by using the `type` parameter.
+#### `unsubscribeAction(action: object) returns void`
+See [[Actions]]
+
+Issues the unsubscribe command, if defined, for the `action` object passed.
+#### `unsubscribeActions(type: string?) returns void`
+See [[Actions]]
+
+Will issue any unsubscribe commands that exist for the user's active actions and release actions in the modules.  This can be done for all actions or those of a specific type by using the `type` parameter.
 #### `unsubscribeFeedback(feedback: object) returns void`
 See [[Feedback]]
 
@@ -203,42 +240,7 @@ class instance extends instance_skel {
 
 	constructor(system,id,config) {
 		super(system,id,config);
-		this.actions();
-	}
-
-	actions() {
-		let actions = {};
-
-		actions['sample_action'] = {
-			label: 'Sample Action',
-			options: [
-				{
-					type: 'textinput',
-					label: 'Some Text',
-					id: 'text',
-					regex: this.REGEX_SOMETHING
-				}
-			]
-		};
-
-		this.setActions(actions);
-	}
-
-	action(action) {
-		let opt = action.options;
-		let cmd = '';
-
-		switch (action.action) {
-			case 'sample_action':
-				cmd = `SET sample_action: ${opt.text}`;
-				break;
-		}
-
-		if (cmd !== undefined && cmd != '') {
-			if (this.socket !== undefined && this.socket.connected) {
-				this.socket.send(cmd);
-			}
-		}
+		this.initActions();
 	}
 
 	config_fields() {
@@ -275,6 +277,28 @@ class instance extends instance_skel {
 		this.initTCP();
 	}
 
+	initActions() {
+		let actions = {};
+
+		actions['sample_action'] = {
+			label: 'Sample Action',
+			options: [
+				{
+					type: 'textinput',
+					label: 'Some Text',
+					id: 'text',
+					regex: this.REGEX_SOMETHING
+				}
+			],
+			callback(action, bank) => {
+				let opt = action.options;
+				this.sendCommand(`SET sample_action: ${opt.text}`);
+			}
+		};
+
+		this.setActions(actions);
+	}
+
 	initTCP() {
 		if (this.socket !== undefined) {
 			this.socket.destroy();
@@ -300,6 +324,15 @@ class instance extends instance_skel {
 			this.socket.on('connect', () => {
 				this.debug("Connected");
 			});
+		}
+	}
+
+	sendCommand(cmd) {
+
+		if (cmd !== undefined && cmd != '') {
+			if (this.socket !== undefined && this.socket.connected) {
+				this.socket.send(cmd);
+			}
 		}
 	}
 
@@ -333,46 +366,9 @@ function instance(system, id, config) {
 	// super-constructor
 	instance_skel.apply(this, arguments);
 
-	self.actions(); // export actions
+	self.initActions(); // export actions
 
 	return self;
-}
-
-intsance.prototype.actions = function() {
-	var self = this;
-	var actions = {};
-
-	actions['sample_action'] = {
-		label: 'Sample Action',
-		options: [
-			{
-				type: 'textinput',
-				label: 'Some Text',
-				id: 'text',
-				regex: self.REGEX_SOMETHING
-			}
-		]
-	};
-
-	self.setActions(actions);
-}
-
-intance.prototype.action = function(action) {
-	var self = this;
-	var opt = action.options;
-	var cmd = '';
-
-	switch (action.action) {
-		case 'sample_action':
-			cmd = `SET sample_action: ${opt.text}`;
-			break;
-	}
-
-	if (cmd !== undefined && cmd != '') {
-		if (self.socket !== undefined && self.socket.connected) {
-			self.socket.send(cmd);
-		}
-	}
 }
 
 instance.prototype.config_fields = function() {
@@ -414,6 +410,29 @@ instance.prototype.init = function() {
 	self.initTCP();
 }
 
+intsance.prototype.initActions = function() {
+	var self = this;
+	var actions = {};
+
+	actions['sample_action'] = {
+		label: 'Sample Action',
+		options: [
+			{
+				type: 'textinput',
+				label: 'Some Text',
+				id: 'text',
+				regex: self.REGEX_SOMETHING
+			}
+		],
+		callback(action, bank) => {
+			var opt = action.options;
+			self.sendCommand(`SET sample_action: ${opt.text}`);
+		}
+	};
+
+	self.setActions(actions);
+}
+
 instance.prototype.initTCP = function() {
 	var self = this;
 
@@ -441,6 +460,16 @@ instance.prototype.initTCP = function() {
 		self.socket.on('connect', () => {
 			self.debug("Connected");
 		});
+	}
+}
+
+intance.prototype.sendCommand = function(cmd) {
+	var self = this;
+
+	if (cmd !== undefined && cmd != '') {
+		if (self.socket !== undefined && self.socket.connected) {
+			self.socket.send(cmd);
+		}
 	}
 }
 
