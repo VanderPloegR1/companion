@@ -6,14 +6,14 @@
     * [CompanionPi Terminal Commands](#companionpi-terminal-commands)
 1. [CompanionPi Images](#companionpi-images)
 1. [Accessing the Companion Admin User Interface](#accessing-the-companion-admin-user-interface)
-1. [Complete Changes from Base Raspbian](#complete-changes-from-base-raspbian)
+1. [Complete Changes from Base OS](#complete-changes-from-base-os)
 
 # About CompanionPi
 CompanionPi is built and maintained by a member of the community, not by Bitfocus or its employees. If you encounter issues using CompanionPi, you should ask questions in the #rpi channel of the Bitfocus AS Slack server or report issues/feature requests [here, on GitHub](https://github.com/bitfocus/companion/issues).
 
-The current version of CompanionPi is built specifically for Rasbpian Buster on the Raspberry Pi 4. It has not been tested, and is not in any way supported on, any previous version of the Raspberry Pi or on any other Raspberry Pi operating system. Additionally, you'll want to make sure your Raspberry Pi is the 4GB variant.
+The current version of CompanionPi is built specifically for Rasbperry Pi OS on the Raspberry Pi 4. It has not been tested, and is not in any way supported on, any previous version of the Raspberry Pi or on any other Raspberry Pi operating system. Additionally, you'll want to make sure your Raspberry Pi is the 4GB variant.
 
-Due to the fact that are working with the Raspberry Pi, CompanionPi is built on Raspbian Buster Lite. This is intended for headless operation (no display, mouse, or keyboard attached). This mode of operation is the recommended mode because this maximizes the resources available to Companion.
+Due to the fact that are working with the Raspberry Pi, CompanionPi is built on Raspberry Pi OS Lite. This is intended for headless operation (no display, mouse, or keyboard attached). This mode of operation is the recommended mode because this maximizes the resources available to Companion.
 
 ## System Requirements
 * Raspberry Pi 4B 4GB
@@ -21,7 +21,7 @@ Due to the fact that are working with the Raspberry Pi, CompanionPi is built on 
 * Adequate power supply adapter (recommend the [official Raspberry Pi power supply](https://www.raspberrypi.org/products/type-c-power-supply/))
 
 ## Configuration Notes
-CompanionPi is built on the Raspbian OS. Aside from the addition of the Companion source code, only a few minor changes have been made to the system configuration to facilitate construction of the image(s):
+CompanionPi is built on the Raspbrrry Pi OS. Aside from the addition of the Companion source code, only a few minor changes have been made to the system configuration to facilitate construction of the image(s):
 * **SSH Server is enabled by default**
 * The default `pi` user account still has the default `raspberry` password. This is left up to you to change for security purposes should you choose to do so [(and you should!)](https://www.raspberrypi.org/documentation/configuration/security.md)
 * Locale, Timezone, and Keyboard Layout settings were changed to US-based settings instead of the default UK-based settings
@@ -74,8 +74,8 @@ Once you've got your Raspberry Pi up and running with the CompanionPi image, you
 Once you know your IP address, you can access the Companion Admin User Interface on port 8000 of that IP address (i.e. http://192.168.1.3:8000).
 
 
-# Complete Changes from Base Raspbian
-These notes are not a "to-do" list, but are provided for transparency so users can see what changes have been made to the default Raspbian environment to make CompanionPi work. Enterprising users are free to make additional changes in their own environments, and having this informational baseline is always helpful in doing so.
+# Complete Changes from Base OS
+These notes are not a "to-do" list, but are provided for transparency so users can see what changes have been made to the default environment to make CompanionPi work. Enterprising users are free to make additional changes in their own environments, and having this informational baseline is always helpful in doing so.
 
 * Changed default hostname from `raspberrypi` to `CompanionPi`  
 _(raspi-config > 2 Network Options > N1 Hostname)_
