@@ -47,7 +47,7 @@ But at that point you have only one remote to your local repository, the automat
 
 ## Editing code
 To edit the source code or write new code you can use any text editor you like, but there are many editors which are made especially for developing computer code or even better especially for JavaScript.
-If you have no idea you should try the [atom editor](https://atom.io/), it is open source as well and very customizable.
+If you have no idea you should try the [Visual Studio Code](https://code.visualstudio.com/) editor.
 ### Bracing and indentation
 Use tabs for indentation. We use tabwith=2, but you can do whatever you like. One indentation = one tab.
 
