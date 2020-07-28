@@ -16,7 +16,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 WorkingDirectory=/home/pi/companion
-ExecStart=/home/pi/companion/headless.js eth0
+ExecStart=node /home/pi/companion/headless_ip.js 0.0.0.0
 Restart=on-failure
 KillSignal=SIGINT
 TimeoutStopSec=60
@@ -24,7 +24,9 @@ TimeoutStopSec=60
 [Install]
 WantedBy=multi-user.target
 ```
-> Don't forget to enable the service with `sudo systemctl enable companion.service` and reboot `sudo reboot`
+> Don't forget to enable the service with `sudo systemctl enable companion.service` and reboot `sudo reboot`  
+> When using the network-online.target with systemd make sure this service is enabled;  
+`sudo systemctl enable systemd-networkd-wait-online.service`
 
 # CompanionPi Unit File
 More information about the CompanionPi project can be found here: [[CompanionPi Documentation]]  
