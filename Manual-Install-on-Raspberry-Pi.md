@@ -1,21 +1,28 @@
-These instructions will walk you through installing Companion v2.0 on your Raspberry Pi 4 Model B 4GB.
+These instructions will walk you through installing Companion v2.0 on your Raspberry Pi 4 Model B.
 
-> :information_source: **Please Note:** The only supported Raspberry Pi hardware is the Raspberry Pi 4 4GB (1GB/2GB is not supported).
+> :information_source: **Please Note:** The only supported Raspberry Pi hardware is the Raspberry Pi 4 4/8GB (1GB/2GB is not supported).
 
 > :exclamation: **WARNING** Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, **but it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
 
-When running Companion on the Raspberry Pi, the recommended mode of operation is "headless" (no monitor, keyboard, or mouse attached). As such, it is recommended to use Raspbian Buster Lite as your operating system. This maximizes the resources available to Companion.
-> :information_source: **Please Note:** Raspbian is the only supported Raspberry Pi operating system. These instructions do not work with the n00bs environment (known incompatibility), and no other operating systems have been tested or are supported.
+When running Companion on the Raspberry Pi, the recommended mode of operation is "headless" (no monitor, keyboard, or mouse attached). As such, it is recommended to use Raspberry Pi OS Lite as your operating system. This maximizes the resources available to Companion. If you wish to have a desktop user interface on the same Pi, there are steps at the end of this document that will get you there.
+> :information_source: **Please Note:** Raspberry Pi OS is the only supported Raspberry Pi operating system. These instructions do not work with the n00bs environment (known incompatibility), and no other operating systems have been tested or are supported.
 
 - [Installing Companion](#installing-companion)
-- [Build for Another Device](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#build-for-another-device)
+- [Adding a Desktop User Interface](#adding-a-desktop-user-interface)
 - [Updating Companion](https://github.com/bitfocus/companion/wiki/Manual-Install-on-Raspberry-Pi#updating-companion)
 
 
 # Installing Companion
-Before starting the installation process, you'll need to get your Raspberry Pi set up and configured. You'll need to make sure you've got SSH access enabled (`sudo raspi-config` on the Raspberry Pi terminal to enable) before starting. These instructions assume your Raspberry Pi is fully configured and ready to go.
+Before starting the installation process, you'll need to get your Raspberry Pi set up and configured.
+* Start with a clean Raspberry Pi OS Lite install ([download here](https://downloads.raspberrypi.org/raspios_lite_armhf_latest))
+  * If you want to have a desktop user interface, there is an additional section after the base install that will walk you through installing the XFCE Desktop Window Manager.
+* You'll need to make sure you've got SSH access enabled (`sudo raspi-config` on the Raspberry Pi terminal to enable) before starting.
 
-These steps assume you're starting from the home directory of the current user. If not, your mileage may vary with these instructions. It is recommended to move to the home directory (`cd ~`) before starting:
+These instructions assume the following:
+* Your Raspberry Pi is fully configured and ready to go.
+* You are starting starting from the home directory of the current user.
+  * If not, your mileage may vary with these instructions.
+  * It is recommended to move to the home directory (`cd ~`) before starting:
 
 1. Make sure apt and all installed packages are up-to-date.
    ```bash
@@ -79,6 +86,21 @@ These steps assume you're starting from the home directory of the current user. 
 1. Follow the instructions here to create a service which will start Companion automatically at system boot: [auto start companion using systemd](https://github.com/bitfocus/companion/wiki/Auto-Start-Companion-on-Linux-Using-systemd).
 
 1. Reboot your Raspberry Pi (`sudo reboot`), wait a couple minutes, and you should be able to access the Companion UI on port 8000 of your Raspberry Pi's IP address (i.e. `http://192.168.1.2:8000`)
+
+# Adding a Desktop User Interface
+After rebooting your Pi post-install, we can add a Desktop User Interface by following these steps:
+1. Let's install some more applications:
+   ```bash
+   cd ~
+   sudo apt install lightdm xfce4 xfce4-terminal rc-gui chromium filezilla
+   ```
+
+2. Once those are done installing, you'll need to tweak some settings in the `raspi-config` command-line utility:
+    * Set the Pi to automatically boot to the desktop: `3 Boot Options` --> `B1 Desktop / CLI` --> `Desktop` or `Desktop Autologin`
+    * Set your locale: `4 Localisation Options` --> all sub-menu items should be adjusted to match your locale
+    * Set your default desktop resolution: `7 Advanced Options` --> `A5 Resolution`
+    * Network-facing system name: `2 Network Options` --> `N1 Hostname`
+      * You must reboot for this change to take effect
 
 # Updating Companion
 Instructions for updating Companion on your Raspberry Pi can be found here: [[Updating Companion on your Raspberry Pi]]
