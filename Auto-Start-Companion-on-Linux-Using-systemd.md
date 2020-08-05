@@ -15,6 +15,7 @@ Wants=network-online.target
 
 [Service]
 Type=simple
+User=pi
 WorkingDirectory=/home/pi/companion
 ExecStart=node /home/pi/companion/headless_ip.js 0.0.0.0
 Restart=on-failure
