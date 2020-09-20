@@ -10,7 +10,7 @@
 ---
 
 **Development**
-* [[Developing on Windows 10 (Under construction)]]
+* [[Developing on Windows 10]]
 * [[Developing on Windows Subsystem for Linux]]
 * [[How to move to a fork after cloning]]
 * [[Module Development]]
