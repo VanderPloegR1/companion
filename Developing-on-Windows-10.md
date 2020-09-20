@@ -1,4 +1,4 @@
-Install node latest form [here](https://nodejs.org/en/) and make sure you install additional tools like chocolatery (its a separate process, but it installs important stuff like Visual Studio buildtools and python).
+Install node latest form [here](https://nodejs.org/en/) and make sure you install additional tools like chocolatey (its a separate process, but it installs important stuff like Visual Studio buildtools and python).
 
 Install Visual studio code: (https://code.visualstudio.com//) or Atom (https://atom.io/) as your editor
 
