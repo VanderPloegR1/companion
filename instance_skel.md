@@ -126,6 +126,10 @@ Returns as array of all active user feedbacks for the instance.
 See [[Variables]]
 
 Get the current value of a dynamic variable.
+#### `parseVariables(string: string, cb: function) returns void`
+See [[Variables]]
+
+Parses a string with dynamic variables to the live values.
 #### `saveConfig() returns void`
 Issues a save for the current `config` array without issuing an `updateConfig(config)`.  This is useful when needing save background configuration data (i.e. variables the user doesn't control but are important) or when saving data that a user can provide but may also auto-detect from the device.
 

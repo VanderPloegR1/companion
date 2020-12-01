@@ -19,13 +19,13 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
 2. Install [homebrew](https://docs.brew.sh/) `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 3. Install needed packages `brew install nodejs npm libusb git`
 4. Install npm packages: `npm install n yarn -g`
-5. Select needed node.js version using n: `n 8.12.0`
+5. Select needed node.js version using n: `n 12.19.1`
 6. Create directory to clone companion to and change to that directory: `mkdir -p ~/src && cd ~/src`
 7. Clone the companion repository: `git clone https://github.com/bitfocus/companion`
 8. Install required node.js modules and update companion modules: `cd companion && ./tools/update.sh && ./tools/build_writefile.sh`
 
 ## Getting started
-1. Tell node what version you want to use ```n 8.12.0```
+1. Tell node what version you want to use ```n 12.19.1```
 2. If you don't have a GitHub account yet, now you have to make one.
 3. Fork the companion repository. Go to the [companion repository](https://github.com/bitfocus/companion) and click on Fork in the right top corner. Now GitHub will make a complete copy of all the companion source in your account, but GitHub will remember that this is a copy derived from the original Bitfocus/companion repository. If you want to make changes to the code or write a new module you cannot change the data in the Bitfocus/companion repository but you can write to your own fork. 
 4. You cannot edit the code on GitHub (not really), you have to do this on your local computer. Use git to clone your fork to your computer. First change to the directory where you want to have your local repositoy and then ```git clone <your forked repository>```. \<your forked repository\> is something like https://github.com/yourgithubusername/companion.git

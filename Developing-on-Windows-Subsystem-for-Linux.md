@@ -8,8 +8,8 @@ First install Windows Subsystem for Linux (reboot yes);
 
 Download from the windows store a Linux distribution (I used Ubuntu LTS search for linux) and install/start it (just follow the steps). This will install a command line interface for Ubuntu. It will start automatically. 
 
-Install nodejs 8 (we use 8 for companion)
-`curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -`
+Install nodejs 12 (we use 12 for companion)
+`curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -`
 
 `sudo apt-get install gcc g++ make`
 
@@ -81,7 +81,7 @@ This will install the v0.34.0 version check on the website for the latest versio
 
 Then install your version of nodejs;
 
-`nvm install 8.15.1`
+`nvm install 12.19.1`
 
 verify after install if this is the version being used;
 `nvm list`
