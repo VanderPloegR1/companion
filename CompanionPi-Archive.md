@@ -1,3 +1,7 @@
+* Companion 2020-07-02
+  * Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-07-02/CompanionPi-2020-07-02.img.gz
+  * Checksum (SHA256): https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-07-02/CompanionPi-2020-07-02.img.gz.sha256sum
+
 CompanionPi 2020-04-05
 * Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-04-05/CompanionPi-2020-04-05.img.gz
 * Checksum: https://s3.bitfocus.io/rpi-builds/CompanionPi-2020-04-05/CompanionPi-2020-04-05.img.gz.sha1
