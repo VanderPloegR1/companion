@@ -86,7 +86,7 @@ Then install your version of nodejs;
 verify after install if this is the version being used;
 `nvm list`
 
-### Install pyhton
+### Install python
 
 `sudo apt install python`
 
