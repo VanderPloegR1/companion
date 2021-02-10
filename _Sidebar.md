@@ -6,6 +6,7 @@
   * [[Manual Install on Raspberry Pi]]
   * [[Auto Start Companion on Linux Using systemd]]
 * [[Build for Another Device (Distributable Linux Build)]]
+*[[X Keys support]]
 
 ---
 
