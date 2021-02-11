@@ -9,4 +9,4 @@ Some tip's;
 ## T-Bar
 When your model has a t-bar, it will update the variable $(internal:t-bar) you can use this variable in other modules. 
 
->> When you want to use the t-bar with vMix check this video: [setup vMix with midi](https://www.youtube.com/watch?v=D0palug7MKY). Use the t-bar of the xkeys instead of the midicontroller shown. When you use the variable option in vMix, the software automatically switches back to zero/left, that can give issues. So for now, use the option as described.
+When you have questions, drop a message in Slack
