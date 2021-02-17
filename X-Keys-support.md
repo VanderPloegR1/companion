@@ -7,9 +7,25 @@ Some tip's;
 
 Best tip I could give is to create pages just for the xkeys, start for example on page 50. Remove the page up/down/index buttons and put the page setting of the surface to 50.
 
-## When you see `Button 2.1 pressed` while you press 1 and `Button 99.17 pressed` while you press 17, you still have the page up/down buttons programmed ##
+>> When you see `Button 2.1 pressed` while you press 1 and `Button 99.17 pressed` while you press 17, you still have the page up/down buttons programmed
 
-## T-Bar
+## T-Bar ##
 When your model has a t-bar, it will update the variable $(internal:t-bar) you can use this variable in other modules. 
 
 When you have questions, drop a message in Slack
+
+Supported models:
+* XK-24
+* XK-4
+* XK-8
+* XK-12 Jog
+* XK-12 Joystick
+* XK-16
+* XR-32
+* XK-60
+* XK-80
+* XKE-124 T-bar
+* XKE-128
+* XK-68 Jog-Shuttle
+		
+	
