@@ -80,6 +80,7 @@ These instructions assume the following:
    git clone https://github.com/bitfocus/companion.git
    cd companion
    yarn update
+   npm install
    ./tools/build_writefile.sh
    ```
 
