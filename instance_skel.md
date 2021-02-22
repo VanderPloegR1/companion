@@ -294,7 +294,7 @@ class instance extends instance_skel {
 					regex: this.REGEX_SOMETHING
 				}
 			],
-			callback(action, bank) => {
+			callback: (action, bank) => {
 				let opt = action.options;
 				this.sendCommand(`SET sample_action: ${opt.text}`);
 			}
