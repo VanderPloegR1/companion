@@ -9,6 +9,9 @@ Best tip I could give is to create pages just for the xkeys, start for example o
 
 >> When you see `Button 2.1 pressed` while you press 1 on the xkeys and `Button 99.17 pressed` while you press 17, you still have the page up/down buttons programmed.
 
+## Feedback ##
+The xkeys red backlight will respond to programmed feedback. When the red value of a background color is above 125 the button red light will go on
+
 ## T-Bar ##
 When your model has a t-bar, it will update the variable $(internal:t-bar) you can use this variable in other modules. 
 
