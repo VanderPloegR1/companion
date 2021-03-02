@@ -16,15 +16,23 @@
 * [[How to move to a fork after cloning]]
 * [[Module Development]]
   * [[instance_skel]]
+  * [[Module Configuration]]
+  * [[Actions]]
+  * [[Feedback]]
+  * [[Presets]]
+  * [[Variables]]
 * [[Adding and Removing of submodules]]
-* [[Update a module into the core]]
 * [[Draft Standard for presets]]
 
 ---
 
 **More Information**
-* [[Updates to core]]
 * [[Linking to Companion]]
 * [[Text input]]
-* [[Modules TODO]]
 * [[How to add Unicode Hex input on mac]]
+
+---
+
+**Maintainer Docs**
+* [[Module Management]]
+* [[Modules TODO]]

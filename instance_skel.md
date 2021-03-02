@@ -1,11 +1,11 @@
 # Extending `instance_skel`
-All modules include and extend the `lib/instance_skel.js` class.  This provides a base level of functionality and communication with the core application.  This is typically done in the module's `index.js` file.
+All modules include and extend the `/instance_skel.js` class.  This provides a base level of functionality and communication with the core application.  This is typically done in the module's `index.js` file.
 
 ## Setup
 If you're not familiar with class extension, the below examples show how to bring in `instance_skel` and setup an `instance` class to extend this.  This is required, as `instance_skel` is effectively an `abstract` class with a lot of internal processing to make your module work seamlessly.
 ### ES6
 ```javascript
-var instance_skel = require('../../instance_skel');
+const instance_skel = require('../../instance_skel');
 
 class instance extends instance_skel {
 
@@ -36,7 +36,7 @@ exports = module.exports = instance;
 ## Required Functions
 Because `instance_skel` is effectively an `abstract` class, there are functions your module MUST implement in order to function correctly.
 #### `config_fields() returns object[]`
-See [[Configuration]]
+See [[Module Configuration]]
 
 Provide a simple return of the necessary fields for the instance configuration screen.
 #### `destroy() returns void`
@@ -66,12 +66,11 @@ This function will be called for each action and release action a user executes 
 ```javascript
 {
 	id:       "FE6A5IuPC",               // Random ID for action
-	label:    "ZPc65TB4z:action_name",   // String representation of: 'instance:action'
 	instance: "ZPc65TB4z",               // Instance ID
 	action:   "action_name",             // Action name/key
 	options:  {                          // Array of options in 'id: value' pairs
 		opt1_text: "Test",
-		opt1_num:  1
+		opt2_num:  1
 	}
 }
 ```
@@ -79,7 +78,7 @@ Typical processing in `action(action)` involves a `switch` to select between the
 #### `feedback(feedback: object, bank: object) returns object`
 See [[Feedback]]
 
-This function will be called for each feedback a user executes when the .  The feedback parameter will be this data structure:
+This function will be called when a feedback needs to be proceessed and the feedback doesn't have a callback defined.  The feedback parameter will be this data structure:
 ```javascript
 {
 	id:       "FE6A5IuPC",               // Random ID for action
@@ -87,11 +86,11 @@ This function will be called for each feedback a user executes when the .  The f
 	type:     "feedback_type",           // Feedback name/key
 	options:  {                          // Array of options in 'id: value' pairs
 		opt1_text: "Test",
-		opt1_num:  1
+		opt2_num:  1
 	}
 }
 ```
-Typical processing in `feedback(feedback, bank)` involves a `switch` to select between the feedback types, 
+Typical processing in `feedback(feedback, bank)` involves a `switch` to select between the feedback types, which processes the type and returns any changes that need to be applied to the bank.
 ## Available Calls
 #### `addUpgradeScript(cb: function) returns void`
 See [[Upgrade Scripts]]
@@ -184,7 +183,7 @@ Prototype
 		self.status(status, message);
 	});
 ```
-Otherwise, `STATUS_UNKNOWN` is used to indicate that status cannot be detected.  This is often used for `udp` devices with one-way communications.  `STATUS_OK` should be used to indicated the device is connected and ready to receive commands.  `STATUS_WARNING` and `STATUS_ERROR` should be used to indicate there is a problem with the connection or that performance is degraded.  `STATUS_WARNING` could be used to indicate a connection is established but the device is not ready to receive command.  One such condition would be if a login or negotiation procedure is required.  `STATUS_ERROR` should be used when a connection fails to establish.
+Otherwise, `STATUS_UNKNOWN` is used to indicate that status cannot be detected.  This is often used for `udp` devices with one-way communications.  `STATUS_OK` should be used to indicated the device is connected and ready to receive commands.  `STATUS_WARNING` and `STATUS_ERROR` should be used to indicate there is a problem with the connection or that performance is degraded.  `STATUS_WARNING` could be used to indicate a connection is established but the device is not ready to receive commands.  One such condition would be if a login or negotiation procedure is in progress.  `STATUS_ERROR` should be used when a connection fails to establish or the device is otherwise in an unrecoverable trouble status.
 #### `subscribeAction(action: object) returns void`
 See [[Actions]]
 
@@ -220,7 +219,7 @@ Will issue any unsubscribe commands that exist for the user's active feedbacks i
 ## Predefined REGEX
 Available as `this.REGEX_*` for ES6 or `self.REGEX_*` for prototype
 - `REGEX_BOOLEAN` - true|false|0|1
-- `REGEX_FLOAT` - xxx.yyy _(lengths no defined)_
+- `REGEX_FLOAT` - xxx.yyy _(lengths not defined)_
 - `REGEX_FLOAT_OR_INT` - xxx[.yyy] _(lengths not defined)_
 - `REGEX_IP` - IP Address
 - `REGEX_NUMBER` - any number
@@ -235,10 +234,8 @@ Available as `this.REGEX_*` for ES6 or `self.REGEX_*` for prototype
 When you put all of this together, a simplified module requiring a TCP socket would look like the ES6 and Prototype examples below.
 ### ES6
 ```javascript
-var tcp = require('../../tcp');
-var instance_skel = require('../../instance_skel');
-var debug;
-var log;
+const tcp = require('../../tcp');
+const instance_skel = require('../../instance_skel');
 
 class instance extends instance_skel {
 
@@ -275,9 +272,6 @@ class instance extends instance_skel {
 	}
 
 	init() {
-		debug = this.debug;
-		log = this.log;
-
 		this.initTCP();
 	}
 
@@ -341,7 +335,7 @@ class instance extends instance_skel {
 	}
 
 	updateConfig(config) {
-		var resetConnection = false;
+		let resetConnection = false;
 
 		if (this.config.host != config.host) {
 			resetConnection = true;
@@ -428,7 +422,7 @@ intsance.prototype.initActions = function() {
 				regex: self.REGEX_SOMETHING
 			}
 		],
-		callback(action, bank) => {
+		callback = function(action, bank) {
 			var opt = action.options;
 			self.sendCommand(`SET sample_action: ${opt.text}`);
 		}
@@ -452,16 +446,16 @@ instance.prototype.initTCP = function() {
 	if (self.config.host) {
 		self.socket = new tcp(self.config.host, self.config.port);
 
-		self.socket.on('status_change', (status, message) => {
+		self.socket.on('status_change', function(status, message) {
 			self.status(status, message);
 		});
 
-		self.socket.on('error', (err) => {
+		self.socket.on('error', function(err) {
 			self.debug("Network error", err);
 			self.log('error',"Network error: " + err.message);
 		});
 
-		self.socket.on('connect', () => {
+		self.socket.on('connect', function() {
 			self.debug("Connected");
 		});
 	}
