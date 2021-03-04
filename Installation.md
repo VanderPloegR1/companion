@@ -26,7 +26,7 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f4?", MODE:="666"
 KERNEL=="hidraw", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f4?", MODE:="666", GROUP="plugdev"
 ```
 
-*NB:* The location of the udev rules might differ on your linux distirbution. Find a folder with other `.rules` files.
+*NB:* The location of the udev rules might differ on your linux distribution. Find a folder with other `.rules` files.
 
 When you have done this, you can either reboot, or disconnect the devices and run
 ```
