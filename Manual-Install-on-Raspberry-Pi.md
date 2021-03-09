@@ -63,7 +63,7 @@ These instructions assume the following:
 1. Install Node.js tools
    ```bash
    sudo npm install n -g
-   sudo n 12.19.1
+   sudo n 12.21.0
    ```
    :warning: *double-check https://github.com/bitfocus/companion/blob/master/DEVELOPER.md to confirm the current required node.js version*
 

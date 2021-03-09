@@ -81,7 +81,7 @@ This will install the v0.34.0 version check on the website for the latest versio
 
 Then install your version of nodejs;
 
-`nvm install 12.19.1`
+`nvm install 12.21.0`
 
 verify after install if this is the version being used;
 `nvm list`

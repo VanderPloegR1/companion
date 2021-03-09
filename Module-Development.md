@@ -6,7 +6,7 @@ This document describes what you need to know and do to make a beautiful module 
 Companion is written in Javascript and uses the node.js runtime. That means you should be at least a little bit familiar with Javascript.
 Companion, Javascript and Node.js are platform independent, so you can develop on Windows, macOS or Linux and the code you write will be able to run on Windows, macOS and Linux, but the following text shows how to develop on Linux or macOS. On Windows you need a little different setup, so you can't use the commands for Windows. Follow these guidelines and come back when ready: [Developing on Windows 10](https://github.com/bitfocus/companion/wiki/Developing-on-Windows-10)
 
-### Installation on Linux
+### Prerequisites on Linux
 1. Install [node.js](https://nodejs.org/en/). Node installs itself, the node executable and the node package manager "npm". You won't see any icons on your desktop or somewhere else, all node executables are used from the terminal.
 2. Install n with the terminal command ```sudo npm install n -g```. n is a node version control module, it is very helpful because many node modules are working only with a certain version of node.
 3. Install yarn with the terminal command ```sudo npm install yarn -g```. Yarn is a package management system for node modules, it helps you keeping all of your modules and their dependencies up to date.
@@ -15,21 +15,21 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
 6. Install udev headers, in debian based systems use package `libudev-dev`
 7. Install `cmake` as it is required for building nodejs modules for companion 2.0
 
-### Installation on osx with homebrew
+### Prerequisites on osx with homebrew
 1. Open terminal
 2. Install [homebrew](https://docs.brew.sh/) `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 3. Install needed packages `brew install nodejs npm libusb git`
 4. Install npm packages: `npm install n yarn -g`
-5. Select needed node.js version using n: `n 12.19.1`
+5. Select needed node.js version using n: `n 12.21.0`
 6. Create directory to clone companion to and change to that directory: `mkdir -p ~/src && cd ~/src`
 7. Clone the companion repository: `git clone https://github.com/bitfocus/companion`
 8. Install required node.js modules and update companion modules: `cd companion && ./tools/update.sh && ./tools/build_writefile.sh`
 
 ## Getting started
-1. Tell node what version you want to use ```n 12.19.1```
+1. Tell node what version you want to use ```n 12.21.0```
 2. If you don't have a GitHub account yet, now you have to make one.
 3. Here you can make one of two choices on how to proceed:
-	1. If you intended only to program modules and do not plan on developing for the core app:
+	1. If you intended only to program modules and do not plan on developing for the core app, clone the Companion repository:
 		- ```git clone https://github.com/bitfocus/companion.git```
 		- This will put the latest Companion code on your computer for module development
 		- There are methods using git commands to switch the code from `latest` (or `master`) to a specific branch, such as `stable-2.1`, or to a tag, such as `v2.1.0`.  For development purposes it's often best to be on the `master` branch.
@@ -37,9 +37,12 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
 
 	2. If you intend to develop for the core app, fork the Companion repository:
 		- Go to the [companion repository](https://github.com/bitfocus/companion) and click on Fork in the right top corner. Now GitHub will make a complete copy of all the companion source in your account, but GitHub will remember that this is a copy derived from the original Bitfocus/companion repository. If you want to make changes to the code or write a new module you cannot change the data in the Bitfocus/companion repository but you can write to your own fork. 
-		- You cannot edit the code on GitHub (not really), you have to do this on your local computer. Use git to clone your fork to your computer. First change to the directory where you want to have your local repositoy and then ```git clone <your forked repository>```. \<your forked repository\> is something like https://github.com/yourgithubusername/companion.git
+		- You cannot edit the code on GitHub (not really), you have to do this on your local computer. Use git to clone your fork to your computer. First change to the directory where you want to have your local repositoy and then ```git clone https://github.com/yourgithubusername/companion.git```.
+		- The downside to this method is that you will have to manually merge changes from the Bitfocus/companion repository into your fork in order to receive core updates.  If you're git or Google savy this won't be a problem, though.
 4. Change into your new local repository ```cd companion```
-5. We provide some shell-scripts to run common tasks in the folder tools. Now use the update-script to install all the needed modules and submodules ```./tools/update.sh```
+5. After this you'll need to run some scripts in the ```tools``` folder.  These are good to know, becuase you'll use them decently often in development:
+	- ```./tools/update.sh```: Companion only contains the core application in this repository, so you'll need this to sync in all the control modules and dependencies.
+	- ```./tools/build_writefile.sh```: This makes a build number reference for the runtime environment.
 6. Voilá, you should now have everything set up to run Companion directly from the source code. Later you may or may not bundle all the stuff together and build an executable, but now you can just tell node to do the same stuff it would do when starting that executable but without packaging it first ```yarn dev```
 
 ## The git workflow
@@ -96,11 +99,6 @@ var moduleb = require("moduleb");
 var hello   = require("hello");
 ```
 this subindentation is not done with tabs, but spaces. Looks nice!
-
-## Tools
-
-### Update all, including yarn in submodules [Core Devs, Mod Devs]
-./tools/update.sh
 
 ## Modules
 Companion uses plug-ins to expand its capabilities, we call these plug-ins modules. For every device you can control with Companion there is a "module", which is both a Javascript and Companion term.
