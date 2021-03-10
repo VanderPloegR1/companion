@@ -7,7 +7,9 @@ Download the [latest release](https://github.com/bitfocus/companion/releases) fo
 Download the [latest release](https://github.com/bitfocus/companion/releases) for windows, install, run!
 
 ### Raspberry Pi (Raspbian)
+
 Instructions to install and run Companion on a Raspberry Pi can be found here: [Companion on the Raspberry Pi](https://github.com/bitfocus/companion/wiki/Companion-on-the-Raspberry-Pi)
+
 > **Please note:** Companion is only supported on the Raspberry Pi 4 (2, 4, or 8 BG). Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, **but it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
 
 ### Linux
@@ -26,9 +28,10 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f4?", MODE:="666"
 KERNEL=="hidraw", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f4?", MODE:="666", GROUP="plugdev"
 ```
 
-*NB:* The location of the udev rules might differ on your linux distirbution. Find a folder with other `.rules` files.
+_NB:_ The location of the udev rules might differ on your linux distirbution. Find a folder with other `.rules` files.
 
 When you have done this, you can either reboot, or disconnect the devices and run
+
 ```
 sudo udevadm control --reload-rules
 ```

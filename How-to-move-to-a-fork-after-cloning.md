@@ -17,27 +17,27 @@ To follow GitHub flow you should really have created a fork initially as a publi
    git remote rename origin upstream
    ```
 
-3. Add a new origin which now points to your fork you just made above (instead of to to the original repository).
+4. Add a new origin which now points to your fork you just made above (instead of to to the original repository).
 
    ```bash
    git remote add origin git@github...my-fork
    ```
-   
-4. Fetch from new origin.
+
+5. Fetch from new origin.
 
    ```bash
    git fetch origin
    ```
-    
-5. Make local branch "master" track remote branch "origin/master" (ie: remote branch "master" from remote "origin" which you just set above). See more syntax examples here: https://stackoverflow.com/a/2286030/4561887.
 
-   ~~`git branch --set-upstream master origin/master`~~   (deprecated)
+6. Make local branch "master" track remote branch "origin/master" (ie: remote branch "master" from remote "origin" which you just set above). See more syntax examples here: https://stackoverflow.com/a/2286030/4561887.
+
+   ~~`git branch --set-upstream master origin/master`~~ (deprecated)
 
    ```bash
    git branch --set-upstream-to origin/master master
    ```
 
-6. Push to your fork via your "origin" remote (the word `origin` should be able to be omitted (ie: just write `git push`) if you did Step 4).
+7. Push to your fork via your "origin" remote (the word `origin` should be able to be omitted (ie: just write `git push`) if you did Step 4).
 
    ```bash
    git push origin

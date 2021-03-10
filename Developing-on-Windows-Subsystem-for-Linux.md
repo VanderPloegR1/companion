@@ -6,7 +6,7 @@ First install Windows Subsystem for Linux (reboot yes);
 
 `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
 
-Download from the windows store a Linux distribution (I used Ubuntu LTS search for linux) and install/start it (just follow the steps). This will install a command line interface for Ubuntu. It will start automatically. 
+Download from the windows store a Linux distribution (I used Ubuntu LTS search for linux) and install/start it (just follow the steps). This will install a command line interface for Ubuntu. It will start automatically.
 
 Install nodejs 12 (we use 12 for companion)
 `curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -`
@@ -62,6 +62,7 @@ You'll get a list of available interfaces and use one, for example:
 ## Extra's
 
 ### Nodemon
+
 This is very handy for testing. To install:
 `sudo npm install -g nodemon`
 
@@ -69,6 +70,7 @@ now you can compile and with each codechange companion will restart;
 `nodemon headless.js eth0`
 
 If you would like more versions of node install NVM or n
+
 ### Install nvm (version manager of node) on Ubuntu;
 
 `sudo apt-get update`
@@ -91,6 +93,7 @@ verify after install if this is the version being used;
 `sudo apt install python`
 
 ### 32-bit vs 64-bit problems
+
 If you get error's from not being able to use 32-bit versions in WSL include these two commands once:
 
 `sudo service binfmt-support start`

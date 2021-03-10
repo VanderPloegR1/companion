@@ -2,13 +2,15 @@ The module configuration is like preferences for the instance. E.g. the IP-adres
 
 The configuration json is returned by the function `instance.prototype.config_fields`
 Every item needs to have:
+
 - id: an unique (within the configuration) id of the item
 - label: the text which will be shown next to the configuration item
 - type: the type of the configuration item.
 
-Following types are supported: textinput, dropdown, text, checkbox, number  
+Following types are supported: textinput, dropdown, text, checkbox, number
 
 `textinput` shows a textinput line where users can provide some text
+
 ```
 {
   type: 'textinput',
@@ -20,6 +22,7 @@ Following types are supported: textinput, dropdown, text, checkbox, number
 ```
 
 `dropdown` shows a dropdown menu with some choices to chose from
+
 ```
 {
   type: 'dropdown',
@@ -36,6 +39,7 @@ Following types are supported: textinput, dropdown, text, checkbox, number
 ```
 
 `text` shows just some informational text
+
 ```
 {
   type: 'text',
@@ -47,6 +51,7 @@ Following types are supported: textinput, dropdown, text, checkbox, number
 ```
 
 `checkbox` shows checkbox and returns a value of `true` when checked and `false` when unchecked. The `default` property must be a boolean. The value returned will be a boolean.
+
 ```
 {
   type: 'checkbox',
@@ -73,6 +78,7 @@ The value returned will always be a number (example: `50`, not `"50"`), unless t
 ```
 
 Additional an item can have:
+
 - width: tries to set the display with of the item relative to the other items' widths
 - default: a default value
 - regex: a regular expression to validate the user-input

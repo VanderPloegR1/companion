@@ -4,6 +4,7 @@ In order to add presets to a module, you will need to another function to your m
 This function creates a button under the category "commands" and names it "Run Demo",
 this part is a lot like how you define an action, here we got a "bank" section and an "action" section.
 the bank section sets the button up with the look and feel, this is where you select the title and size, and where you can set a background colour. Valid sizes are: `'auto' | '7' | '14' | '18' | '24' | '30' | '44'`. Other things you can set are `latch: true | false` and `relative_delay: true | false`.
+
 ```
 bank: {
   style: 'text',
@@ -13,16 +14,20 @@ bank: {
   bgcolor: self.rgb(0,0,0)
 },
 ```
+
 the action section is where the magic happens, this is where you select what action you want the button to activate, and what parameters it will use for it. In the example, we run the action "run" and we give it a value to use "demo".
+
 ```
-actions: [{	
-  action: 'run', 
+actions: [{
+  action: 'run',
   options: {
-    id: 'demo', 
+    id: 'demo',
   }
 }]
 ```
+
 if you wanted the button to activate more than on action just repeat the action part of the code, like this:
+
 ```
   presets.push({
     category: 'Commands',
@@ -34,20 +39,22 @@ if you wanted the button to activate more than on action just repeat the action 
       color: '16777215',
       bgcolor: self.rgb(0,0,0)
     },
-    actions: [{	
-      action: 'run', 
+    actions: [{
+      action: 'run',
       options: {
-        id: 'demo', 
+        id: 'demo',
       }
-    }, {	
-      action: 'stop', 
+    }, {
+      action: 'stop',
       options: {
-        id: 'clip', 
+        id: 'clip',
       }
     }]
   });
 ```
+
 for the full preset function it might end up like below, if you want to create more than one button, just duplicate the whole presets.push({}); part of the code and adapt it to the next button with the new actions and titles.
+
 ```
 instance.prototype.init_presets = function () {
   var self = this;
@@ -63,18 +70,20 @@ instance.prototype.init_presets = function () {
       color: '16777215',
       bgcolor: self.rgb(0,0,0)
     },
-    actions: [{	
-      action: 'run', 
+    actions: [{
+      action: 'run',
       options: {
-        id: 'demo', 
+        id: 'demo',
       }
     }]
   });
-	
+
 self.setPresetDefinitions(presets);
 }
 ```
-If you wish to add graphics to a preset button, you can use the built in ICONS or create your own .png file and upload it. Here is how to use a built-in Icon. Look at the ```companion/lib/resources/icons.js``` file for more choices.
+
+If you wish to add graphics to a preset button, you can use the built in ICONS or create your own .png file and upload it. Here is how to use a built-in Icon. Look at the `companion/lib/resources/icons.js` file for more choices.
+
 ```
 bank: {
    style: 'png',
@@ -86,8 +95,9 @@ bank: {
    bgcolor: self.rgb(0,0,0)
 }
 ```
- 
+
 One last thing to keep in mind, in order to import these presets into the module instance, you will need to include this command, in your instance, updateconfig and init function:
+
 ```
 self.init_presets();
 ```

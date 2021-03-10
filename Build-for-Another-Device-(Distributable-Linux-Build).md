@@ -7,8 +7,9 @@
    sudo apt install libgconf2-dev
    ```
 1. Run one of the following commands from within the companion directory to create your distributable build
-   * Desktop Linux: `yarn lindist`
-   * Raspberry Pi: `yarn rpidist`  
+
+   - Desktop Linux: `yarn lindist`
+   - Raspberry Pi: `yarn rpidist`  
       :warning: _It is not recommended to run Companion on a Raspberry Pi with the desktop environment installed. This information is given simply for the sake of transparency and documentation. If you choose to do this, you do so at your own risk._
 
-4. The build can be found as a tar.gz in the electron-output/ sub-directory
+1. The build can be found as a tar.gz in the electron-output/ sub-directory

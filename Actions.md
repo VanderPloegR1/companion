@@ -1,4 +1,4 @@
-Actions are the "commands" being executed when a user pushes a button. 
+Actions are the "commands" being executed when a user pushes a button.
 
 This section explains how to provide the possible actions and their options to the user. The code executed when an action is triggered has to be written too, but not during action declaration.
 
@@ -7,6 +7,7 @@ If you look at the existing modules you'll find a call to `instance.prototype.ac
 In the actions function you emit a message with the declaration: `self.system.emit('instance_actions', self.id, { ...here goes the actions ... });`
 
 All the actions are passed in one json array, like `{'action1', 'action2', 'action3'}`. You need to explain Companion a little more about your action now or later, like
+
 ```
 {
   'action1' : { properties of action 1 },
@@ -14,6 +15,7 @@ All the actions are passed in one json array, like `{'action1', 'action2', 'acti
   'action3' : { properties of action 3 }
 }
 ```
+
 The only property you really need is `label: 'call me names'`.
 
 Now companion makes that action available with the name you specified in label.
@@ -22,6 +24,7 @@ Maybe you want your action to have options, let's say you want your action to ru
 Similar to the configuration fields of the module an option can be of different types.
 
 **Textinput**
+
 ```
 {
   type: 'textinput',
@@ -32,9 +35,11 @@ Similar to the configuration fields of the module an option can be of different 
   regex: '/^1$/'
 }
 ```
+
 Later you can access the value of the textfield in the above example with `var userInput = action.options.bestoption`.
 
 **Dropdown**
+
 ```
 {
   type: 'dropdown',
@@ -42,7 +47,7 @@ Later you can access the value of the textfield in the above example with `var u
   id: 'myExampleDropdown',
   default: '1',
   tooltip: 'Which ice cream shall I order?',
-  choices: [ 
+  choices: [
     { id: '0', label: 'Chocolate' },
     { id: '1', label: 'Vanilla' },
     { id: '2', label: 'Strawberry' },
@@ -51,6 +56,7 @@ Later you can access the value of the textfield in the above example with `var u
   minChoicesForSearch: 0
 }
 ```
+
 The option value will be filled with the id of the selected choice, the id given in default is preselected.
 Adding `minChoicesForSearch: x`, will add a search box. The user can type into the search box and the choices will be narrowed according to the input. To always get the search box set the the property `minChoicesForSearch: 0`, "0" means always show the search box. If you set the property minChoicesForSearch to a different value the search box will only be shown if you have at least that much choices. E.g. with `minChoicesForSearch: 8` and up to 7 choices the search box won't be shown and with at least 8 choices the seach box will be shown. This is handy if you retrieve the choices from a remote device and don't know how much there are, for only a few choices you don't waste screen real estate but with many choices you can make it a lot easier to find what you want.
 
@@ -69,6 +75,7 @@ If you use "multiple" the result will always be an array of strings. If only one
 **Multiselect**
 
 Multiselect shows a list with several items. The user can select none, one or multiple items.
+
 ```
 {
   type: 'multiselect',
@@ -76,7 +83,7 @@ Multiselect shows a list with several items. The user can select none, one or mu
   id: 'myExampleMultiselect',
   default: '1',
   tooltip: 'Where do you want to play audio?',
-  choices: [ 
+  choices: [
     { id: '0', label: 'Foyer' },
     { id: '1', label: 'Conference-room 1' },
     { id: '2', label: 'Conference-room 2' },
@@ -84,6 +91,7 @@ Multiselect shows a list with several items. The user can select none, one or mu
   ]
 }
 ```
+
 The multiselect returns an array with the chosen options. If no option is selected it returns an empty array.
 
 **Checkbox**

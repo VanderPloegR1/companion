@@ -2,6 +2,7 @@
 > Where submodule is stated, replace this with module name. Working directory should be your companion directory (not the module directory)
 
 ## Adding a submodule
+
 `git submodule add https://github.com/bitfocus/companion-module-submodule.git lib/module/submodule`
 
 `git commit -m "Module Added: submodule"`
@@ -9,6 +10,7 @@
 `git push`
 
 ## Removing a submodule
+
 Sometimes you would exclude a module from the core, this is the correct way to do so
 
 `mv lib/module/submodule lib/module/submodule-tmp`
