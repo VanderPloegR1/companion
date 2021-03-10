@@ -53,7 +53,7 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
    - `./tools/build_writefile.sh`: This makes a build number reference for the runtime environment.
 6. Voilá, you should now have everything set up to run Companion directly from the source code. Later you may or may not bundle all the stuff together and build an executable, but now you can just tell node to do the same stuff it would do when starting that executable but without packaging it first `yarn dev`
 
-## The git workflow
+### The git workflow
 
 For first time git and GitHub users this is a tough part. The commands in that section are only named for your reference, this section describes the workflow and is not a copy and paste to your commandline guide. Companion is open source, everybody can see and use the source code. You can change it the way you want, but we also want Companion to be a useful piece of software, so there has to be some management to ensure the software quality. Git and GitHub are tools, which help us with that. GitHub is a platform hosting the source code and its associated metadata and git is a program controlling that metadata and transferring the code from here to there on your computer and between computers.
 
@@ -106,24 +106,6 @@ if (var == 1)
 	return;
 ```
 
-One thing we also like to do, is to subindent similar lines like
-
-```
-var moda = require("modulea");
-var moduleb = require("moduleb");
-var hello = require("hello");
-```
-
-to being
-
-```
-var moda    = require("modulea");
-var moduleb = require("moduleb");
-var hello   = require("hello");
-```
-
-this subindentation is not done with tabs, but spaces. Looks nice!
-
 ## Modules
 
 Companion uses plug-ins to expand its capabilities, we call these plug-ins modules. For every device you can control with Companion there is a "module", which is both a Javascript and Companion term.
@@ -133,24 +115,14 @@ Companion uses plug-ins to expand its capabilities, we call these plug-ins modul
 When you want to make changes to an existing module, you need to fork the module's repository in the same way like you did with the core of Companion.
 When you're doing changes to modules in companion, you need to upgrade the git link in the core as well. A submodule is similar to a pointer referencing a different repository at a certain commit point. If you made a change you have to update that pointer, so it points to the newest commit in the referenced repository.
 
-1. Make sure you pull inside the module folder `git pull origin master` (maybe for you it is not "origin", just pull from the remote pointing to the original files)
-2. Do your changes
-3. Commit the changes with a nice message
-4. Push your changes `git push origin HEAD:master` (again the name of your remote may be something different than "origin", if you are pushing to your fork of the submodule it usually is origin)
+### Creating a new module
 
-Now, in the core, we need to upgrade the reference to the module to the new version. For this we've made a tool. Go to the companion base directory (not inside the module):
-
-```
-cd companion
-./tools/upgrade_module.sh <modulename>
-```
-
-## When you want to create a new `mymanufacturer-myproduct` module that doesn't have a repository yet:
+With over 250 published modules, often you'll want to use another module's code as your base. First you'll need to create a directory to develop your module.
 
 1. `mkdir module-local-dev` (if the `module-local-dev` root folder does not already exist)
 2. `cd ./module-local-dev/`
-3. `mkdir mymanufacturer-myproduct`
-4. `cd mymanufacturer-myproduct`
+3. `mkdir companion-module-mymanufacturer-myproduct`
+4. `cd companion-module-mymanufacturer-myproduct`
 5. `npm init` (enter x 10)
 6. `git init`
 7. `git add package.json`
@@ -163,86 +135,38 @@ Now, you need to ask the core developers in the #module-development group on ([B
 
 When the repository gets created by a core developer, you can continue.
 
-11. `git remote add origin https://github.com/bitfocus/companion-module-mymanufacturer-myproduct.git`
-12. `git push origin HEAD:master`
+12. `git remote add origin https://github.com/bitfocus/companion-module-mymanufacturer-myproduct.git`
+13. `git push origin HEAD:master`
 
-Now we're at a point that the core developers must decide if its time to include this module in the companion core. But ask us on slack ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE)), and if we decide to add it - and we say it's done, you may proceed.
+Now you can paste in the module you're using as a base and begin developing. You'll need to edit the `package.json` file with the proper information for your module. From here you can develop and test your new module locally.
+
+Once you're satified that your module works and you're tested it, we're at a point that the core developers must decide if its time to include this module in the companion core. But ask us on slack ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE)), and if we decide to add it - and we say it's done, you may proceed.
 
 If you want to change something in the module after this, you need to do your changes, commit it to the repository and read the beginning of the modules section in this document for instructions.
 
-## What makes up a module
+### What makes up a module
 
-This document describes the API version 1.0.0. Your module will be compatible with all versions of Companion using API 1.x.x.
-A Companion module consists of several files in one folder, the folder can have subfolders if needed.
-On the root of the folder there have to be at least two files for a working module:
+There are a few files that make up every module.  To get an overview of what these are, please see [[File Structure]].
 
-1. a file with the name package.json
-2. a file containing the code of the module
-   There should be a few more files in every module, though technically not needed:
-3. HELP.md, a file with some user manual for the module
-4. LICENSE, in open source projects like Companion it is very important that you make clear under which license the module is released
-5. .gitignore, this is a file which we recommend to add to your module to control which of the files within your module will be tracked by our version control system.
-
-**Let's start with package.json**
-
-package.json is the root of the module. Companion scans the directory /module-local-dev looking for subfolders containing that package.json-files and if it finds one it assumes it a module.
-A typical package.json-file looks like this:
-
-```
-{
-  "name": "eventmaster",
-  "version": "0.0.4",
-  "description": "Barco EventMaster plugin for Companion",
-  "main": "eventmaster.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "William Viker",
-  "license": "MIT",
-  "dependencies": {
-    "barco-eventmaster": "^5.1.0"
-  }
-}
-```
-
-You can guess the meaning of the most parts. "main" is the location/name of the main JavaScript file, it is common to either reflect the module name or to use index.js.
-
-At this point we don't make use of scripts given in the package.json, so you can just copy the test line. The test script will be executed if you run the module with `npm test`. Test help to improve the stability and quality of the code and we may use them in the future.
-
-A basic package.json file can be created by hand or it is automatically created for you when you use the command `npm init`.
-
-"dependencies" lists other node packages and their minimum versions this package relies on. Most modules will rely on some standard packages like tcp, we have them in core, so you don't have to list them here.
-
-When you want to use packages not available in core please install them in your module's node_modules folder with yarn `yarn add myfancymodule`. This will also add the package to the dependencies in package.json. Please also make sure to add the yarn.lock file to .gitignore after using yarn.
-
-**The Module source code**
+### The Module source code
 
 You can handle all your module's stuff in one big file or you can distribute it to several files, it's up to you. But you have to have some things in the module. If the user adds an instance to the configuration Companion instantiates the module. But JavaScript doesn't have classes, we are working with functions and objects. That means our module is required by the system and then some functions will be called. You have to fill the functions with code. Easiest way to build a new module is to have a look at some existing modules. Take them as a starting point.
 
 The functions divide into several categories:
 
-1.  Module internal stuff, initialization, housekeeping...
+1.  Base module implementation
 2.  Providing functionality to the user
 3.  The code behind all that stuff
 
-### Module internal stuff, initialization, housekeeping...
+#### Base module implementation
 
-When the user adds a new instance Companion looks in your module's main JavaScript file and executes the function `instance(system, id, config)`. Within that function the module gets constructed by calling `instance_skel.apply(this, arguments);` (you need to require '../../instance_skel'). During construction instance_skel calls `instance.prototype.init` where all your initialization code should go.
+When the user adds a new instance Companion looks to your module's main JavaScript file (typically `index.js`) and executes the [contructor](https://github.com/bitfocus/companion/wiki/instance_skel#contructor). Once that is setup it will execute any upgrade scripts. Finally, Companion will call the [init](https://github.com/bitfocus/companion/wiki/instance_skel#init-returns-void) function where you should do any final module setup and initialize the connection.
 
-When the module gets deleted `instance.prototype.destroy` is called where you should clean-up whatever you don't need anymore (sockets, timers...)
-
-For the module to work you also need
-
-```
-instance_skel.extendedBy(instance);
-exports = module.exports = instance;
-```
-
-It is the JavaScript equivalent to some object oriented code.
+When the module gets deleted the [destroy](https://github.com/bitfocus/companion/wiki/instance_skel#destroy-returns-void) function is called where you should clean-up whatever you don't need anymore (sockets, timers...)
 
 See also [Extending instance_skel](./instance_skel)
 
-### Providing functionality to the user
+#### Providing functionality to the user
 
 Most (so far all) modules do want to provide some interaction with the user. The possible items are stored in json objects. This splits up in several categories.
 
@@ -263,7 +187,7 @@ For printing to console, if you launch through terminal:
 
 And if you want it in the log in the web interface, see [instance_skel](https://github.com/bitfocus/companion/wiki/instance_skel#statuslevel-string-message-string-returns-void).
 
-### The code behind all that stuff
+#### The code behind all that stuff
 
 Once you declared the actions and presets and maybe variables and feedbacks you have a nice looking module which still doesn't do anything. Now you have to program some code to be executed when an action is triggered or feedback has to be updated.
 Let's start with the actions.
@@ -278,7 +202,7 @@ var theOptionsOfTheAction = action.options;
 Now you can act depending on the action and the options. Many modules use a simple switch statement with one case for each action. Another method is to use the action-ID itself. Let's assume you just want to send a string with each action, then you can use that string as the action-ID and use it like sendmystring(action.action);
 If you are working with options, especially textinput, you should validate the inputs or make the code as failsafe as possible.
 
-## Testing
+### Testing
 
 In any case, your module should be tested throughout at different stages of its life. Off course you should use a linting tool which most code editors and IDEs offer.  
 You should check the compatibility to the Companion core, especially to different versions of the configuration file. Some users may not have used Companion in a long time and their configuration file might look different then what you expect.  

@@ -2,7 +2,7 @@
 
 All modules include and extend the `/instance_skel.js` class. This provides a base level of functionality and communication with the core application. This is typically done in the module's `index.js` file.
 
-## Setup
+## Constructor
 
 If you're not familiar with class extension, the below examples show how to bring in `instance_skel` and setup an `instance` class to extend this. This is required, as `instance_skel` is effectively an `abstract` class with a lot of internal processing to make your module work seamlessly.
 
