@@ -25,7 +25,6 @@
   - [[Feedback]]
   - [[Presets]]
   - [[Variables]]
-- [[Draft Standard for presets]]
 
 ---
 
