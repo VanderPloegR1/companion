@@ -6,6 +6,15 @@ The Raspberry Pi 4 is the first Raspberry Pi SBC (single board computer) that is
 
 If you are installing Companion from scratch, make sure you've got your system updated with the latest eeprom/firmware updates ([info here](https://www.raspberrypi.org/forums/viewtopic.php?t=255001)). A recent update (late October 2019) combines the update mechanisms for both the SPI EEPROM and the VLI USB controller chip. Installing the latest updates will (in the future) open up the ability to boot your Raspberry Pi from a network-connected device or from an external USB storage device, and also updates the VLI firmware to reduce power consumption and bring running temperatures down by up to 3-4 °C.
 
+## Companion on pre-4 Raspberry Pi systems
+* Raspberry Pi 2B
+* Raspberry Pi 3B
+* Raspberry Pi 3B+
+* Raspberry Pi Zero
+* Raspberry Pi Zero W
+
+Initial Raspberry Pi community development and testing was performed on multiple variants (primarily the Raspberry Pi 3B/+).  While installation is possible, various operation / stability issues were identified that are resolved by using the upgraded Raspberry Pi 4 (4GB+ memory) system configuration.  This is most likely due to multiple (potentially interrelated) factors, including power output capability (e.g. to power a Stream Deck), power input requirements, OEM power supply capacity, Ethernet-no-longer-on-shared-USB-bus, maximum RAM, and of course CPU (as detailed in [Issue #313](/bitfocus/companion/issues/313)).  Accordingly, ongoing development efforts are focused on Raspberry Pi 4 systems.
+
 # Securing your Raspberry Pi
 
 If you haven't already, it is strongly recommended to change the default password of the `pi` user. If you're using the CompanionPi images, you should also change the default password of the `companion` user. Doing this will help secure your system from unauthorized access. There are other security-oriented best practices that are recommended, such as:
