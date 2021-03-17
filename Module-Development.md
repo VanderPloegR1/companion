@@ -119,21 +119,20 @@ When you're doing changes to modules in companion, you need to upgrade the git l
 
 With over 250 published modules, often you'll want to use another module's code as your base. First you'll need to create a directory to develop your module.
 
-1. `mkdir module-local-dev` (if the `module-local-dev` root folder does not already exist)
-2. `cd ./module-local-dev/`
-3. `mkdir companion-module-mymanufacturer-myproduct`
-4. `cd companion-module-mymanufacturer-myproduct`
-5. `npm init` (enter x 10)
-6. `git init`
-7. `git add package.json`
-8. `git commit package.json -m "package.json"`
+1. `cd ./module-local-dev/`
+2. `mkdir companion-module-mymanufacturer-myproduct`
+3. `cd companion-module-mymanufacturer-myproduct`
+4. `npm init` (enter x 10)
+5. `git init`
+6. `git add package.json`
+7. `git commit package.json -m "package.json"`
 
 Now, you need to ask the core developers in the #module-development group on ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE)) to create a repository for your module (mention brand and product) and wait for them to create the module repository.
 
 When the repository gets created by a core developer, you can continue.
 
-12. `git remote add origin https://github.com/bitfocus/companion-module-mymanufacturer-myproduct.git`
-13. `git push origin HEAD:main`
+8. `git remote add origin https://github.com/bitfocus/companion-module-mymanufacturer-myproduct.git`
+9. `git push origin HEAD:main`
 
 Now you can paste in the module you're using as a base and begin developing. You'll need to edit the `package.json` file with the proper information for your module. From here you can develop and test your new module locally.
 
