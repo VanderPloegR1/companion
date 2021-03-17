@@ -80,7 +80,7 @@ For bracing, do this
 
 ```
 if (var == 1) {
-	return;
+	return
 }
 ```
 
@@ -89,21 +89,21 @@ not this
 ```
 if (var == 1)
 {
-	return;
+	return
 }
 ```
 
 not this
 
 ```
-if (var == 1) return;
+if (var == 1) return
 ```
 
 not this
 
 ```
 if (var == 1)
-	return;
+	return
 ```
 
 ## Modules
@@ -127,20 +127,17 @@ With over 250 published modules, often you'll want to use another module's code 
 6. `git init`
 7. `git add package.json`
 8. `git commit package.json -m "package.json"`
-9. `echo node_modules/ > .gitignore`
-10. `git add .gitignore`
-11. `git commit .gitignore -m "gitignore to ignore the node_modules/ folder"`
 
 Now, you need to ask the core developers in the #module-development group on ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE)) to create a repository for your module (mention brand and product) and wait for them to create the module repository.
 
 When the repository gets created by a core developer, you can continue.
 
 12. `git remote add origin https://github.com/bitfocus/companion-module-mymanufacturer-myproduct.git`
-13. `git push origin HEAD:master`
+13. `git push origin HEAD:main`
 
 Now you can paste in the module you're using as a base and begin developing. You'll need to edit the `package.json` file with the proper information for your module. From here you can develop and test your new module locally.
 
-Once you're satified that your module works and you're tested it, we're at a point that the core developers must decide if its time to include this module in the companion core. But ask us on slack ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE)), and if we decide to add it - and we say it's done, you may proceed.
+Once you're satisfied that your module works and you're tested it, we're at a point that the core developers must decide if its time to include this module in the companion core. But ask us on slack ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE)), and if we decide to add it - and we say it's done, you may proceed.
 
 If you want to change something in the module after this, you need to do your changes, commit it to the repository and read the beginning of the modules section in this document for instructions.
 
