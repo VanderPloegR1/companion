@@ -89,12 +89,13 @@ These instructions assume the following:
 
 1. Now we're ready to clone the repository and build. These commands will clone the repository, move into the `companion` directory, update all dependencies and modules, and create a fresh build.
 
+Note: From this point on, you do not need to use npm again. Doing so will give you the wrong dependencies and will probably break things
+
    ```bash
    cd ~
    git clone https://github.com/bitfocus/companion.git
    cd companion
    yarn update
-   npm install
    ./tools/build_writefile.sh
    ```
 
