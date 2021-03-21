@@ -96,32 +96,32 @@ bank: {
 }
 ```
 
-Example showing how to set a button with key down and key up actions.
+Example showing how to use `release_actions` and `latch: true` to set a button with a key down and a key up action.
 
 ```
 {
-	category: 'Socket Toggle On/Off',
-	label: 'Toggle Output 6',
-	bank: {
-		bgcolor: 0,
-		style: 'text',
-		text: '6',
-		size: '44',
-		color: 16777215,
-		latch: true
-	},
-	actions: [{
-		action: 'switchOn',
-		options: {
-			socketOn: '6',
-		}
-	}],
-	release_actions: [{
-		action: 'switchOff',
-		options: {
-			socketOff: '6',
-		}
-	}]
+    category: 'Socket Toggle On/Off',
+    label: 'Toggle Output 6',
+    bank: {
+        bgcolor: 0,
+        style: 'text',
+        text: '6',
+        size: '44',
+        color: 16777215,
+        latch: true
+    },
+    actions: [{
+        action: 'switchOn',
+        options: {
+            socketOn: '6',
+        }
+    }],
+    release_actions: [{
+        action: 'switchOff',
+        options: {
+            socketOff: '6',
+        }
+    }]
 }
 ```
 
