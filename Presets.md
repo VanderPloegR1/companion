@@ -96,6 +96,35 @@ bank: {
 }
 ```
 
+Example showing how to set a button with key down and key up actions.
+
+```
+{
+	category: 'Socket Toggle On/Off',
+	label: 'Toggle Output 6',
+	bank: {
+		bgcolor: 0,
+		style: 'text',
+		text: '6',
+		size: '44',
+		color: 16777215,
+		latch: true
+	},
+	actions: [{
+		action: 'switchOn',
+		options: {
+			socketOn: '6',
+		}
+	}],
+	release_actions: [{
+		action: 'switchOff',
+		options: {
+			socketOff: '6',
+		}
+	}]
+}
+```
+
 One last thing to keep in mind, in order to import these presets into the module instance, you will need to include this command, in your instance, updateconfig and init function:
 
 ```
