@@ -1,4 +1,4 @@
-These instructions will walk you through installing Companion v2.0 on your Raspberry Pi 4 Model B.
+These instructions will walk you through installing Companion v2.2 on your Raspberry Pi 4 Model B.
 
 > :information_source: **Please Note:** The only supported Raspberry Pi hardware is the Raspberry Pi 4 4/8GB (1GB/2GB is not supported).
 
@@ -6,7 +6,7 @@ These instructions will walk you through installing Companion v2.0 on your Raspb
 
 When running Companion on the Raspberry Pi, the recommended mode of operation is "headless" (no monitor, keyboard, or mouse attached). As such, it is recommended to use Raspberry Pi OS Lite as your operating system. This maximizes the resources available to Companion. If you wish to have a desktop user interface on the same Pi, there are steps at the end of this document that will get you there.
 
-> :information_source: **Please Note:** Raspberry Pi OS is the only supported Raspberry Pi operating system. These instructions do not work with the n00bs environment (known incompatibility), and no other operating systems have been tested or are supported.
+> :information_source: **Please Note:** Raspberry Pi OS, and Ubuntu Server are the only supported Raspberry Pi operating system. These instructions do not work with the n00bs environment (known incompatibility), and no other operating systems have been tested or are supported.
 
 - [Installing Companion](#installing-companion)
 - [Adding a Desktop User Interface](#adding-a-desktop-user-interface)
@@ -15,6 +15,8 @@ When running Companion on the Raspberry Pi, the recommended mode of operation is
 # Installing Companion
 
 Before starting the installation process, you'll need to get your Raspberry Pi set up and configured.
+
+> :information_source: Ubuntu Server is also possible and is almost the same flow. You can substitute that in if you wish, but some commands may need to be subtly different. It is only recommended if you are comfortable with linux and can figure those bits out yourself.
 
 - Start with a clean Raspberry Pi OS Lite install ([download here](https://downloads.raspberrypi.org/raspios_lite_armhf_latest))
   - If you want to have a desktop user interface, there is an additional section after the base install that will walk you through installing the XFCE Desktop Window Manager.
@@ -36,12 +38,19 @@ These instructions assume the following:
 1. Install some required packages.
 
    ```bash
-   sudo apt-get install libgusb-dev npm nodejs git build-essential cmake libudev-dev libusb-1.0-0-dev -y
+   sudo apt-get install libgusb-dev git build-essential cmake libudev-dev libusb-1.0-0-dev curl -y
    ```
 
    :information*source: \_If you haven't already done so, make sure to install the latest version of the eeprom update tool to ensure you've got the latest firmware for the USB controller chip:*
    `sudo apt install rpi-eeprom rpi-eeprom-images`
    _You'll need to reboot immediately_ (`sudo reboot`) _after updating this package to finalize the installation and firmware update._
+
+1. Install nodejs
+
+   ```bash
+   curl -fsSL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+   sudo apt-get install -y nodejs
+   ```
 
 1. Because it is never recommended to run things on Linux as the root user, you will need to add a udev rule.
 
@@ -68,15 +77,6 @@ These instructions assume the following:
    ```
 
 1. Either reboot your Raspberry Pi (`sudo reboot`) or reload the udev rules `sudo udevadm control --reload-rules`
-
-1. Install Node.js tools
-
-   ```bash
-   sudo npm install n -g
-   sudo n 12.21.0
-   ```
-
-   :warning: _double-check https://github.com/bitfocus/companion/blob/master/DEVELOPER.md to confirm the current required node.js version_
 
 1. Install yarn and update your PATH variable
 
