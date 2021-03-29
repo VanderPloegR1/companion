@@ -72,39 +72,13 @@ For first time git and GitHub users this is a tough part. The commands in that s
 To edit the source code or write new code you can use any text editor you like, but there are many editors which are made especially for developing computer code or even better especially for JavaScript.
 If you have no idea you should try the [Visual Studio Code](https://code.visualstudio.com/) editor.
 
-### Bracing and indentation
+### Code style
 
-Use tabs for indentation. We use tabwith=4, but you can do whatever you like. One indentation = one tab.
+We use [prettier](https://prettier.io/) to format the code in this project.
 
-For bracing, do this
+Many code editors support using prettier to format code you write. It is recommended to run `yarn format` before committing your changes to ensure any changes are correctly formatted.
 
-```
-if (var == 1) {
-	return
-}
-```
-
-not this
-
-```
-if (var == 1)
-{
-	return
-}
-```
-
-not this
-
-```
-if (var == 1) return
-```
-
-not this
-
-```
-if (var == 1)
-	return
-```
+Braces are required for if/else/for/while statements.
 
 ## Modules
 
