@@ -109,7 +109,7 @@ A checkbox with a boolean value of `true` when checked and `false` when unchecke
 
 **Number**
 
-Creates a [number input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number) element which will only accept integers between `min` and `max` (inclusive). The `default` property must be a number (or `""` if not required). If the `required` property is `true` then the field can't be left empty.
+Creates a [number input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number) element which will only accept numbers between `min` and `max` (inclusive). The `default` property must be a number (or `""` if not required). If the `required` property is `true` then the field can't be left empty.
 
 If the `range` property is `true` then a [range input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) will also be created. Adding a range input will always make the field required since a range always has a value.
 
@@ -124,6 +124,7 @@ The value returned will always be a number (example: `50`, not `"50"`), unless t
   min: 0,
   max: 100,
   default: 50,
+  step: 0.5,
   required: true,
   range: false
 }
