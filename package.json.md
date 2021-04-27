@@ -22,31 +22,31 @@ Example 1 - Older Style from Companion 1.4-2.0.0
 Example 2 - New and updated for Companion 2.2.0 and above
 ```
 {
-	"name": "studiocoast-vmix",
-	"version": "1.2.18",
-	"api_version": "1.0.0",
-	"keywords": [
-		"Software",
-		"Vision Mixer"
-	],
-	"manufacturer": "StudioCoast",
-	"product": "vMix",
-	"shortname": "vmix",
-	"description": "Module to control StudioCoast vMix",
-	"main": "src/index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "Per Røine <Example@Something.com>",
-	"contributors": [
-		"Jeff Martin <Example@Something.com>",
-		"Andreas H. Thomsen <Example@Something.com>"
-	],
-	"license": "MIT",
-	"dependencies": {
-		"lodash": "^4.17.19",
-		"xml2js": "^0.4.22"
-	}
+  "name": "studiocoast-vmix",
+  "version": "1.2.18",
+  "api_version": "1.0.0",
+  "keywords": [
+    "Software",
+    "Vision Mixer"
+  ],
+  "manufacturer": "StudioCoast",
+  "product": "vMix",
+  "shortname": "vmix",
+  "description": "Module to control StudioCoast vMix",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Per Røine <Example@Something.com>",
+  "contributors": [
+    "Jeff Martin <Example@Something.com>",
+    "Andreas H. Thomsen <Example@Something.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.19",
+    "xml2js": "^0.4.22"
+  }
 }
 ```
 
