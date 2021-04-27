@@ -2,7 +2,7 @@
 
 - [[Home]]
 - [[Installation]]
-- [[Getting Started]]
+- [[Getting Started Beginners Guide]]
 - [[Companion on the Raspberry Pi]]
   - [[CompanionPi Documentation]]
   - [[Manual Install on Raspberry Pi]]
