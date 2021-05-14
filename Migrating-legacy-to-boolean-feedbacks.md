@@ -1,8 +1,18 @@
+## Why
+
 Most feedbacks should now be defined as 'boolean' feedbacks. The idea is to gradually convert them across over time, as they give the user more flexibility and will end up with a more consistent interface.
+
+Previously, it was up to the module author to decide what properties a feedback should change. This means that most feedbacks are only able to change both the background and text colour. But what if the user wants to change a png, or the text? They could ask for that to be possible, but that would likely require the module author to duplicate the feedback with different style options. 
+
+With boolean feedbacks, the module author simply has to make the feedback be a true or false value, and the user can decide what style properties that should change.
+
+In the future, having feedbacks be a boolean value will allow them to be used for more complex behaviour, but before that is worth doing, a large amount of the modules need to be utilising the new type of feedback
+
+## Steps
 
 The process to migrate feedbacks across does involve a bit of work, but it is pretty straightforward.
 
-## 1. Update feedback definitions
+### 1. Update feedback definitions
 The feedback definitions need updating to the new style.  
 From:
 ```javascript
@@ -48,7 +58,7 @@ feedbacks['set_source'] = {
 }
 ```
 
-## 2. Update feedback callback/handler
+### 2. Update feedback callback/handler
 The callback function on the feedback definition, or the feedbacks function on your class will need updating to return true or false instead of an object of values
 
 From:
@@ -66,7 +76,7 @@ if (self.some_device_state.source == options.source) {
 return false
 ```
 
-## 3. Update presets
+### 3. Update presets
 Any presets defined in the module will need to be updated to match the changes in the definition
 
 From:
@@ -120,7 +130,7 @@ To:
 }
 ```
 
-## 4. Add an upgrade script
+### 4. Add an upgrade script
 Users will have feedbacks assigned to buttons already, and these will all need updating to the new format. A helper has been added to help with self. After the other upgrade scripts (or at the end of the class constructor if you have none), do the following
 
 ```js
@@ -144,7 +154,7 @@ self.addUpgradeToBooleanFeedbackScript({
 })
 ```
 
-## 5. Test it
+### 5. Test it
 Make sure to test it all thoroughly, then you are done!
 
 Feel free to ask on slack if you have any questions, or anything here doesn't make sense.
