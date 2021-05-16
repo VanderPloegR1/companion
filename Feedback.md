@@ -12,7 +12,7 @@ feedbacks['set_source'] = {
         // The user will be able to customise these values as well as the fields that will be changed
         color: self.rgb(0, 0, 0),
         bgcolor: self.rgb(255, 0, 0)
-    }
+    },
     // options is how the user can choose the condition the feedback activates for
     options: [{
         type: 'number',
