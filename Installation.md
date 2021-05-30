@@ -4,7 +4,7 @@ Download the [latest release](https://github.com/bitfocus/companion/releases) fo
 
 ### Windows 7 and up (64bit)
 
-Download the [latest release](https://github.com/bitfocus/companion/releases) for windows, install, run!
+Download the [latest release](https://bit.ly/3c3SmAH) for windows, install, run!
 
 ### Raspberry Pi (Raspbian)
 
