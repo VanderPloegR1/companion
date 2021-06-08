@@ -131,22 +131,49 @@ To:
 ```
 
 ### 4. Add an upgrade script
-Users will have feedbacks assigned to buttons already, and these will all need updating to the new format. A helper has been added to help with self. After the other upgrade scripts (or at the end of the class constructor if you have none), do the following
+Users will have feedbacks assigned to buttons already, and these will all need updating to the new format. A helper has been added to help with self.
 
+Quick tip: The script will only be run once, if you want to force it to be run again locally, add `self.config._configIdx = -1` in the constructor to force all the upgrade scripts to be rerun. Make sure to *not* commit that line
+
+#### ES6
 ```js
-self.addUpgradeToBooleanFeedbackScript({
-    'set_source': true,
-    'set_output': true,
-    // List as many feedback types as you like
-})
+class instance extends instance_skel {
+
+	static GetUpgradeScripts() {
+		return [
+			// any existing upgrade scripts go here
+			instance_skel.CreateConvertToBooleanFeedbackUpgradeScript({
+				'set_source': true,
+				'set_output': true,
+				// List as many feedback types as you like
+			)}
+		]
+	}
+
+}
 ```
-Quick tip: The script will only be run once, if you want to force it to be run again locally, add `self.config._configIdx = -1` above `self.addUpgradeToBooleanFeedbackScript` to force all the upgrade scripts to be rerun. Make sure to *not* commit that line
+
+#### Prototype
+```js
+instance.GetUpgradeScripts() {
+	return [
+		// any existing upgrade scripts go here
+		instance_skel.CreateConvertToBooleanFeedbackUpgradeScript({
+			'set_source': true,
+			'set_output': true,
+			// List as many feedback types as you like
+		)}
+	]
+}
+```
 
 This script will handle moving the options properties across to the style object for you.
 It handles the most common cases of property naming, which may not match what your module does.  
 If this is the case, you can customise the behaviour by providing more details:
+
+
 ```js
-self.addUpgradeToBooleanFeedbackScript({
+instance_skel.CreateConvertToBooleanFeedbackUpgradeScript({
     'set_source': {
         'bg': 'bgcolor',
         'fg': 'fgcolor',
