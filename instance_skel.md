@@ -120,19 +120,26 @@ This function will be called when a feedback needs to be proceessed and the feed
 
 Typical processing in `feedback(feedback, bank)` involves a `switch` to select between the feedback types, which processes the type and returns any changes that need to be applied to the bank.
 
+#### `static GetUpgradeScripts() returns function[]`
+
+See [[Upgrade Scripts]]
+
+This is a static method that lets companion get the upgrade scripts for the module.  
+Be aware they are not executed in the instance class, the data they have access is intentionally very limited.
+
 ## Available Calls
 
 #### `addUpgradeScript(cb: function) returns void`
 
 See [[Upgrade Scripts]]
 
-Used to setup an upgrade script for execution. This must be done in the `constructor`. This is used when a structural change between releases requires a modification to the user's data.
+This has been removed, and will no longer work.
 
-#### `checkFeedbacks(type: string?) returns void`
+#### `checkFeedbacks(...types: string[]) returns void`
 
 See [[Feedback]]
 
-Used to scan the user's feedbacks to allow them to check if they are active or not. This can be done for all feedbacks or those of a specific type by using the `type` parameter.
+Used to scan the user's feedbacks to allow them to check if they are active or not. This can be done for all feedbacks or those of a specific types by using the `type` parameter. eg `self.checkfeedbacks('feedback1', 'feedback2')`
 
 #### `defineConst(name: string, value: object) returns void`
 
@@ -200,23 +207,29 @@ See [[Actions]]
 
 Pushes an array of action definitions to the core.
 
-#### `setFeedbackDefinitions(feedbacks: object[]) returns void`
+#### `setFeedbackDefinitions(feedbacks: object) returns void`
 
 See [[Feedback]]
 
 Pushes an array of feedback definitions to the core.
 
-#### `setPresetDefinitions(presets: object[]) returns void`
+#### `setPresetDefinitions(presets: object) returns void`
 
 See [[Presets]]
 
 Pushes an array of presets to the core.
 
-#### `setVariable(variable: string, text: string) returns void`
+#### `setVariable(variable: string, text: string | undefined) returns void`
 
 See [[Variables]]
 
-Set a dyanic variable's value.
+Set a dynamic variable's value.
+
+#### `setVariables(variables: object) returns void`
+
+See [[Variables]]
+
+Set multiple dynamic variable's values.
 
 #### `setVariableDefinitions(variables: object[]) returns void`
 
