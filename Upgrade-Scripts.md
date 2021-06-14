@@ -25,6 +25,10 @@ class instance extends instance_skel {
 		]
 	}
 
+    // Tell companion to re-run from the first upgrade script each time. Use higher numbers to run from later points.
+    // Make sure to NOT commit this line uncommented
+    DEVELOPER_forceStartupUpgradeScript = 0
+
 }
 ```
 
@@ -36,6 +40,10 @@ instance.GetUpgradeScripts() {
 		// more will go here over time
 	]
 }
+
+// Tell companion to re-run from the first upgrade script each time. Use higher numbers to run from later points.
+// Make sure to NOT commit this line uncommented
+instance.DEVELOPER_forceStartupUpgradeScript = 0
 ```
 
 ### Writing the script
