@@ -26,6 +26,7 @@
   - [[Feedback]]
   - [[Presets]]
   - [[Variables]]
+  - [[Upgrade Scripts]]
 
 ---
 
