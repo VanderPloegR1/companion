@@ -67,6 +67,8 @@ The script gets fed the bits of data you may need to do the upgrades.
 
 This is a collection of methods that may be useful for your script.
 * `context.convert15to32(key: number) returns number` - This converts a key number from the old 15 key grid to the 32 key grid
+* `context.rgb(r: number, g: number, b:, number) returns number` - This converts 8-bit R, G, and B values to a 24-bit RGB value
+* `context.rgbRev(rgb: number) returns {r: number, g: number, b:, number}` - This converts a 24-bit RGB value to individual 8-bit R, G, and B values
 
 #### config
 This is the config object of the instance. If you add new config fields you may want to fill in some default values here.
