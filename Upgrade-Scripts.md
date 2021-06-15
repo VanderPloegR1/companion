@@ -25,9 +25,9 @@ class instance extends instance_skel {
 		]
 	}
 
-    // Tell companion to re-run from the first upgrade script each time. Use higher numbers to run from later points.
-    // Make sure to NOT commit this line uncommented
-    DEVELOPER_forceStartupUpgradeScript = 0
+	// Tell companion to re-run from the first upgrade script each time. Use higher numbers to run from later points.
+	// Make sure to NOT commit this line uncommented
+	static DEVELOPER_forceStartupUpgradeScript = 0
 
 }
 ```
