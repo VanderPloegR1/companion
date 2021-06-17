@@ -73,7 +73,7 @@ This is a collection of methods that may be useful for your script.
 #### config
 This is the config object of the instance. If you add new config fields you may want to fill in some default values here.
 
-*Warning*: This can sometimes be null, so make sure you check it is an object first!
+*Note*: When importing a page, this is the config of the instance at the time it as exported. It is for your information only, and the result will be discarded after the script has run, unless the instance is also being created
 
 #### actions
 This is an array of the actions that may need upgrading to the new version. 
