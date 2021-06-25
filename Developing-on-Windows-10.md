@@ -5,12 +5,12 @@ Install Visual studio code: (https://code.visualstudio.com//) or Atom (https://a
 Install Git Bash and launch it after installation;
 [Git for windows](https://gitforwindows.org/)
 
-Because Companion is built on node 12, you'll need a version manager like N(ode)V(ersion)M(anager).
+Because Companion is built on node 14, you'll need a version manager like N(ode)V(ersion)M(anager).
 (https://github.com/coreybutler/nvm-windows/releases) and download nwv-setup.exe. Unpack and run the setup.
 Verify installation by running `nvm list` in git bash, you should see the version you installed previously.
 
-Now install version 12: `nvm install 12.21.0`
-After that switch to that node version: `nvm use 12.21.0`
+Now install version 14: `nvm install 14.17.1`
+After that switch to that node version: `nvm use 14.17.1`
 
 Now install Yarn;
 `npm install yarn -g`
