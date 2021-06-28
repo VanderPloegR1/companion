@@ -10,8 +10,8 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
 
 ### Prerequisites on Linux
 
-1. Install [node.js](https://nodejs.org/en/). The easiest way on debian/ubuntu based distributions is to follow the 12.x steps at https://github.com/nodesource/distributions#installation-instructions.
-2. If your version of node is not the latest v12, install n with the terminal command `sudo npm install n -g`. n is a node version control module, it is very helpful because many node modules are working only with a certain version of node.
+1. Install [node.js](https://nodejs.org/en/). The easiest way on debian/ubuntu based distributions is to follow the 14.x steps at https://github.com/nodesource/distributions#installation-instructions.
+2. If your version of node is not the latest v14, install n with the terminal command `sudo npm install n -g`. n is a node version control module, it is very helpful because many node modules are working only with a certain version of node.
 3. Install yarn with the terminal command `sudo npm install yarn -g`. Yarn is a package management system for node modules, it helps you keeping all of your modules and their dependencies up to date.
 4. Install [git](https://git-scm.com/downloads). Git is a version control system which allows many developers to collaborate on the same project and keep track of their work. If you have never worked with git before it is a good idea to read some getting started with git guides now.
 5. Install libgusb headers, in debian based systems use package `libgusb-dev`
@@ -24,14 +24,14 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
 2. Install [homebrew](https://docs.brew.sh/) `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 3. Install needed packages `brew install nodejs npm libusb git`
 4. Install npm packages: `npm install n yarn -g`
-5. Select needed node.js version using n: `n 12.21.0`
+5. Select needed node.js version using n: `n 14.17.0`
 6. Create directory to clone companion to and change to that directory: `mkdir -p ~/src && cd ~/src`
 7. Clone the companion repository: `git clone https://github.com/bitfocus/companion`
 8. Install required node.js modules and update companion modules: `cd companion && ./tools/update.sh && ./tools/build_writefile.sh`
 
 ## Getting started
 
-1. Tell node what version you want to use `n 12.21.0`
+1. Tell node what version you want to use `n 14.17.0`
 2. If you don't have a GitHub account yet, now you have to make one.
 3. Here you can make one of two choices on how to proceed:
 
