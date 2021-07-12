@@ -59,13 +59,14 @@ There are a few commands that will be useful for all CompanionPi users. These co
 
 CompanionPi images can be downloaded using the links below. Both the image file and the sha1 checksum are provided. "Versioning" for CompanionPi will be indicated by the date in the filename, rather than a version number.
 
-- Companion 2021-04-14
-  - Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2021-04-14/CompanionPi-2021-04-14.img.gz
-  - Checksum (SHA256): https://s3.bitfocus.io/rpi-builds/CompanionPi-2021-04-14/CompanionPi-2021-04-14.img.gz.sha256
+- Companion 2021-07-10
+  - Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2021-07-10/CompanionPi-2021-07-10.img.gz
+  - Checksum (SHA256): https://s3.bitfocus.io/rpi-builds/CompanionPi-2021-07-10/CompanionPi-2021-07-10.img.gz.sha256
   - Changes:
-    - Updated Node.js to 12.18.4
-    - Switched branches from v2.1.2 to master
-    - Updated Companion from master branch
+    - Upgraded all installed packages (apt update && apt upgrade)
+    - Updated companion-update to now automatically manage Node.js version
+    - Updated Companion from master branch (2.2.0-af93d1a0-3464)
+    - Updated Node.js to 14.17.3
 - [Previous Versions](https://github.com/bitfocus/companion/wiki/CompanionPi-Archive)
 
 ## Flashing the Image to your microSD Card
