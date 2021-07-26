@@ -32,7 +32,7 @@ These instructions assume the following:
 1. Make sure apt and all installed packages are up-to-date.
 
    ```bash
-   sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoclean -y && sudo apt-get autoremove
+   sudo apt update && sudo apt upgrade -y && sudo apt autoclean -y && sudo apt autoremove
    ```
 
 1. Install some required packages.
