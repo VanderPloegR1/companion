@@ -101,7 +101,7 @@ Additional an item can have:
   label: 'Require Password?',
   id: 'passwordRequired',
   default: false,
-}
+},
 {
   type: 'textinput',
   id: 'password',
