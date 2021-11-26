@@ -84,5 +84,30 @@ Additional an item can have:
 - regex: a regular expression to validate the user-input
   you can find some predefined regular expressions in instance_skel and use them like e.g. `self.REGEX_IP`
   If you want to write your own regular expression the string should look like this `'/foo(bar)?/i'`, if you need a backslash, you have to double escape it like this `'/^\\w+$/'`
+- isVisible: a function to conditionally show/hide config fields based on the value(s)
+  of other config fields.
+  - If not defined, the config field will always be visible
+  - If defined, this function will:
+    - receive an object with the config field values as is sole argument
+    - be executed in a sandbox and will not have access to any other data outside its
+      function scope
+    - return a boolean which determines the visibility of the config field
+
+> In the example below, the `password` config field will only be visible when the `passwordRequired` field is `true`.
+
+```
+{
+  type: 'checkbox',
+  label: 'Require Password?',
+  id: 'passwordRequired',
+  default: false,
+}
+{
+  type: 'textinput',
+  id: 'password',
+  label: 'Password',
+  isVisible: (configValues) => configValues.passwordRequired === true,
+}
+```
 
 In your code you can get the values of the configuration like `var myConfigValue = this.config.idOfItem`
