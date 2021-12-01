@@ -6,9 +6,10 @@ This page documents the protocol. The intention is to only ever add non-breaking
 
 The server by default runs on port 16622, but this may become configurable in the future. You should make sure to support alternate ports to allow for future compatibility as well as firewalls or router port forwarding.  
 Each message is presented as a line, with a `\n` or `\r\n` terminator.  
-Messages follow the general format of `COMMAND-NAME ARG1=VAL1 ARG2 ARG3="VAL3 with spaces"\n`. Note the `ARG2` which is shorthand for `ARG2=true`  
+Messages follow the general format of `COMMAND-NAME ARG1=VAL1 ARG2=true ARG3="VAL3 with spaces"\n`. 
 Key numbers are in the range of 0-31.  
 
+Note: Boolean values can be represented as both true/false and 0/1
 
 Upon connection you will receive `BEGIN Companion Version=2.2.0-d9008309-3449` stating the build of companion you are connected to. This should not be relied on to be meaningful to your application, but can be presented as information to the user, or to aid debugging.
 
