@@ -11,7 +11,7 @@ Key numbers are in the range of 0-31.
 
 Note: Boolean values can be represented as both true/false and 0/1
 
-Upon connection you will receive `BEGIN Companion Version=2.2.0-d9008309-3449` stating the build of companion you are connected to. This should not be relied on to be meaningful to your application, but can be presented as information to the user, or to aid debugging.
+Upon connection you will receive `BEGIN CompanionVersion=2.2.0-d9008309-3449 ApiVersion=1.0.0` stating the build of companion you are connected to. The `CompanionVersion` field should not be relied on to be meaningful to your application, but can be presented as information to the user, or to aid debugging. You should use the `ApiVersion` field to check compatibility with companion. The number followers [semver](https://semver.org/) for versioning. We hope to keep breaking changes to a minimum, and will do so only when necessary. 
 
 ### Messages to send
 Upon receiving an unknown command, the server will respond with the format `ERROR MESSAGE="Unknown command: SOMETHING"`  
@@ -63,6 +63,7 @@ You must respond with `PONG payload`
 `KEY-STATE DEVICEID=00000 KEY=0 BITMAP=abcabcabc COLOR=#00ff00`
 * `DEVICEID` the unique identifier of the device
 * `KEY` number of the key which the pixel buffer is for
+* `TYPE` type of the key. (added in v1.1.0) Either `BUTTON`, `PAGEUP`, `PAGEDOWN` or `PAGENUM`
 
 Optional parameters:
 * `BITMAP` base64 encoded pixel data. Currently 72x72 pixels of 8bit RGB (this may be configurable in the future). This is only sent for devices which were added where `BITMAPS` was true
