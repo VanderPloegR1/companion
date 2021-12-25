@@ -101,7 +101,7 @@ With over 250 published modules, often you'll want to use another module's code 
 6. `git add package.json`
 7. `git commit package.json -m "package.json"`
 
-Now, you need to ask the core developers in the #module-development group on ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE)) to create a repository for your module (mention brand and product) and wait for them to create the module repository.
+Now, you need to ask the core developers in the #module-development group on ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/zt-o1i0mohx-p_m5I7fUEUJ1BBu_KrDN2Q)) to create a repository for your module (mention brand and product) and wait for them to create the module repository.
 
 When the repository gets created by a core developer, you can continue.
 
@@ -110,7 +110,7 @@ When the repository gets created by a core developer, you can continue.
 
 Now you can paste in the module you're using as a base and begin developing. You'll need to edit the `package.json` file with the proper information for your module. From here you can develop and test your new module locally.
 
-Once you're satisfied that your module works and you've tested it, we're at a point that the core developers must decide if its time to include this module in the companion core. But ask us on slack ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE)), and if we decide to add it - and we say it's done, you may proceed.
+Once you're satisfied that your module works and you've tested it, we're at a point that the core developers must decide if its time to include this module in the companion core. But ask us on slack ([Bitfocus Slack](https://join.slack.com/t/bitfocusio/shared_invite/zt-o1i0mohx-p_m5I7fUEUJ1BBu_KrDN2Q)), and if we decide to add it - and we say it's done, you may proceed.
 
 If you want to change something in the module after this, you need to do your changes, commit it to the repository and read the beginning of the modules section in this document for instructions.
 
@@ -180,4 +180,4 @@ And last but not least you should check **all** your actions with **all** the op
 
 ... work in progress ...
 
-Questions? [SLACK](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE)! :)
+Questions? [SLACK](https://join.slack.com/t/bitfocusio/shared_invite/zt-o1i0mohx-p_m5I7fUEUJ1BBu_KrDN2Q)! :)
