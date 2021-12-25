@@ -1,6 +1,6 @@
 # For core maintainers
 
-This section is only for Companion core maintainers. If you want your module added to Companion for general release you need to request a new repository for your module from one of the maintainers. Usually this is done on [our slack](https://join.slack.com/t/bitfocusio/shared_invite/enQtODk4NTYzNTkzMjU1LTMzZDY1Njc2MmE3MzVlNmJhMTBkMzFjNTQ2NzZlYzQyZWIzZTJkZWIyNmJlY2U0NzM1NGEzNzNlZWY3OWJlNGE) in the #module-development channel.
+This section is only for Companion core maintainers. If you want your module added to Companion for general release you need to request a new repository for your module from one of the maintainers. Usually this is done on [our slack](https://join.slack.com/t/bitfocusio/shared_invite/zt-o1i0mohx-p_m5I7fUEUJ1BBu_KrDN2Q) in the #module-development channel.
 
 ## Adding a module
 
