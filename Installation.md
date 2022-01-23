@@ -37,3 +37,17 @@ sudo udevadm control --reload-rules
 ```
 
 before reconnecting them.
+
+### Docker
+
+There is a docker image published to the [Github container registry](https://github.com/bitfocus/companion/pkgs/container/companion%2Fcompanion) that can be used to simplify deployment on linux.
+
+Companion uses various incoming ports. There are various api servers, and some modules will setup their own servers expecting inbound connections to work. Make sure to plan for this with the network mode used in docker.
+
+#### USB passthrough
+TODO: example parameter
+TODO: are udev rules necessary?
+
+#### Remote USB
+To connect streamdecks to companion from another machine, you can use [Companion Satellite](https://github.com/bitfocus/companion-satellite)  
+Make sure to forward tcp port 37133 for this to work.
