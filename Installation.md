@@ -42,13 +42,14 @@ before reconnecting them.
 
 There is a docker image published to the [Github container registry](https://github.com/bitfocus/companion/pkgs/container/companion%2Fcompanion) that can be used to simplify deployment on linux.
 
-**Make sure to bind a volume to `/root/companion` so that your configuration is persisted**
+**Make sure to bind a volume to `/companion` so that your configuration is persisted**
 
 Companion uses various incoming ports. There are various api servers, and some modules will setup their own servers expecting inbound connections to work. Make sure to plan for this with the network mode used in docker.
 
 #### USB passthrough
 TODO: example parameter
 TODO: are udev rules necessary?
+Not currently supported, the hid library does not work in docker properly
 
 #### Remote USB
 To connect streamdecks to companion from another machine, you can use [Companion Satellite](https://github.com/bitfocus/companion-satellite)  
