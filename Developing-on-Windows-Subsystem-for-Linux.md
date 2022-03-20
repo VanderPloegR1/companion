@@ -11,15 +11,11 @@ Download from the windows store a Linux distribution (I used Ubuntu LTS search f
 Install nodejs 14 (we use 14 for companion)
 `curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -`
 
-`sudo apt-get install gcc g++ make`
+`sudo apt-get install gcc g++ make libgusb-dev libudev-dev`
 
 `sudo apt-get install -y nodejs`
 
 `npm install yarn -g`
-
-`sudo apt-get install -y libgusb-dev`
-
-`sudo apt-get install -y libudev-dev`
 
 Normally that would be it, but unfortunately, still errors. Missing dependencies etc.
 
@@ -29,13 +25,7 @@ Install GTK+ (be patient for this);
 
 Extra library's;
 
-`sudo apt-get install libgconf2-4`
-
-`sudo apt-get install libxss1`
-
-`sudo apt-get install libnss3-dev`
-
-`sudo apt-get install libasound2`
+`sudo apt-get install libgconf2-4 libxss1 libnss3-dev libasound2`
 
 Git should already be there so clone the repository, but on your windows drive!;
 
@@ -47,27 +37,13 @@ Go into your newly created directory
 `cd companion`
 
 then get all the module stuff and update;
-`./tools/update.sh`
+`yarn update`
 
 No errors? then launch!
 
-`./tools/build_writefile.sh`
-
-`node headless.js`
-
-You'll get a list of available interfaces and use one, for example:
-
-`node headless.js eth0`
+`yarn dev-headless`
 
 ## Extra's
-
-### Nodemon
-
-This is very handy for testing. To install:
-`sudo npm install -g nodemon`
-
-now you can compile and with each codechange companion will restart;
-`nodemon headless.js eth0`
 
 If you would like more versions of node install NVM or n
 
