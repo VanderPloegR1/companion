@@ -90,6 +90,10 @@ Once you know your IP address, you can access the Companion Admin User Interface
 
 # Complete Changes from Base OS
 
+As of 2022-03-30, the below steps are outdated. For up-to-date information on how the images are built, check out the [CompanionPi](https://github.com/bitfocus/companion-pi) repository which includes all the scripts that are executed. It uses a tool called [Packer](https://www.packer.io/) to automate the process, so a lot of the scripts are not written in pure bash.
+
+## Old Steps
+
 These notes are not a "to-do" list, but are provided for transparency so users can see what changes have been made to the default environment to make CompanionPi work. Enterprising users are free to make additional changes in their own environments, and having this informational baseline is always helpful in doing so.
 
 - Changed default hostname from `raspberrypi` to `CompanionPi`  
