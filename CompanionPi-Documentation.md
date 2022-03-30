@@ -57,14 +57,15 @@ There are a few commands that will be useful for all CompanionPi users. These co
 
 # CompanionPi Images
 
-CompanionPi images can be downloaded using the links below. Both the image file and the sha1 checksum are provided. "Versioning" for CompanionPi will be indicated by the date in the filename, rather than a version number.
+CompanionPi images can be downloaded using the links below, they will soon be relocated to the [Companion Website](https://bitfocus.io/companion), where the other builds can be found. "Versioning" for CompanionPi will be indicated by the date in the filename, rather than a version number, however the latest build is based on the stable release.
 
-- Companion 2021-07-25
-  - Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2021-07-25/CompanionPi-2021-07-25.img.gz
-  - Checksum (SHA256): https://s3.bitfocus.io/rpi-builds/CompanionPi-2021-07-25/CompanionPi-2021-07-25.img.gz.sha256
+- Companion 2.2.0 (2022-03-30)
+  - Image: https://s3.bitfocus.io/builds/companion-pi/companion-pi-stable-v2.2.0-03-30-22.img.gz
   - Changes:
-    - Added support for new 15-button Stream Deck (2021 version)
-    - Updated Companion from master branch (2.2.0-1e65f702-3485)
+    - Updated Companion to 2.2.0 stable release
+    - Automated image building, using latest raspberrypi arm64 image as a base
+    - Self updating companion-pi tooling, to allow for future update scripts updates 
+
 - [Previous Versions](https://github.com/bitfocus/companion/wiki/CompanionPi-Archive)
 
 ## Flashing the Image to your microSD Card
