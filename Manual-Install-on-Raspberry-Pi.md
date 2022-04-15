@@ -18,7 +18,8 @@ Before starting the installation process, you'll need to get your Raspberry Pi s
 
 > :information_source: Ubuntu Server is also possible and is almost the same flow. You can substitute that in if you wish, but some commands may need to be subtly different. It is only recommended if you are comfortable with linux and can figure those bits out yourself.
 
-- Start with a clean Raspberry Pi OS Lite install ([download here](https://downloads.raspberrypi.org/raspios_lite_armhf_latest))
+- Start with a clean Raspberry Pi OS Lite install [download here](https://downloads.raspberrypi.org/raspios_lite_arm64_latest)
+  - If you are using an older pi, you may need to use [this image](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) instead, as the one above is only for newer models
   - If you want to have a desktop user interface, there is an additional section after the base install that will walk you through installing the XFCE Desktop Window Manager.
 - You'll need to make sure you've got SSH access enabled (`sudo raspi-config` on the Raspberry Pi terminal to enable) before starting.
 
@@ -28,82 +29,15 @@ These instructions assume the following:
 - You are starting starting from the home directory of the current user.
   - If not, your mileage may vary with these instructions.
   - It is recommended to move to the home directory (`cd ~`) before starting:
+- You are comfortable with running linux commands and interpreting their output
 
-1. Make sure apt and all installed packages are up-to-date.
+> :information_source: \_If you haven't already done so, make sure to install the latest version of the eeprom update tool to ensure you've got the latest firmware for the USB controller chip: `sudo apt install rpi-eeprom rpi-eeprom-images`  
+> _You'll need to reboot immediately_ (`sudo reboot`) _after updating this package to finalize the installation and firmware update._
 
-   ```bash
-   sudo apt update && sudo apt upgrade -y && sudo apt autoclean -y && sudo apt autoremove
-   ```
+Doing a manual install is not recommended if you are not comfortable with linux.
+As such, the steps can be found in the script used to build CompanionPi images [here](https://github.com/bitfocus/companion-pi/blob/main/companionpi.pkr.hcl)
 
-1. Install some required packages.
-
-   ```bash
-   sudo apt-get install libgusb-dev git build-essential cmake libudev-dev libusb-1.0-0-dev curl -y
-   ```
-
-   :information*source: \_If you haven't already done so, make sure to install the latest version of the eeprom update tool to ensure you've got the latest firmware for the USB controller chip:*
-   `sudo apt install rpi-eeprom rpi-eeprom-images`
-   _You'll need to reboot immediately_ (`sudo reboot`) _after updating this package to finalize the installation and firmware update._
-
-1. Install nodejs
-
-   ```bash
-   curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-   sudo apt-get install -y nodejs
-   ```
-
-1. Because it is never recommended to run things on Linux as the root user, you will need to add a udev rule.
-
-   ```bash
-   sudo nano /etc/udev/rules.d/50-companion.rules
-   ```
-
-   Add these lines to that new file
-
-   ```
-   SUBSYSTEM=="input", GROUP="input", MODE="0666"
-   SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0060", MODE:="666", GROUP="plugdev"
-   KERNEL=="hidraw", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0060", MODE:="666", GROUP="plugdev"
-   SUBSYSTEM=="usb", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f40", MODE:="666", GROUP="plugdev"
-   KERNEL=="hidraw", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f40", MODE:="666", GROUP="plugdev"
-   SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0063", MODE:="666", GROUP="plugdev"
-   KERNEL=="hidraw", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0063", MODE:="666", GROUP="plugdev"
-   SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="006c", MODE:="666", GROUP="plugdev"
-   KERNEL=="hidraw", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="006c", MODE:="666", GROUP="plugdev"
-   SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="006d", MODE:="666", GROUP="plugdev"
-   KERNEL=="hidraw", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="006d", MODE:="666", GROUP="plugdev"
-   SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0080", MODE:="666", GROUP="plugdev"
-   KERNEL=="hidraw", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0080", MODE:="666", GROUP="plugdev"
-   SUBSYSTEM=="usb", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f41", MODE:="666", GROUP="plugdev"
-   KERNEL=="hidraw", ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="1f41", MODE:="666", GROUP="plugdev"
-   ```
-
-1. Either reboot your Raspberry Pi (`sudo reboot`) or reload the udev rules `sudo udevadm control --reload-rules`
-
-1. Install yarn and update your PATH variable
-
-   ```bash
-   sudo npm install yarn -g
-   export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-   ```
-
-   :warning: _The output from the `export` command is silent. You will not see any results from this command other than a fresh command prompt after executing the command._
-
-1. Now we're ready to clone the repository and build. These commands will clone the repository, move into the `companion` directory, update all dependencies and modules, and create a fresh build.
-
-Note: From this point on, you do not need to use npm again. Doing so will give you the wrong dependencies and will probably break things
-
-   ```bash
-   cd ~
-   git clone https://github.com/bitfocus/companion.git
-   cd companion
-   yarn update
-   ./tools/build_writefile.sh
-   ```
-
-1. Follow the instructions here to create a service which will start Companion automatically at system boot: [auto start companion using systemd](https://github.com/bitfocus/companion/wiki/Auto-Start-Companion-on-Linux-Using-systemd).
-
-1. Reboot your Raspberry Pi (`sudo reboot`), wait a couple minutes, and you should be able to access the Companion UI on port 8000 of your Raspberry Pi's IP address (i.e. `http://192.168.1.2:8000`)
+The basic structure of that file, is the `provisioner "shell"` blocks define some scripts/commands to run. Each block is run as a different user. Try to follow the steps and if you have issues, either open an issue asking for help in that repository or ask in slack. Then we can improve the comments in that file to help the next person.
 
 # Adding a Desktop User Interface
 
