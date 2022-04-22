@@ -35,9 +35,20 @@ These instructions assume the following:
 > _You'll need to reboot immediately_ (`sudo reboot`) _after updating this package to finalize the installation and firmware update._
 
 Doing a manual install is not recommended if you are not comfortable with linux.
-As such, the steps can be found in the script used to build CompanionPi images [here](https://github.com/bitfocus/companion-pi/blob/main/companionpi.pkr.hcl)
+
+## Full CompanionPi setup
+
+Note that the updater which is setup as part of this will make some system configuration changes, which may conflict with other applications you wish to install or may give companion too much control over your system (the power to shutdown/reboot)
+
+The steps to replicate a full CompanionPi setup can be found in the script used to build CompanionPi images [here](https://github.com/bitfocus/companion-pi/blob/main/companionpi.pkr.hcl). 
 
 The basic structure of that file, is the `provisioner "shell"` blocks define some scripts/commands to run. Each block is run as a different user. Try to follow the steps and if you have issues, either open an issue asking for help in that repository or ask in slack. Then we can improve the comments in that file to help the next person.
+
+## Minimal companion install
+
+This method will be more minimal and give you more control, but as a consequence will require you manage the nodejs version, udev rules and possibly other configurations. These changes will not be announced anywhere, it will be up to you to make the changes when appropriate
+
+TODO - write steps here
 
 # Adding a Desktop User Interface
 
