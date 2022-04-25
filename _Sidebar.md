@@ -36,6 +36,7 @@
 - [[Linking to Companion]]
 - [[Text input]]
 - [[How to add Unicode Hex input on mac]]
+- [[Clean up your fork]]
 
 ---
 
