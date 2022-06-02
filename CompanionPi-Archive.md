@@ -1,4 +1,16 @@
 
+- Companion 2.2.1 (2022-06-01)
+  - Image: https://s3.bitfocus.io/builds/companion-pi/companion-pi-stable-v2.2.1-01-06-22.img.gz
+  - Changes:
+    - Updated Companion to 2.2.1 stable release
+
+- Companion 2.2.0 (2022-03-30)
+  - Image: https://s3.bitfocus.io/builds/companion-pi/companion-pi-stable-v2.2.0-03-30-22.img.gz
+  - Changes:
+    - Updated Companion to 2.2.0 stable release
+    - Automated image building, using latest raspberrypi arm64 image as a base
+    - Self updating companion-pi tooling, to allow for future update scripts updates 
+
 - Companion 2021-07-25
   - Image: https://s3.bitfocus.io/rpi-builds/CompanionPi-2021-07-25/CompanionPi-2021-07-25.img.gz
   - Checksum (SHA256): https://s3.bitfocus.io/rpi-builds/CompanionPi-2021-07-25/CompanionPi-2021-07-25.img.gz.sha256
