@@ -9,8 +9,8 @@ Because Companion is built on node 14, you'll need a version manager like N(ode)
 (https://github.com/coreybutler/nvm-windows/releases) and download nwv-setup.exe. Unpack and run the setup.
 Verify installation by running `nvm list` in git bash, you should see the version you installed previously.
 
-Now install version 14: `nvm install 14.17.1`
-After that switch to that node version: `nvm use 14.17.1`
+Now install version 14: `nvm install 14.19.3`
+After that switch to that node version: `nvm use 14.19.3`
 
 Now install Yarn;
 `npm install yarn -g`
