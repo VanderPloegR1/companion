@@ -24,14 +24,14 @@ Companion, Javascript and Node.js are platform independent, so you can develop o
 2. Install [homebrew](https://docs.brew.sh/) `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 3. Install needed packages `brew install nodejs npm libusb git`
 4. Install npm packages: `npm install n yarn -g`
-5. Select needed node.js version using n: `n 14.17.0`
+5. Select needed node.js version using n: `n 14.19.3`
 6. Create directory to clone companion to and change to that directory: `mkdir -p ~/src && cd ~/src`
 7. Clone the companion repository: `git clone https://github.com/bitfocus/companion`
 8. Install required node.js modules and update companion modules: `cd companion && ./tools/update.sh && ./tools/build_writefile.sh`
 
 ## Getting started
 
-1. Tell node what version you want to use `n 14.17.0`
+1. Tell node what version you want to use `n 14.19.3`
 2. If you don't have a GitHub account yet, now you have to make one.
 3. Here you can make one of two choices on how to proceed:
 
