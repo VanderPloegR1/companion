@@ -146,7 +146,7 @@ class instance extends instance_skel {
 				'set_source': true,
 				'set_output': true,
 				// List as many feedback types as you like
-			)}
+			})
 		]
 	}
 
