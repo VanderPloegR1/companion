@@ -1,4 +1,9 @@
 
+- Companion 2.2.3 (2022-07-07)
+  - Image: https://s3.bitfocus.io/builds/companion-pi/companion-pi-stable-v2.2.3-06-07-22.img.gz
+  - Changes:
+    - Updated Companion to 2.2.3 stable release
+
 - Companion 2.2.2 (2022-06-20)
   - Image: https://s3.bitfocus.io/builds/companion-pi/companion-pi-stable-v2.2.2-20-06-22.img.gz
   - Changes:
