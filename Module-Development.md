@@ -74,11 +74,16 @@ If you have no idea you should try the [Visual Studio Code](https://code.visuals
 
 ### Code style
 
-We use [prettier](https://prettier.io/) to format the code in this project.
+We strongly recommend using braces for if/else/for/while statements, to avoid accidental bugs from future edits.
 
-Many code editors support using prettier to format code you write. It is recommended to run `yarn format` before committing your changes to ensure any changes are correctly formatted.
+We recommend using [prettier](https://prettier.io/) to format the code in your module.
 
-Braces are required for if/else/for/while statements.
+If you wish to use prettier, when inside your module folder:
+1) Install it into your module with `yarn add --dev prettier`
+1) Copy the `.prettierrc` file from companion (https://raw.githubusercontent.com/bitfocus/companion/master/.prettierrc)
+1) Define the `format` script, by adding `"format": "prettier --write .",` into the `"scripts"` block in your `package.json`
+
+Many code editors support using prettier to format code you write. It is also recommended to run `yarn format` before committing your changes to ensure any changes are correctly formatted.
 
 ## Modules
 
