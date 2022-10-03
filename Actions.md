@@ -129,3 +129,52 @@ The value returned will always be a number (example: `50`, not `"50"`), unless t
   range: false
 }
 ```
+
+**Optional Options**
+
+Every option can have the property `isVisible: ` to controle its visibility. A static value of `true`of `false`is possible but the fun starts with a function controlling the visibility
+
+```
+{
+  id: 'pwNeeded',
+  label: 'Password needed',
+  type: 'checkbox',
+},
+{
+  id: 'password',
+  label: 'Password',
+  type: 'textinput',
+  isVisible: (action) => { action.options.pwNeeded }
+```
+
+If the function returns true the option will be shown.
+
+
+**Callback**
+
+Like said in [instance_skel](https://github.com/bitfocus/companion/wiki/instance_skel) one common practice is to separate action definition from the code which is executed when running the action.
+If you prefer or need, you can also attach the code to the action definition with a callback function like so:
+
+```
+callback: (action) => {
+  console.log(action.options.mostImportantOption)
+}
+```
+
+As you can see the callback will always be called with a reference to the action itself, so you have acces to all action options.
+
+**Learn**
+
+If you define a learn function in your action, there will be a small 'Learn' button in the GUI next to the action. If the user clicks on the learn button, the function gets called and the properties of the return object can be used to fill the action options. You can use this e.g. to get data from the device you are controlling and fill the options. Think of a remote controlled radiator, wich is set to level 'Ultra hot'. If you provide an action to set the temperature you can use the learn functionality to retrieve the actual level setting and provide it to the option. Instead of having to search thru a long dropdown with many options from 'Sub arctic' to 'Beyond plasma', the current setting can be retrieved by the click of one button.
+The syntax is similar to the callback, but with a return value:
+
+```
+learn: (action) => {
+  // do some stuff
+  const newValue = 'Ultra hot'
+  return {
+    ...action.options,
+    action.options.temperature: newValue
+  }
+}
+```
