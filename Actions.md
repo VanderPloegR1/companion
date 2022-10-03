@@ -62,7 +62,7 @@ Adding `minChoicesForSearch: x`, will add a search box. The user can type into t
 
 There are two optional properties which change the behaviour of dropdown substiantially: multiple and tags.
 
-With `tags: true` the user can generate a new choice on the fly. If he types into the search box and no matching choice is found a new choice is generated after he presses return. Only thing to consider is that the entered text will be used for both, the id and the label.
+With `allowCustom: true` the user can generate a new choice on the fly. If he types into the search box and no matching choice is found a new choice is generated after he presses return. Only thing to consider is that the entered text will be used for both, the id and the label.
 It is strongly advisable to use tags only in conjunction with a regex. The syntax is exactly the same like with a textinput, e.g. `regex: '/^myvalue\d+$/'`, now the user still can enter any text in the search box, but a tag is only created when it matches the regex (e.g. "myvalue42").
 If one has just created a tag and now changes the option to a different choice the tag dissapears, but can be recreated at any time. If a project with a stored tag is opened the tag will stay available as long as Companion runs even when deselected. But if Companion is closed all deselected tags are not stored.
 A typical usecase for tags is when you control a device with many storage slots and you create an action to recall a slot. You can retrieve all the used slots with their names and show the user only these slots. He can then easily select a slot. But maybe he wants to preprogram or just chose a slot not in use when you pulled from the machine. Now this can be done with a dynamic tag.
