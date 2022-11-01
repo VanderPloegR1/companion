@@ -51,6 +51,13 @@ Optional parameters:
 * `KEY` number of the key which is pressed/released
 * `PRESSED` true/false whether the key is pressed
 
+#### Rotating an encoder (Since v1.3.0)
+Note: there is a checkbox to enable this per bank inside Companion, allowing users to define the actions to execute
+`KEY-ROTATE DEVICEID=00000 KEY=0 DIRECTION=1`
+* `DEVICEID` the unique identifier used to add the device
+* `KEY` number of the key/encoder which is rotated
+* `DIRECTION` direction of the rotation. 1 for right, -1 for left
+
 ### Messages to receive
 No responses are expected to these unless stated below, and to do so will result in an error.
 
