@@ -17,7 +17,8 @@
 - [[Developing on Windows 10]]
 - [[Developing on Windows Subsystem for Linux]]
 - [[How to move to a fork after cloning]]
-- [[Module Development]]
+- [Module Development for 3.0](https://github.com/bitfocus/companion-module-base/wiki)
+- [Module Development for 2.0](Module-Development)
   - [[File Structure]]
   - [[package.json]]
   - [[instance_skel]]
