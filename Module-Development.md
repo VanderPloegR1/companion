@@ -3,6 +3,8 @@
 So, you want to develop a module for Companion? Welcome!
 This document describes what you need to know and do to make a beautiful module being able to control your favorite gear with Companion.
 
+**This page is outdated, but kept as a reference for maintainence. If you are looking to develop a module for Companion 3.0, you need the new [module development wiki](https://github.com/bitfocus/companion-module-base/wiki)**
+
 ## Prerequisites
 
 Companion is written in Javascript and uses the node.js runtime. That means you should be at least a little bit familiar with Javascript.
