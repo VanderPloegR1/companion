@@ -1,5 +1,7 @@
 # Setting up your dev environment on Windows 10
 
+**This page is outdated, but kept as a reference for maintainence. If you are looking to develop a module for Companion 3.0, you need the new [module development wiki](https://github.com/bitfocus/companion-module-base/wiki)**
+
 > Many AV users work on Windows, setting up a developers environment is a bit harder then on OSX or Linux. The key is combining linux on Windows. You are installing Linux side-by-side on windows.
 
 First install Windows Subsystem for Linux (reboot yes);
