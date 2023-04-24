@@ -1,3 +1,5 @@
+**This page is outdated, but kept as a reference for maintainence. If you are looking to develop a module for Companion 3.0, you need the new [module development wiki](https://github.com/bitfocus/companion-module-base/wiki)**
+
 Install node latest form [here](https://nodejs.org/en/) and make sure you install additional tools like chocolatey (its a separate process, but it installs important stuff like Visual Studio buildtools and python).
 
 Install Visual studio code: (https://code.visualstudio.com//) or Atom (https://atom.io/) as your editor
