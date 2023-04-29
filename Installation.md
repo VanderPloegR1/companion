@@ -1,7 +1,7 @@
 ## Downloading
 
 Companion can be downloaded from [the website](https://user.bitfocus.io/download).  
-We offer 2 different variants of Companion here:
+We offer 3 different variants of Companion here:
 
 ### Stable
 Start with these if you are new to Companion or are unsure which to use
