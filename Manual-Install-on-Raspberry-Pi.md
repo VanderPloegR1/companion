@@ -1,4 +1,4 @@
-These instructions will walk you through installing Companion v2.2 on your Raspberry Pi 4 Model B.
+These instructions will walk you through installing Companion on your Raspberry Pi 4 Model B.
 
 > :information_source: **Please Note:** The only supported Raspberry Pi hardware is the Raspberry Pi 4 4/8GB (1GB/2GB is not supported).
 
@@ -19,8 +19,7 @@ Before starting the installation process, you'll need to get your Raspberry Pi s
 > :information_source: Ubuntu Server is also possible and is almost the same flow. You can substitute that in if you wish, but some commands may need to be subtly different. It is only recommended if you are comfortable with linux and can figure those bits out yourself.
 
 - Start with a clean Raspberry Pi OS Lite install [download here](https://downloads.raspberrypi.org/raspios_lite_arm64_latest)
-  - If you are using an older pi, you may need to use [this image](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) instead, as the one above is only for newer models
-  - If you want to have a desktop user interface, there is an additional section after the base install that will walk you through installing the XFCE Desktop Window Manager.
+  - If you want to have a desktop user interface, there is an additional section after the base install that will walk you through installing the XFCE Desktop Window Manager, or you can start with the full image.
 - You'll need to make sure you've got SSH access enabled (`sudo raspi-config` on the Raspberry Pi terminal to enable) before starting.
 
 These instructions assume the following:
@@ -40,9 +39,16 @@ Doing a manual install is not recommended if you are not comfortable with linux.
 
 Note that the updater which is setup as part of this will make some system configuration changes, which may conflict with other applications you wish to install or may give companion too much control over your system (the power to shutdown/reboot)
 
-The steps to replicate a full CompanionPi setup can be found in the script used to build CompanionPi images [here](https://github.com/bitfocus/companion-pi/blob/main/companionpi.pkr.hcl). 
+There is an automated script that will perform almost the full setup that is done for the CompanionPi images.
 
-The basic structure of that file, is the `provisioner "shell"` blocks define some scripts/commands to run. Each block is run as a different user. Try to follow the steps and if you have issues, either open an issue asking for help in that repository or ask in slack. Then we can improve the comments in that file to help the next person.
+As root, run the following:
+```
+curl https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh | sh
+```
+
+After this, you can use `sudo companion-update` to change the version it has installed.
+
+Note: This script will create a new user called `companion`, which Companion will be run as and will own the configuration.
 
 ## Minimal companion install
 
