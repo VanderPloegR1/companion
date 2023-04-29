@@ -57,14 +57,9 @@ There are a few commands that will be useful for all CompanionPi users. These co
 
 # CompanionPi Images
 
-CompanionPi images can be downloaded using the links below, they will soon be relocated to the [Companion Website](https://bitfocus.io/companion), where the other builds can be found. "Versioning" for CompanionPi will be indicated by the date in the filename, rather than a version number, however the latest build is based on the stable release.
+CompanionPi images can be found on the [Companion website](https://user.bitfocus.io/download)
 
-- Companion 2.2.3 (2022-07-07)
-  - Image: https://s3.bitfocus.io/builds/companion-pi/companion-pi-stable-v2.2.3-06-07-22.img.gz
-  - Changes:
-    - Updated Companion to 2.2.3 stable release
-
-- [Previous Versions](https://github.com/bitfocus/companion/wiki/CompanionPi-Archive)
+Some old versions can be found in the [Archive](https://github.com/bitfocus/companion/wiki/CompanionPi-Archive)
 
 ## Flashing the Image to your microSD Card
 
