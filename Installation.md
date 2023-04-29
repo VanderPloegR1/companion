@@ -1,35 +1,55 @@
+## Downloading
+
+Companion can be downloaded from [the website](https://user.bitfocus.io/download).  
+We offer 2 different variants of Companion here:
+
+### Stable
+Start with these if you are new to Companion or are unsure which to use
+
+These are tested versions that get extra effort to ensure they are bug free. These get updated every few months, and typically lag behind beta in new features.
+
+### Beta
+Use these if you need some features which haven't made it to stable yet, and can tolerate the occasional bug.  
+A new stable gets made from this when we are happy with it being bug free.
+
+The current development version. Bugs can appear here, but this gains new features frequently.  
+This is typically stable for every day use.
+
+### Experimental
+Use these if you want to try the cutting edge new features, and can tolerate frequent bugs.
+
+This is where we push new features that need some more testing before making it into beta, or things which are only half done.
+These versions are often behind beta in module updates.
+
+## Installing
+
 ### Mac
 
-Download the [latest release](https://github.com/bitfocus/companion/releases) for mac, unzip, drag Companion.app into your Applications folder
+Unzip the download, drag Companion.app into your Applications folder
 
-### Windows 7 and up (64bit)
+### Windows (x64)
 
-Download the [latest release](https://github.com/bitfocus/companion/releases) for windows, install, run!
+Note: As of 3.0 we only support Windows 10 and newer. 
 
-### Raspberry Pi (Raspbian)
+Download, install and run!
 
-Instructions to install and run Companion on a Raspberry Pi can be found here: [Companion on the Raspberry Pi](https://github.com/bitfocus/companion/wiki/Companion-on-the-Raspberry-Pi)
+### Raspberry Pi
 
-> **Please note:** Companion is only supported on the Raspberry Pi 4 (2, 4, or 8 GB). Companion can be installed on a Raspberry Pi 2B, 3B, or 3B+, **but it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
+> **Please note:** Companion is only supported on the Raspberry Pi 4 (2, 4, or 8 GB). Companion can be installed on a Raspberry Pi 3B, or 3B+, **but it is not recommended or supported**. Should you choose to do so, you do so at your own risk and with the understanding that the community will not be able to help you if something goes wrong.
 
-### Linux
+We recommend using the CompanionPi images available with [our CompanionPi setup guide](https://github.com/bitfocus/companion/wiki/Companion-on-the-Raspberry-Pi).  
+If you wish to install manually on a Pi, follow the instructions below for other Linux.
 
-For the desktop version, download the [latest release](https://github.com/bitfocus/companion/releases) for linux, untar, run!
+### Linux (x64 and arm64)
 
-To be able to use Companion in Linux without running as root (it is not recommended to run companion as root), you need to add a udev rule.
+Since 3.0, the downloads can be used for both a desktop version, and a headless version. Check the README in the download for guidance on how to do this and for other system setup for both.
 
-These rules needs to be added in **/etc/udev/50-companion.rules** with the content from https://github.com/bitfocus/companion-pi/blob/main/50-companion.rules
-You may want to update this file when updating companion as it sometimes changes as new devices are released or supported
+If you want a headless version, we recommend using our install script to get a CompanionPi like environment:
 
-_NB:_ The location of the udev rules might differ on your linux distribution. Find a folder with other `.rules` files.
-
-When you have done this, you can either reboot, or disconnect the devices and run
-
+As root, run the following:
 ```
-sudo udevadm control --reload-rules
+curl https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh | sh
 ```
-
-before reconnecting them.
 
 ### Docker
 
@@ -40,9 +60,7 @@ There is a docker image published to the [Github container registry](https://git
 Companion uses various incoming ports. There are various api servers, and some modules will setup their own servers expecting inbound connections to work. Make sure to plan for this with the network mode used in docker.
 
 #### USB passthrough
-TODO: example parameter  
-TODO: are udev rules necessary?  
-Not currently supported, the hid library does not work in docker properly
+Not currently supported, the usb libraries we use do not work in docker properly
 
 #### Remote USB
 To connect streamdecks to companion from another machine, you can use [Companion Satellite](https://github.com/bitfocus/companion-satellite)  
