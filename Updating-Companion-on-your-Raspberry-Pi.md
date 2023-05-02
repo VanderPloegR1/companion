@@ -8,22 +8,4 @@ Run the following command from an SSH terminal:
 sudo companion-update
 ```
 
-# Companion v1.4
-
-Run the following series of terminal commands from the root of the companion folder:
-
-```bash
-git pull
-./tools/update.sh
-sudo reboot
-```
-
-# Companion v2.0
-
-Run the following series of terminal commands from the root of the companion folder:
-
-```bash
-git pull
-yarn update
-sudo reboot
-```
+Note: some older CompanionPi images (older than 2.2.0) are unable to be updated to recent versions of Companion. Instead you should write a new image to an sd card and reimport your config.
