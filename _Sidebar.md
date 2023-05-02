@@ -14,8 +14,7 @@
 
 **Development**
 
-- [[Developing on Windows 10]]
-- [[Developing on Windows Subsystem for Linux]]
+- [[Setting up Developer Environment]]
 - [[How to move to a fork after cloning]]
 - [Module Development for 3.0](https://github.com/bitfocus/companion-module-base/wiki)
 - [Module Development for 2.0](Module-Development)
@@ -45,4 +44,3 @@
 **Maintainer Docs**
 
 - [[Module Management]]
-- [[Modules TODO]]
