@@ -52,9 +52,9 @@ Note: This script will create a new user called `companion`, which Companion wil
 
 ## Minimal companion install
 
-This method will be more minimal and give you more control, but as a consequence will require you manage the nodejs version, udev rules and possibly other configurations. These changes will not be announced anywhere, it will be up to you to make the changes when appropriate
+Alternatively, if you want a more minimal deployment and to have more control over it, you can take a more manual approach.  
 
-TODO - write steps here
+This is explained in the README in the downloads, or at https://github.com/bitfocus/companion/blob/beta/assets/linux/README
 
 # Adding a Desktop User Interface
 
