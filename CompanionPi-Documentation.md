@@ -28,7 +28,7 @@ Due to the fact that are working with the Raspberry Pi, CompanionPi is built on 
 CompanionPi is built on the Raspbrrry Pi OS. Aside from the addition of the Companion source code, only a few minor changes have been made to the system configuration to facilitate construction of the image(s):
 
 - **SSH Server is enabled by default**
-- The default `pi` user account still has the default `raspberry` password. This is left up to you to change for security purposes should you choose to do so [(and you should!)](https://www.raspberrypi.org/documentation/configuration/security.md)
+- The default `pi` user has been left unconfigured, you will need to setup a password before you will be able to login. [instructions here](https://www.raspberrypi.com/news/raspberry-pi-bullseye-update-april-2022/)
 - Locale, Timezone, and Keyboard Layout settings were changed to US-based settings instead of the default UK-based settings
 - More specific details about how the CompanionPi image was assembled can be found at the end of this wiki page.
 
