@@ -37,7 +37,9 @@ Responds with `PONG payload`
 Optional parameters:
 * `KEYS_TOTAL` - number of keys the device has. Must be in the range 1-32 (default 32)
 * `KEYS_PER_ROW` - number of keys per row. Must be in the range 1-8 (default 8)
-* `BITMAPS` - true/false whether you want to be streamed bitmaps for display on the buttons (default true)
+* `BITMAPS` - This varies depending on API Version:
+  - Since 1.5.0, this is a number specifying the desired size of the bitmaps. If 0 or false, then bitmaps will not be streamed. If 1 or true, they will be 72px (default 72)
+  - Before 1.5.0, this is true/false whether you want to be streamed bitmaps for display on the buttons (default true)
 * `COLORS` - true/false whether you want to be streamed colors for display on the buttons (default false)
 * `TEXT` - true/false whether you want to be streamed button text for display on the buttons (default false)
 
@@ -73,7 +75,7 @@ You must respond with `PONG payload`
 * `TYPE` type of the key. (added in v1.1.0) Either `BUTTON`, `PAGEUP`, `PAGEDOWN` or `PAGENUM`
 
 Optional parameters:
-* `BITMAP` base64 encoded pixel data. Currently 72x72 pixels of 8bit RGB (this may be configurable in the future). This is only sent for devices which were added where `BITMAPS` was true
+* `BITMAP` base64 encoded pixel data. This is only sent for devices which were added where `BITMAPS` is enabled. Resolution follows the size defined by the `BITMAPS`, also on the version of the api. Currently encoded as 8bit RGB (this may be configurable in the future). 
 * `COLOR` hex encoded 8bit RGB color for the key. This is only sent for devices which were added where `COLORS` was true
 * `TEXT` base64 encoded text as should be displayed on the key. This is only sent for devices which were added where `TEXT` was true
 
