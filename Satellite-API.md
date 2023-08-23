@@ -4,12 +4,12 @@ This page documents the protocol. The intention is to only ever add non-breaking
 
 ## API Spec
 
-The server by default runs on port 16622, but this may become configurable in the future. You should make sure to support alternate ports to allow for future compatibility as well as firewalls or router port forwarding.  
+The server by default runs on port TCP 16622, but this will become configurable in the future. You should make sure to support alternate ports to allow for future compatibility as well as firewalls or router port forwarding.  
 Each message is presented as a line, with a `\n` or `\r\n` terminator.  
 Messages follow the general format of `COMMAND-NAME ARG1=VAL1 ARG2=true ARG3="VAL3 with spaces"\n`. 
 Key numbers are in the range of 0-31.  
 
-Note: Boolean values can be represented as both true/false and 0/1
+Note: You can send boolean values can as both true/false and 0/1, you will always receive them as 0/1
 
 Upon connection you will receive `BEGIN CompanionVersion=2.2.0-d9008309-3449 ApiVersion=1.0.0` stating the build of companion you are connected to. The `CompanionVersion` field should not be relied on to be meaningful to your application, but can be presented as information to the user, or to aid debugging. You should use the `ApiVersion` field to check compatibility with companion. The number followers [semver](https://semver.org/) for versioning. We hope to keep breaking changes to a minimum, and will do so only when necessary. 
 
