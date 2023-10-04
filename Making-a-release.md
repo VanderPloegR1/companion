@@ -28,6 +28,7 @@ Make a tag off of the `stable-x.x` branch, matching the release version you are 
 * Ask bitfocus to make a facebook post
 * Back on the `beta` branch, merge in your `stable-x.x` branch
 * update the version number to be for the next minor version (eg 3.1.0 should become 3.2.0)
+* Run the release, and make sure the top bar doesnt report the build as experimental or out of date
 
 
 ### Patch release
