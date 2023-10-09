@@ -27,7 +27,7 @@ Make a tag off of the `stable-x.x` branch, matching the release version you are 
 * Once the builds have completed, run the [CompanionPi](https://github.com/bitfocus/companion-pi/actions/workflows/companionpi.yml) workflow to produce the new image, providing the name of the git tag you just created.
 * Ask bitfocus to make a facebook post
 * Back on the `beta` branch, merge in your `stable-x.x` branch
-* update the version number to be for the next minor version (eg 3.1.0 should become 3.2.0)
+* update the version number to be for the next minor version (eg 3.1.0 should become 3.2.0) and add the new version as an entry in `launcher/Paths.cjs`
 * Run the release, and make sure the top bar doesnt report the build as experimental or out of date
 
 
@@ -37,6 +37,7 @@ You will need to manually update the `bundled-modules` submodule and commit the 
 * `cd bundled-modules`
 * `git pull`
 * `git checkout stable-x.x`
+* `git pull`
 * `git commit -m "chore: update bundled-modules"`
 
 TODO...
