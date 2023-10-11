@@ -43,7 +43,7 @@ There is an automated script that will perform almost the full setup that is don
 
 As root, run the following:
 ```
-curl https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh | sh
+curl https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh | bash
 ```
 
 After this, you can use `sudo companion-update` to change the version it has installed.
