@@ -1,4 +1,4 @@
-## Preparing the modules
+## Preparing the modules repository
 
 First, start off in `https://github.com/bitfocus/companion-bundled-modules`.
 
