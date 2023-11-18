@@ -13,7 +13,7 @@ Use these if you need some features which haven't made it to stable yet, and can
 A new stable gets made from this when we are happy with it being bug free.
 
 The current development version. Bugs can appear here, but this gains new features frequently.  
-This is typically stable for every day use.
+This is typically stable for every day use, but this is not always the case.
 
 ### Experimental
 Use these if you want to try the cutting edge new features, and can tolerate frequent bugs.
