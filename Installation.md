@@ -48,7 +48,7 @@ If you want a headless version, we recommend using our install script to get a C
 
 As root, run the following:
 ```
-curl https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh | sh
+curl https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh | bash
 ```
 
 ### Docker

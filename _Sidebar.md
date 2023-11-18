@@ -4,9 +4,6 @@
 - [[Installation]]
 - [[Getting Started Beginners Guide]]
 - [[Companion on the Raspberry Pi]]
-  - [[CompanionPi Documentation]]
-  - [[Manual Install on Raspberry Pi]]
-  - [[Auto Start Companion on Linux Using systemd]]
 - [[Build for Another Device (Distributable Linux Build)]]
 - [[X Keys support]]
 
@@ -44,4 +41,4 @@
 **Maintainer Docs**
 
 - [[Module Management]]
-- [[Making-a-release]]
+- [[Making a release]]
