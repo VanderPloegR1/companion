@@ -35,13 +35,18 @@ Responds with `PONG payload`
 * `PRODUCT_NAME` is the name of the product to show in the Surfaces table in the UI
 
 Optional parameters:
-* `KEYS_TOTAL` - number of keys the device has. Must be in the range 1-32 (default 32)
-* `KEYS_PER_ROW` - number of keys per row. Must be in the range 1-8 (default 8)
+* `KEYS_TOTAL` - number of keys the device has. (default 32) Valid values varies depending on API Version:
+  - Since 1.5.1, this can be any value
+  - Before 1.5.1, must be in the range 1-32
+* `KEYS_PER_ROW` - number of keys per row. (default 8) Valid values varies depending on API Version:
+  - Since 1.5.1, this can be any value
+  - Before 1.5.1, must be in the range 1-8
 * `BITMAPS` - This varies depending on API Version:
   - Since 1.5.0, this is a number specifying the desired size of the bitmaps. If 0 or false, then bitmaps will not be streamed. If 1 or true, they will be 72px (default 72)
   - Before 1.5.0, this is true/false whether you want to be streamed bitmaps for display on the buttons (default true)
 * `COLORS` - true/false whether you want to be streamed colors for display on the buttons (default false)
 * `TEXT` - true/false whether you want to be streamed button text for display on the buttons (default false)
+* `TEXT_STYLE` - (added in v1.4.0) true/false whether you want to be streamed text style information for display on the buttons (default false)
 
 #### Removing a satellite device
 `REMOVE-DEVICE DEVICEID=00000`
@@ -78,6 +83,7 @@ Optional parameters:
 * `BITMAP` base64 encoded pixel data. This is only sent for devices which were added where `BITMAPS` is enabled. Resolution follows the size defined by the `BITMAPS`, also on the version of the api. Currently encoded as 8bit RGB (this may be configurable in the future). 
 * `COLOR` hex encoded 8bit RGB color for the key. This is only sent for devices which were added where `COLORS` was true
 * `TEXT` base64 encoded text as should be displayed on the key. This is only sent for devices which were added where `TEXT` was true
+* `FONT_SIZE` numeric size that should be used when displaying the text on the key. This is only sent for devices which were added where `TEXT_SYLE` was true (added in v1.4.0)
 
 Note: expect more parameters to be added to this message over time. Some could increase the frequency of the message being received.
 
