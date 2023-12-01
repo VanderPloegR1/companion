@@ -27,7 +27,8 @@ Close the connection, removing all registered devices
 #### Ping/pong
 `PING payload`
 Check the server is alive, with an arbitrary payload
-Responds with `PONG payload`
+Responds with `PONG payload`  
+You must call this at an interval, we recommend every 2 seconds, this is to ensure the connection does't get closed from being idle.
 
 #### Adding a satellite device
 `ADD-DEVICE DEVICEID=00000 PRODUCT_NAME="Satellite Streamdeck"`
