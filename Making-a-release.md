@@ -13,22 +13,20 @@ Make a tag off of the `stable-x.x` branch, matching the release version you are 
 ### Major/minor release
 
 * Run the module sync workflow to update the modules included.
-* Starting on the beta branch, ensure your local copy is up to date
-* Merge in the master branch, to ensure there are no conflicts.
+* Starting on the main branch, ensure your local copy is up to date
 * create and push a `stable-x.x` branch, we will work from this from now on
 * Ensure the changelog is updated for the release
   * There is a script which can check which modules changed `yarn zx tools/list_changed_modules.mjs v3.1.2 v3.2.0`
 * Ensure the version in the root `package.json` is correct.
 * Commit and push any changes you have made
-* Merge the result to master, ideally as a fast-forward merge
-* Push the updated master (you will need to disable the branch protection rules to be allowed to push this)
-* Tag and push the new release from master.
+* Tag and push the new release from your `stable-x.x` branch.
+* Merge the result to main, ideally as a fast-forward merge
+* Push the updated main
 * Create the new github release https://github.com/bitfocus/companion/releases using the previous one as a template, replacing the changes with the contents of the changelog
 * Make sure the builds complete successfully, retry the runs if they fail
 * Once the builds have completed, run the [CompanionPi](https://github.com/bitfocus/companion-pi/actions/workflows/companionpi.yml) workflow to produce the new image, providing the name of the git tag you just created.
 * Ask bitfocus to make a facebook post
-* Back on the `beta` branch, merge in your `stable-x.x` branch
-* update the version number to be for the next minor version (eg 3.1.0 should become 3.2.0) and add the new version as an entry in `launcher/Paths.cjs`
+* Back on the `beta` branch, update the version number to be for the next minor version (eg 3.1.0 should become 3.2.0) and add the new version as an entry in `launcher/Paths.cjs`
 * Run the release, and make sure the top bar doesnt report the build as experimental or out of date
 
 
