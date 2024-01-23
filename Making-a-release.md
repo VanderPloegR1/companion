@@ -17,6 +17,7 @@ Make a tag off of the `stable-x.x` branch, matching the release version you are 
 * Merge in the master branch, to ensure there are no conflicts.
 * create and push a `stable-x.x` branch, we will work from this from now on
 * Ensure the changelog is updated for the release
+  * There is a script which can check which modules changed `yarn zx tools/list_changed_modules.mjs v3.1.2 v3.2.0`
 * Ensure the version in the root `package.json` is correct.
 * Commit and push any changes you have made
 * Merge the result to master, ideally as a fast-forward merge
