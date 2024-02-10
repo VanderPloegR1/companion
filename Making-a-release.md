@@ -54,14 +54,8 @@ Once complete, make sure the workflows have all finished without error, you will
 * Ensure the version in the root `package.json` is correct.
 * Commit and push any changes you have made
 * Tag and push the new release from your `stable-x.x` branch.
-* Merge the result to main, ideally as a fast-forward merge
-* Push the updated main
 * Create the new github release https://github.com/bitfocus/companion/releases using the previous one as a template, replacing the changes with the contents of the changelog
 * Make sure the builds complete successfully, retry the runs if they fail
 * Once the builds have completed, run the [CompanionPi](https://github.com/bitfocus/companion-pi/actions/workflows/companionpi.yml) workflow to produce the new image, providing the name of the git tag you just created.
-* Ask bitfocus to make a facebook post
-* Back on the `beta` branch, update the version number to be for the next minor version (eg 3.1.0 should become 3.2.0) and add the new version as an entry in `launcher/Paths.cjs`
+* (Optional) Ask bitfocus to make a facebook post
 * Run the release, and make sure the top bar doesnt report the build as experimental or out of date
-
-
-TODO...
