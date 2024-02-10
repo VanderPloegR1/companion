@@ -1,6 +1,6 @@
 ## Preparing the modules repository
 
-First, start off in `https://github.com/bitfocus/companion-bundled-modules`.
+First, start off in https://github.com/bitfocus/companion-bundled-modules.
 
 If doing a new major/minor release, make sure that all the required module updates are in main, and create a `stable-x.x` branch off of main, named after the new release.
 
