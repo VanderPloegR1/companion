@@ -1,16 +1,15 @@
-## Preparing the modules repository
+
+## Major/minor release
+
+### Preparing the modules repository
 
 First, start off in https://github.com/bitfocus/companion-bundled-modules.
 
-If doing a new major/minor release, make sure that all the required module updates are in main, and create a `stable-x.x` branch off of main, named after the new release.
-
-If doing a patch, then there should already be a `stable-x.x` branch, make sure any required module updates are committed to this branch. Any module updates should also be included in main, but take care as the version in main could already have new features.
+Make sure that all the required module updates are in main, and create a `stable-x.x` branch off of main, named after the new release.
 
 Make a tag off of the `stable-x.x` branch, matching the release version you are producing.
 
-## Companion core
-
-### Major/minor release
+### Companion Core
 
 * Run the module sync workflow to update the modules included.
 * Starting on the main branch, ensure your local copy is up to date
@@ -30,9 +29,9 @@ Make a tag off of the `stable-x.x` branch, matching the release version you are 
 * Run the release, and make sure the top bar doesnt report the build as experimental or out of date
 
 
-### Patch release
+## Patch release
 
-#### Backport module patches
+### Backport module patches
 You can run the script `yarn zx tools/backport_module_changes.mjs a stable-3.2` (use the correct branch name at the end).  
 Note: This script expects to find a github api token in a dotfile or the environment variable `GITHUB_TOKEN`.
 
@@ -46,7 +45,9 @@ Once complete, make sure the workflows have all finished without error, you will
 * `git pull`
 * `git commit -m "chore: update bundled-modules"`
 
-#### Releasing Companion
+Make a tag in the bundled-modules repository off of the `stable-x.x` branch, matching the release version you are producing.
+
+### Companion Core
 * Read through the commit history of the `main` branch, to see if there are any fixes that should be applied to the stable branch.
   * If you are unsure, reach out to the author of the fix!
 * Ensure the changelog is updated for the release
