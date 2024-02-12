@@ -138,7 +138,7 @@ The functions divide into several categories:
 
 #### Base module implementation
 
-When the user adds a new instance Companion looks to your module's main JavaScript file (typically `index.js`) and executes the [contructor](https://github.com/bitfocus/companion/wiki/instance_skel#contructor). Once that is setup it will execute any upgrade scripts. Finally, Companion will call the [init](https://github.com/bitfocus/companion/wiki/instance_skel#init-returns-void) function where you should do any final module setup and initialize the connection.
+When the user adds a new instance Companion looks to your module's main JavaScript file (typically `index.js`) and executes the [constructor](https://github.com/bitfocus/companion/wiki/instance_skel#constructor). Once that is setup it will execute any upgrade scripts. Finally, Companion will call the [init](https://github.com/bitfocus/companion/wiki/instance_skel#init-returns-void) function where you should do any final module setup and initialize the connection.
 
 When the module gets deleted the [destroy](https://github.com/bitfocus/companion/wiki/instance_skel#destroy-returns-void) function is called where you should clean-up whatever you don't need anymore (sockets, timers...)
 
